@@ -1,12 +1,49 @@
+class CefHelper {
+  constructor (resourcePath) {
+    this.path = resourcePath
+    this.open = false
+  }
+
+  show () {
+    if (this.open === false) {
+      this.open = true
+
+      var resolution = API.getScreenResolution()
+
+      this.browser = API.createCefBrowser(resolution.Width, resolution.Height, true)
+      API.waitUntilCefBrowserInit(this.browser)
+      API.setCefBrowserPosition(this.browser, 0, 0)
+      API.loadPageCefBrowser(this.browser, this.path)
+      API.showCursor(true)
+    }
+  }
+
+  destroy () {
+    this.open = false
+    API.destroyCefBrowser(this.browser)
+    API.showCursor(false)
+  }
+
+  eval (string) {
+    this.browser.eval(string)
+  }
+}
+
+const index = new CefHelper('html/index.html')
 
 var drawSkeletor = false;
+var indexCef = false;
 
 API.onUpdate.connect(function (sender, args) {
-    if (drawSkeletor)
-    {
+    if (drawSkeletor) {
         var pont = new Point(0, 1080 - 295);
         var siz = new Size(500, 295);
         API.dxDrawTexture("skeletor.png", pont, siz);
+    }
+    if (indexCef) {        
+        index.show()
+    } else {
+        index.destroy()
     }
 });
 
@@ -16,6 +53,13 @@ API.onChatCommand.connect(function (msg) {
 			drawSkeletor = false;
 		} else {
 			drawSkeletor = true;
+		}
+	}
+	if (msg == "/box") {
+		if (indexCef) {
+            indexCef = false;
+		} else {
+            indexCef = true;
 		}
 	}
     if (msg.match(/^\/run/).length > 0) {
