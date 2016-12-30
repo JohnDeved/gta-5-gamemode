@@ -52,10 +52,10 @@ API.onChatCommand.connect(function (msg) {
 	}
 	if (msg == "/box") {
 		if (indexCef) {
-            cef.destroy()
+            index.destroy()
             indexCef = false;
 		} else {
-            cef.show()
+            index.show()
             indexCef = true;
 		}
 	}
