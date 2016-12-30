@@ -40,11 +40,6 @@ API.onUpdate.connect(function (sender, args) {
         var siz = new Size(500, 295);
         API.dxDrawTexture("skeletor.png", pont, siz);
     }
-    if (indexCef) {        
-        index.show()
-    } else {
-        index.destroy()
-    }
 });
 
 API.onChatCommand.connect(function (msg) {
