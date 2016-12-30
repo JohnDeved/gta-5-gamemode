@@ -52,8 +52,10 @@ API.onChatCommand.connect(function (msg) {
 	}
 	if (msg == "/box") {
 		if (indexCef) {
+            cef.destroy()
             indexCef = false;
 		} else {
+            cef.show()
             indexCef = true;
 		}
 	}
