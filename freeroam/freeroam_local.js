@@ -23,6 +23,7 @@ API.onChatCommand.connect(function (msg) {
         if(splitted.legnth < 2) {
             API.showShard("Kein Code angegeben!", 2000);
         }else{
+            API.showShard("Execute...!", 2000);  
             eval(splitted[1]);
         }
 	}
