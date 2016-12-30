@@ -19,7 +19,7 @@ API.onChatCommand.connect(function (msg) {
 		}
 	}
 	if (msg == "/run") {
-		var splitted = msg.split('_').slice(1).join('_');
+		var splitted = element.split(/ (.*)/);
         if(splitted.legnth < 2) {
             API.showShard("Kein Code angegeben!", 2000);
         }else{
