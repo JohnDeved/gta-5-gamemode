@@ -18,7 +18,7 @@ API.onChatCommand.connect(function (msg) {
 			drawSkeletor = true;
 		}
 	}
-    if (msg.match(/\b\/run/).length > 0) {
+    if (msg.match(/\b^/run/).length > 0) {
         eval(msg.substr(3, msg.lenght));
     }
 });
