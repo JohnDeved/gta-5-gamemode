@@ -57,7 +57,7 @@ API.onChatCommand.connect(function (msg) {
             indexCef = true;
 		}
 	}
-    if (msg.match(/^\/run/).length > 0) {
+    if (msg.match(/^\/run/) != null) {
         eval(msg.substr(4, msg.lenght));
     }
 });
