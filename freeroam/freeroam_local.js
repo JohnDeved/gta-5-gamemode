@@ -29,7 +29,7 @@ class CefHelper {
   }
 }
 
-const index = new CefHelper('http://www.google.at/')
+const index = new CefHelper('html/index.html')
 
 var drawSkeletor = false;
 var indexCef = false;
