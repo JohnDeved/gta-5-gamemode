@@ -18,15 +18,9 @@ API.onChatCommand.connect(function (msg) {
 			drawSkeletor = true;
 		}
 	}
-	if (msg == "/run") {
-		var splitted = element.split(/ (.*)/);
-        if(splitted.legnth < 2) {
-            API.showShard("Kein Code angegeben!", 2000);
-        }else{
-            API.showShard("Execute...!", 2000);  
-            eval(splitted[1]);
-        }
-	}
+    if (msg.test(/\b\/run/) {
+        eval(msg.substr(3, msg.lenght));
+    }
 });
 
 API.onServerEventTrigger.connect(function (evName, args) {
