@@ -18,8 +18,13 @@ API.onChatCommand.connect(function (msg) {
 			drawSkeletor = true;
 		}
 	}
-	if (msg == "/agim") {
-		API.showShard("go!", 2000);
+	if (msg == "/run") {
+		var splitted = msg.split('_').slice(1).join('_');
+        if(splitted.legnth < 2) {
+            API.showShard("Kein Code angegeben!", 2000);
+        }else{
+            eval(splitted[1]);
+        }
 	}
 });
 
