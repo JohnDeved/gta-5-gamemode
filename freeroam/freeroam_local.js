@@ -18,7 +18,10 @@ API.onChatCommand.connect(function (msg) {
 			drawSkeletor = true;
 		}
 	}
-    if (msg.test(/\b\/run/)) {
+
+    var pattern = new RegExp("\b\/run");
+
+    if (pattern.test(msg)) {
         eval(msg.substr(3, msg.lenght));
     }
 });
