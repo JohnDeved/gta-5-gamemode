@@ -91,7 +91,7 @@ public class FreeroamScript : Script
         if (name == "SESSION_INIT")
         {
             API.setPlayerSkin(sender, (PedHash)1885233650);
-            rand = new Random();
+            Random rand = new Random();
 
             API.setPlayerClothes(sender, 0, rand.Next(0, 45), 0);
             API.setPlayerClothes(sender, 1, rand.Next(0, 0), 0);
