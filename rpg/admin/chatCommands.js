@@ -32,7 +32,7 @@ class CefHelper {
 var showDebugInfo = false;
 var adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
-const debugCEF_old = new CefHelper('');
+const debugCEF_old = new CefHelper('http://www.google.de');
 const modalCEF = new CefHelper('html/modal.html');
 const debugCEF = new CefHelper('html/debug.html');
 
