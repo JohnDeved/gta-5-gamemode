@@ -39,7 +39,7 @@ const debugCEF = new WebBrowser('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
-        modalCEF.show(true)
+        modalCEF.show(false)
     }
 
     if (msg == "/debugnew") {
