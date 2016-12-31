@@ -1,11 +1,5 @@
 $('.ui.modal')
 .modal({
-  closable  : false,
-  onDeny    : function(){
-    return false;
-  },
-  onApprove : function() {
-    resourceCall('modalCEF.destroy');
-  }
+  closable  : false
 })
 .modal('show')
