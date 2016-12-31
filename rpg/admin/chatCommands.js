@@ -29,8 +29,8 @@ class CefHelper {
     }
 }
 
-const showDebugInfo = false;
-const adminlevel = "User";
+var showDebugInfo = false;
+var adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
 const debugCEF_old = new CefHelper('');
 const modalCEF = new CefHelper('html/modal.html');
