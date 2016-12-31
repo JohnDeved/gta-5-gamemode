@@ -101,3 +101,12 @@ API.onChatCommand.connect(function(msg) {
         }
     }
 });
+API.onServerEventTrigger.connect(function(eventName, args) {
+    if (eventName == "ADMIN_VERIFY") {
+        adminlevel = args[0]
+        API.showShard("Eingeloggt als " + args[0], 2000)
+    }
+});
+API.onResourceStart.connect(function() {
+    modalCEF.show();
+});

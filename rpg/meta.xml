@@ -1,7 +1,7 @@
 <meta>
 	<info name="RPG" author="Anton and DevSec" type="gamemode" />
-	<script src="admin\chatCommands.js" type="client" lang="javascript" />
 	<script src="initPlayerServer.cs" type="server" lang="csharp" />
+	<script src="admin\chatCommands.js" type="client" lang="javascript" />
 	<script src="initPlayerLocal.js" type="client" lang="javascript" />
 
 	
