@@ -33,7 +33,7 @@ var showDebugInfo = false;
 var adminlevel = "User";
 const CEF = new WebBrowser('html/debug.html');
 const debugCEF_old = new WebBrowser('');
-const modalCEF = new WebBrowser('html/modal.html');
+const modalCEF = new WebBrowser('http://185.62.188.120:3000/webtest/1/2');
 const testCEF = new WebBrowser('http://185.62.188.120:3000/webtest/Molaron/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-');
 const debugCEF = new WebBrowser('html/debug.html');
 
@@ -113,5 +113,4 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
 });
 API.onResourceStart.connect(function() {
-    modalCEF.show(true)
 });
