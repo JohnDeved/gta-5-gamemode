@@ -32,6 +32,7 @@ class CefHelper {
 var drawSkeletor = false;
 var adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
+const debugCEF_old = new CefHelper('');
 const modalCEF = new CefHelper('html/modal.html');
 const debugCEF = new CefHelper('html/debug.html');
 
@@ -65,9 +66,9 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/debug") {
-        cef.show()
+        debugCEF_old.show()
 
-        cef.eval(`document.write('
+        debugCEF_old.eval(`document.write('
         <!doctype html>
         <html>
             <head>
@@ -87,7 +88,7 @@ API.onChatCommand.connect(function(msg) {
         </html>
         ');`);
 
-        cef.eval(`
+        debugCEF_old.eval(`
         document.getElementById('executeLocal').onclick = function () {
             try
             {
@@ -100,7 +101,7 @@ API.onChatCommand.connect(function(msg) {
         document.getElementById('buttonClose').onclick = function () {
             try
             {
-                resourceCall('cef.destroy');
+                resourceCall('debugCEF_old.destroy');
             }
             catch(err) {
                 document.getElementById('buttonClose').innerHTML = err;\
@@ -109,7 +110,7 @@ API.onChatCommand.connect(function(msg) {
     `);
     }
     if (msg == "/hide") {
-        cef.destroy()
+        debugCEF_old.destroy()
     }
 
     if (adminlevel == "Admin") {
