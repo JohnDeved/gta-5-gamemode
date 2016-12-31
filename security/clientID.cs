@@ -26,7 +26,7 @@ public class clientID : Script
         {"cid_length", "25"}
     };
 
-    static MySqlConnection ConnectToDatabase()
+    private MySqlConnection ConnectToDatabase()
     {
         MySqlConnection db_conn = null;
         try
@@ -45,7 +45,7 @@ public class clientID : Script
         return db_conn;
     }
 
-    static bool CreateTableIfNotExists()
+    private bool CreateTableIfNotExists()
     {
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return false;
@@ -62,7 +62,7 @@ public class clientID : Script
         return true;
     }
 
-    static bool DropTableIfNotExists()
+    private bool DropTableIfNotExists()
     {
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return false;
@@ -75,7 +75,7 @@ public class clientID : Script
         return true;
     }
 
-    static string getCID(string socialclub_id)
+    private string getCID(string socialclub_id)
     {
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return "-7";
@@ -109,7 +109,7 @@ public class clientID : Script
         }
     }
 
-    static string getSocialClubID(string session_id)
+    private string getSocialClubID(string session_id)
     {
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return "-5";
