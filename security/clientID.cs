@@ -97,7 +97,7 @@ public class clientID : Script
             char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789{[]}/()=?+#*~,;.:-_|<>!$%&".ToCharArray();
             for (int i = 0; i < Convert.ToInt16(config["cid_length"]); i++)
             {
-                int charindex = (DllEntry._random).Next(chars.Length);
+                int charindex = (_random).Next(chars.Length);
                 session_id.Append(chars[charindex]);
             }
 
