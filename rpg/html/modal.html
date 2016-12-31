@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/semantic.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="background: url(imgs/pic.jpg); background-size: cover;">
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="warning sign icon"></i> Development Server
+        </div>
+        <div class="content">
+            <p style="text-align: center">This Server is currently in development.<br> Only developers are arround here, not much to see here.<br> want to continue?</p>
+        </div>
+        <div class="actions">
+            <div class="ui red basic cancel inverted button" onclick="resourceEval('API.disconnect(\'bye\')')">
+                <i class="remove icon"></i> No
+            </div>
+            <div class="ui green ok inverted button" onclick="resourceCall('modalCEF.destroy')">
+                <i class="checkmark icon"></i> Yes
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="js/jquery.js"></script>
+    <script src="js/semantic.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>
