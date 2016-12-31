@@ -1,6 +1,7 @@
 <meta>
 	<info name="security" author="Anton and DevSec" type="script" />
 	<script src="clientID.cs" type="server" lang="csharp" />
+	<script src="clientID_test.cs" type="client" lang="csharp" />
 	<script src="clientID.js" type="client" lang="javascript" />
 
 	<assembly ref="MySql.Data.dll" />
