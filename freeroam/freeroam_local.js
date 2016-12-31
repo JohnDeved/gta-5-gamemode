@@ -32,7 +32,8 @@ class CefHelper {
 
 var drawSkeletor = false;
 var adminlevel = "User";
-const debugCEF = new CefHelper('html/debug.html');
+const cef = new CefHelper('html/debug.html');
+const modalCEF = new CefHelper('html/modal.html');
 
 API.onUpdate.connect(function (sender, args) {
     if (drawSkeletor)
@@ -54,6 +55,10 @@ API.onChatCommand.connect(function (msg) {
         } else {
             drawSkeletor = true;
         }
+    }
+
+    if (msg == "/modal") {
+        modalCEF.show();
     }
 
     if (msg == "/debug") {
