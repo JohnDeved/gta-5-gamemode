@@ -10,7 +10,7 @@ using System.Threading;
 
 public class initPlayerServer : Script
 {
-    public FreeroamScript()
+    public initPlayerServer()
     {
         API.onClientEventTrigger += onClientEventTrigger;
     }
