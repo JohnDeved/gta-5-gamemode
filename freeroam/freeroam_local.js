@@ -73,12 +73,12 @@ API.onChatCommand.connect(function(msg) {
         <html>
             <head>
                 <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1\">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
 
                 <link rel="stylesheet" href="styles.css">
             </head>
             <body>
-                <div style="text-align:center;">\
+                <div style="text-align:center;">
                     <textarea id="textfield" name="Text1" cols="100" rows="20"></textarea>
                     <br/>
                     <button id="buttonClose">Konsole schließen</button>
@@ -104,7 +104,7 @@ API.onChatCommand.connect(function(msg) {
                 resourceCall('debugCEF_old.destroy');
             }
             catch(err) {
-                document.getElementById('buttonClose').innerHTML = err;\
+                document.getElementById('buttonClose').innerHTML = err;
             }
         };
     `);
