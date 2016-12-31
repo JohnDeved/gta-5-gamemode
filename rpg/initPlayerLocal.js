@@ -5,7 +5,7 @@ API.onResourceStart.connect(function() {
 });
 API.onServerEventTrigger.connect(function(eventName, args) {
     if (eventName == "ADMIN_VERIFY") {
-        adminlevel = args[0]
+        API.adminlevel = args[0]
         API.showShard("Eingeloggt als " + args[0], 2000)
     }
 });

@@ -29,9 +29,9 @@ class CefHelper {
     }
 }
 
-var drawSkeletor = false;
-var showDebugInfo = false;
-var adminlevel = "User";
+API.drawSkeletor = false;
+API.showDebugInfo = false;
+API.adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
 const debugCEF_old = new CefHelper('');
 const modalCEF = new CefHelper('html/modal.html');
