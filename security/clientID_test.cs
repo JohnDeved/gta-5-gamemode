@@ -9,9 +9,9 @@ using System.Threading;
 using MySql.Data.MySqlClient;
 
 
-public class clientID : Script
+public class clientID2 : Script
 {
-    public clientID()
+    public clientID2()
     {
         API.onResourceStart += onResourceStart;
     }
