@@ -1,10 +1,24 @@
-class CefHelper {
+class WebBrowser {
     constructor(resourcePath) {
         this.path = resourcePath
         this.open = false
     }
 
-    show() {
+    showlocal() {
+        if (this.open === false) {
+            this.open = true
+
+            var resolution = API.getScreenResolution()
+
+            this.browser = API.createCefBrowser(resolution.Width, resolution.Height, true)
+            API.waitUntilCefBrowserInit(this.browser)
+            API.setCefBrowserPosition(this.browser, 0, 0)
+            API.loadPageCefBrowser(this.browser, this.path)
+            API.showCursor(true)
+        }
+    }
+
+    showglobal() {
         if (this.open === false) {
             this.open = true
 
@@ -38,15 +52,15 @@ const debugCEF = new CefHelper('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
-        modalCEF.show()
+        modalCEF.showlocal()
     }
 
     if (msg == "/debugnew") {
-        debugCEF.show()
+        debugCEF.showlocal()
     }
 
     if (msg == "/debug") {
-        debugCEF_old.show()
+        debugCEF_old.showlocal()
 
         debugCEF_old.eval('document.write(\'\
         <!doctype html>\
@@ -108,5 +122,5 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
 });
 API.onResourceStart.connect(function() {
-  
+    modalCEF.showlocal()
 });
