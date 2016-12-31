@@ -30,6 +30,7 @@ class CefHelper {
 }
 
 var drawSkeletor = false;
+var showDebugInfo = false;
 var adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
 const debugCEF_old = new CefHelper('');
@@ -41,6 +42,9 @@ API.onUpdate.connect(function(sender, args) {
         var pont = new Point(0, 1080 - 295)
         var siz = new Size(500, 295)
         API.dxDrawTexture("skeletor.png", pont, siz)
+    }
+    if (showDebugInfo) {
+        API.sendChatMessage("");
     }
 });
 
@@ -124,6 +128,7 @@ API.onChatCommand.connect(function(msg) {
 
 API.onResourceStart.connect(function() {
     API.triggerServerEvent("ADMIN_VERIFY")
+    API.triggerServerEvent("SESSION_INIT")
     modalCEF.show()
 });
 

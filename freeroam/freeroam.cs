@@ -87,6 +87,23 @@ public class FreeroamScript : Script
                 API.triggerClientEvent(sender, "ADMIN_VERIFY", API.getPlayerAclGroup(sender));
             }
         }
+        if (name == "SESSION_INIT")
+        {
+            API.setPlayerSkin(sender, (PedHash)1885233650);
+            _rand = new Random();
+
+            API.setPlayerClothes(sender, 0, _rand.Next(0, 45), 0);
+            API.setPlayerClothes(sender, 1, _rand.Next(0, 0), 0);
+            API.setPlayerClothes(sender, 2, _rand.Next(0, 36), 4);
+            API.setPlayerClothes(sender, 3, _rand.Next(0, 0), 0);
+            API.setPlayerClothes(sender, 4, _rand.Next(0, 85), 0);
+            API.setPlayerClothes(sender, 5, _rand.Next(0, 69), 0);
+            API.setPlayerClothes(sender, 6, _rand.Next(0, 59), 0);
+            API.setPlayerClothes(sender, 7, _rand.Next(0, 99), 0);
+            API.setPlayerClothes(sender, 8, _rand.Next(0, 99), 0);
+            API.setPlayerClothes(sender, 9, _rand.Next(0, 99), 0);
+            API.setPlayerClothes(sender, 11, _rand.Next(0, 99), 0);
+        }
     }
 
 
