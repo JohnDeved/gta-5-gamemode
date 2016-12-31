@@ -45,10 +45,10 @@ class WebBrowser {
 
 var showDebugInfo = false;
 var adminlevel = "User";
-const CEF = new CefHelper('html/debug.html');
-const debugCEF_old = new CefHelper('http://www.google.de');
-const modalCEF = new CefHelper('html/modal.html');
-const debugCEF = new CefHelper('html/debug.html');
+const CEF = new WebBrowser('html/debug.html');
+const debugCEF_old = new WebBrowser('http://www.google.de');
+const modalCEF = new WebBrowser('html/modal.html');
+const debugCEF = new WebBrowser('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
