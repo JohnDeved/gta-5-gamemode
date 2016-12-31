@@ -1,0 +1,4 @@
+<meta>
+	<info name="clientID" author="Anton and DevSec" type="script" />
+	<script src="clientID.cs" type="server" lang="csharp" />
+</meta>
