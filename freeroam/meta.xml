@@ -1,15 +1,35 @@
 <meta>
-    <info name="Freeroam" author="Guadmaz" type="gamemode" />
-    
-    <script src="freeroam.cs" type="server" lang="csharp" />
-    <script src="freeroam_local.js" type="client" lang="javascript" />
-    
+	<info name="Freeroam" author="Anton and DevSec" type="gamemode" />
+	<script src="freeroam.cs" type="server" lang="csharp" />
+	<script src="freeroam_local.js" type="client" lang="javascript" />
 
-    <script src="trainer/trainer.js" type="client" />
-    <script src="trainer/player.js" type="client" />
-    <script src="trainer/weapons.js" type="client" />
-    <script src="trainer/vehicles.js" type="client" />
 
-    <file src="skeletor.png" />
-    <file src="styles.css" />
+	<script src="trainer/trainer.js" type="client" />
+	<script src="trainer/player.js" type="client" />
+	<script src="trainer/weapons.js" type="client" />
+	<script src="trainer/vehicles.js" type="client" />
+	<file src="skeletor.png" />
+
+
+    <file src="html/modal.html" />
+    <file src="html/debug.html" />
+    <file src="html/card.html" />
+
+    <file src="html/js/debug.js" />
+    <file src="html/js/jquery.js" />
+    <file src="html/js/materialize.js" />
+    <file src="html/js/modal.js" />
+    <file src="html/js/sematic.js" />
+
+    <file src="html/imgs/pic.jpg" />
+
+    <file src="html/fonts/icons.eot" />
+    <file src="html/fonts/icons.svg" />
+    <file src="html/fonts/icons.ttf" />
+    <file src="html/fonts/icons.woff" />
+    <file src="html/fonts/icons.woff2" />
+
+    <file src="html/css/materialize.css" />
+    <file src="html/css/semantic.css" />
+    <file src="html/css/style.css" />
 </meta>

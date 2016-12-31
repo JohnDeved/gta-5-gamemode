@@ -32,7 +32,7 @@ class CefHelper {
 
 var drawSkeletor = false;
 var adminlevel = "User";
-const cef = new CefHelper('');
+const debugCEF = new CefHelper('html/debug.html');
 
 API.onUpdate.connect(function (sender, args) {
     if (drawSkeletor)
