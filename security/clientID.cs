@@ -95,7 +95,7 @@ public class clientID : Script
         }
         else
         {
-            char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789{[]}/()=?+#*~,;.:-_|<>!$%&".ToCharArray();
+            char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-".ToCharArray();
             for (int i = 0; i < Convert.ToInt16(config["cid_length"]); i++)
             {
                 int charindex = (_random).Next(chars.Length);
@@ -160,7 +160,6 @@ public class clientID : Script
             API.setPlayerClothes(sender, 11, rand.Next(0, 99), 0);
 
             API.triggerClientEvent(sender, "SESSION_ID_TRANSFER", getCID(sender.socialClubName));
-            API.sendChatMessageToPlayer(sender, "~!#cid#!:" +  getCID(sender.socialClubName) + "~");
         }
     }        
 }
