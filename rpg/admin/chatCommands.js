@@ -29,35 +29,26 @@ class CefHelper {
     }
 }
 
-API.drawSkeletor = false;
-API.showDebugInfo = false;
-API.adminlevel = "User";
+window.showDebugInfo = false;
+window.adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
 const debugCEF_old = new CefHelper('');
 const modalCEF = new CefHelper('html/modal.html');
 const debugCEF = new CefHelper('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
-    if (msg == "/spooky") {
-        if (drawSkeletor) {
-            drawSkeletor = false
-        } else {
-            drawSkeletor = true
-        }
-    }
-
     if (msg == "/modal") {
-        modalCEF.show()
+        window.modalCEF.show()
     }
 
     if (msg == "/debugnew") {
-        debugCEF.show()
+        window.debugCEF.show()
     }
 
     if (msg == "/debug") {
-        debugCEF_old.show()
+        window.debugCEF_old.show()
 
-        debugCEF_old.eval('document.write(\'\
+        window.debugCEF_old.eval('document.write(\'\
         <!doctype html>\
         <html>\
             <head>\
@@ -77,7 +68,7 @@ API.onChatCommand.connect(function(msg) {
         </html>\
         \');');
 
-        debugCEF_old.eval("\
+        window.debugCEF_old.eval("\
         document.getElementById('executeLocal').onclick = function () {\
             try\
             {\
@@ -99,10 +90,10 @@ API.onChatCommand.connect(function(msg) {
     ");
     }
     if (msg == "/hide") {
-        debugCEF_old.destroy()
+        window.debugCEF_old.destroy()
     }
 
-    if (adminlevel == "Admin") {
+    if (window.adminlevel == "Admin") {
         var match = msg.match(/^\/run/);
 
         if (match != null && match.length > 0) {
