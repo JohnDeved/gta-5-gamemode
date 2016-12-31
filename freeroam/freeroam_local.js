@@ -38,31 +38,31 @@ const modalCEF = new CefHelper('html/modal.html');
 API.onUpdate.connect(function (sender, args) {
     if (drawSkeletor)
     {
-        var pont = new Point(0, 1080 - 295);
-        var siz = new Size(500, 295);
-        API.dxDrawTexture("skeletor.png", pont, siz);
+        var pont = new Point(0, 1080 - 295)
+        var siz = new Size(500, 295)
+        API.dxDrawTexture("skeletor.png", pont, siz)
     }
 });
 
 function ADMIN_executeLocal(shit) {
-    eval(shit);
+    eval(shit)
 }
 
 API.onChatCommand.connect(function (msg) {
     if (msg == "/spooky") {
         if (drawSkeletor) {
-            drawSkeletor = false;
+            drawSkeletor = false
         } else {
-            drawSkeletor = true;
+            drawSkeletor = true
         }
     }
 
     if (msg == "/modal") {
-        modalCEF.show();
+        modalCEF.show()
     }
 
     if (msg == "/debug") {
-        cef.show();
+        cef.show()
 
         cef.eval("document.write('\
 <!doctype html>\
@@ -106,25 +106,26 @@ API.onChatCommand.connect(function (msg) {
     ");
     }
     if (msg == "/hide") {
-        cef.destroy();
+        cef.destroy()
     }
 
     if(adminlevel == "Admin") {
         var match = msg.match(/^\/run/);
 
         if (match != null && match.length > 0) {
-            eval(msg.substr(4, msg.lenght));
+            eval(msg.substr(4, msg.lenght))
         }
     }
 });
 
 API.onResourceStart.connect(function () {
-    API.triggerServerEvent("ADMIN_VERIFY");
+    API.triggerServerEvent("ADMIN_VERIFY")
+    modalCEF.show()
 });
 
 API.onServerEventTrigger.connect(function (eventName, args) {
     if(eventName == "ADMIN_VERIFY") {
-        adminlevel = args[0];
-        API.showShard("Eingeloggt als " + args[0], 2000);
+        adminlevel = args[0]
+        API.showShard("Eingeloggt als " + args[0], 2000)
     }
 });
