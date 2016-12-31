@@ -1,3 +1,4 @@
+
 class CefHelper {
   constructor (resourcePath) {
     this.path = resourcePath
@@ -29,13 +30,13 @@ class CefHelper {
   }
 }
 
-const index = new CefHelper('html/index.html')
-
 var drawSkeletor = false;
-var indexCef = false;
+var adminlevel = "User";
+const cef = new CefHelper('');
 
 API.onUpdate.connect(function (sender, args) {
-    if (drawSkeletor) {
+    if (drawSkeletor)
+    {
         var pont = new Point(0, 1080 - 295);
         var siz = new Size(500, 295);
         API.dxDrawTexture("skeletor.png", pont, siz);
@@ -43,43 +44,77 @@ API.onUpdate.connect(function (sender, args) {
 });
 
 API.onChatCommand.connect(function (msg) {
-	if (msg == "/spooky") {
-		if (drawSkeletor) {
-			drawSkeletor = false;
-		} else {
-			drawSkeletor = true;
-		}
-	}
-	if (msg == "/box") {
-		if (indexCef) {
-            index.destroy()
-            indexCef = false;
-		} else {
-            index.show()
-            indexCef = true;
-		}
-	}
-    if (msg.match(/^\/run/) != null) {
-        eval(msg.substr(4, msg.lenght));
+    if (msg == "/spooky") {
+        if (drawSkeletor) {
+            drawSkeletor = false;
+        } else {
+            drawSkeletor = true;
+        }
+    }
+
+    if (msg == "/debug") {
+        cef.show();
+
+        cef.eval("document.write('\
+<!doctype html>\
+<html>\
+    <head>\
+        <meta charset=\"utf-8\">\
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\
+\
+        <link rel=\"stylesheet\" href=\"styles.css\">\
+    </head>\
+    <body>\
+        <div style=\"text-align:center;\">\
+            <textarea id=\"textfield\" name=\"Text1\" cols=\"100\" rows=\"20\"></textarea>\
+            <br/>\
+            <button id=\"executeLocal\">JS Ausführen</button>\
+        </div>\
+    </body>\
+</html>\
+');");
+
+    function test(shit) {
+        API.showShard("Content: " + shit, 2000);
+    }
+
+    cef.eval("\
+        document.getElementById('executeLocal').innerHTML = 'fail xD';\
+        document.getElementById('executeLocal').onclick = function () {\
+            document.getElementById('textfield').innerHTML = 'fekket xD';\
+\
+            try\
+            {\
+                resourceCall('test',document.getElementById('executeLocal').val());\
+            }\
+            catch(err) {\
+                document.getElementById('executeLocal').innerHTML = err;\
+            }\
+\
+\
+        };\
+    ");
+    }
+    if (msg == "/hide") {
+        cef.destroy();
+    }
+
+    if(adminlevel == "Admin") {
+        var match = msg.match(/^\/run/);
+
+        if (match != null && match.length > 0) {
+            eval(msg.substr(4, msg.lenght));
+        }
     }
 });
 
-API.onServerEventTrigger.connect(function (evName, args) {
-    if (evName == "startCountdown") {
-        API.callNative("REQUEST_SCRIPT_AUDIO_BANK", "HUD_MINI_GAME_SOUNDSET", true);
-        API.callNative("PLAY_SOUND_FRONTEND", 0, "CHECKPOINT_NORMAL", "HUD_MINI_GAME_SOUNDSET");
-        API.showShard("3");
-        API.sleep(1000);
-        API.callNative("REQUEST_SCRIPT_AUDIO_BANK", "HUD_MINI_GAME_SOUNDSET", true);
-        API.callNative("PLAY_SOUND_FRONTEND", 0, "CHECKPOINT_NORMAL", "HUD_MINI_GAME_SOUNDSET");
-        API.showShard("2");
-        API.sleep(1000);
-        API.callNative("REQUEST_SCRIPT_AUDIO_BANK", "HUD_MINI_GAME_SOUNDSET", true);
-        API.callNative("PLAY_SOUND_FRONTEND", 0, "CHECKPOINT_NORMAL", "HUD_MINI_GAME_SOUNDSET");
-        API.showShard("1");
-        API.sleep(1000);
-        API.callNative("REQUEST_SCRIPT_AUDIO_BANK", "HUD_MINI_GAME_SOUNDSET", true);
-        API.callNative("PLAY_SOUND_FRONTEND", 0, "CHECKPOINT_NORMAL", "HUD_MINI_GAME_SOUNDSET");
-        API.showShard("go!", 2000);
+API.onResourceStart.connect(function () {
+    API.triggerServerEvent("ADMIN_VERIFY");
+});
+
+API.onServerEventTrigger.connect(function (eventName, args) {
+    if(eventName == "ADMIN_VERIFY") {
+        adminlevel = args[0];
+        API.showShard("Eingeloggt als " + args[0], 2000);
     }
 });

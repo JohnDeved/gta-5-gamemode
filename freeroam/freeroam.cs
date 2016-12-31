@@ -79,6 +79,14 @@ public class FreeroamScript : Script
             
             API.setPlayerIntoVehicle(sender, veh, -1);        
         }
+        if (name == "ADMIN_VERIFY")
+        {
+            if (Array.IndexOf(new string[] {"Admin"}, API.getPlayerAclGroup(sender)) > -1)
+            {
+                API.sendChatMessageToPlayer(sender, "Sende Admin-Level-Verification");
+                API.triggerClientEvent(sender, "ADMIN_VERIFY", API.getPlayerAclGroup(sender));
+            }
+        }
     }
 
 
@@ -361,6 +369,12 @@ public class FreeroamScript : Script
 
     [Command("countdown")]
     public void StartGlobalCountdownCommand(Client sender)
+    {
+        API.triggerClientEventForAll("startCountdown");
+    }
+
+    [Command("fuckit")]
+    public void StartGlobalCountdownFucker(Client sender)
     {
         API.triggerClientEventForAll("startCountdown");
     }

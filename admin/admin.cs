@@ -38,7 +38,7 @@ public class AdminScript : Script
                 API.sendChatMessageToPlayer(sender, "~r~ERROR:~w~ Wrong password!");
                 break;
             case 4:
-                API.sendChatMessageToPlayer(sender, "~r~ERROR:~w~ You're already logged in!");
+                API.sendChatMessageToPlayer(sender, "~r~ERROR:~w~ You're already logged in!");             
                 break;
             case 5:
                 API.sendChatMessageToPlayer(sender, "~r~ERROR:~w~ ACL has been disabled on this server.");
@@ -157,11 +157,11 @@ public class AdminScript : Script
         var log = API.loginPlayer(player, "");
         if (log == 1)
         {
-        	API.sendChatMessageToPlayer(player, "Logged in as ~b~" + API.getPlayerAclGroup(player) + "~w~.");
+        	API.sendChatMessageToPlayer(player, "Logged in as ~b~" + API.getPlayerAclGroup(player) + "~w~.");          
         }
         else if (log == 2)
         {
-			API.sendChatMessageToPlayer(player, "Please log in with ~b~/login [password]")        	;
+			API.sendChatMessageToPlayer(player, "Please log in with ~b~/login [password]");
         }
     }
 
