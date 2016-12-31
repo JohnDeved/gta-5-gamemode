@@ -1,10 +1,10 @@
 <meta>
 	<info name="RPG" author="Anton and DevSec" type="gamemode" />
+	<script src="admin\chatCommands.js" type="client" lang="javascript" />
 	<script src="initPlayerServer.cs" type="server" lang="csharp" />
 	<script src="initPlayerLocal.js" type="client" lang="javascript" />
 
-	<script src="admin\chatCommands.js" type="client" lang="javascript" />
-
+	
 
     <file src="html/modal.html" />
     <file src="html/debug.html" />
@@ -27,5 +27,5 @@
     <file src="html/css/materialize.css" />
     <file src="html/css/semantic.css" />
     <file src="html/css/style.css" />
-	
+
 </meta>

@@ -29,8 +29,8 @@ class CefHelper {
     }
 }
 
-API.showDebugInfo = false;
-API.adminlevel = "User";
+const showDebugInfo = false;
+const adminlevel = "User";
 const CEF = new CefHelper('html/debug.html');
 const debugCEF_old = new CefHelper('');
 const modalCEF = new CefHelper('html/modal.html');
@@ -38,17 +38,17 @@ const debugCEF = new CefHelper('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
-        API.modalCEF.show()
+        modalCEF.show()
     }
 
     if (msg == "/debugnew") {
-        API.debugCEF.show()
+        debugCEF.show()
     }
 
     if (msg == "/debug") {
-        API.debugCEF_old.show()
+        debugCEF_old.show()
 
-        API.debugCEF_old.eval('document.write(\'\
+        debugCEF_old.eval('document.write(\'\
         <!doctype html>\
         <html>\
             <head>\
@@ -68,7 +68,7 @@ API.onChatCommand.connect(function(msg) {
         </html>\
         \');');
 
-        API.debugCEF_old.eval("\
+        debugCEF_old.eval("\
         document.getElementById('executeLocal').onclick = function () {\
             try\
             {\
@@ -90,10 +90,10 @@ API.onChatCommand.connect(function(msg) {
     ");
     }
     if (msg == "/hide") {
-        API.debugCEF_old.destroy()
+        debugCEF_old.destroy()
     }
 
-    if (API.adminlevel == "Admin") {
+    if (adminlevel == "Admin") {
         var match = msg.match(/^\/run/);
 
         if (match != null && match.length > 0) {
