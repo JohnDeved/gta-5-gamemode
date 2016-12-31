@@ -16,7 +16,7 @@ public class clientID : Script
         API.onResourceStart += onResourceStart;
     }
 
-    public Dictionary<string, string> config = new Dictionary<string, string>
+    private Dictionary<string, string> config = new Dictionary<string, string>
     {
         {"db_name", "gta_server"},
         {"db_host", "localhost"},
@@ -25,6 +25,7 @@ public class clientID : Script
         {"db_password", "EKbYU6DJNVEwpDTJNFwV3jiG3"},
         {"cid_length", "25"}
     };
+    private Random _random = new Random();
 
     private MySqlConnection ConnectToDatabase()
     {
