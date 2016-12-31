@@ -31,11 +31,11 @@ class WebBrowser {
 
 var showDebugInfo = false;
 var adminlevel = "User";
-const CEF = new WebBrowser('html/debug.html');
+const CEF = new WebBrowser('');
 const debugCEF_old = new WebBrowser('');
 const modalCEF = new WebBrowser('http://185.62.188.120:3000/modal/1/2');
+const debugCEF = new WebBrowser('http://185.62.188.120:3000/debug/1/2');
 const testCEF = new WebBrowser('http://185.62.188.120:3000/webtest/Molaron/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-');
-const debugCEF = new WebBrowser('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
@@ -43,7 +43,7 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/debugnew") {
-        debugCEF.show(true)
+        debugCEF.show(false)
     }
 
     if (msg == "/web") {
