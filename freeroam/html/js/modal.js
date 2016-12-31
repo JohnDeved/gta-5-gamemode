@@ -5,7 +5,7 @@ $('.ui.modal')
     return false;
   },
   onApprove : function() {
-    modalCEF.destroy();
+    resourceCall('modalCEF.destroy');
   }
 })
 .modal('show')
