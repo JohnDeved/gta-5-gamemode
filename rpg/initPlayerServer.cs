@@ -23,7 +23,6 @@ public class initPlayerServer : Script
             {
                 API.sendChatMessageToPlayer(sender, "Sende Admin-Level-Verification");
                 API.triggerClientEvent(sender, "ADMIN_VERIFY", API.getPlayerAclGroup(sender));
-                string agim = clientID.config["db_host"];
             }
         }
     }    
