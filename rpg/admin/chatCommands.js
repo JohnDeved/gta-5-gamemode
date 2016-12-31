@@ -10,7 +10,7 @@ class CefHelper {
 
             var resolution = API.getScreenResolution()
 
-            this.browser = API.createCefBrowser(resolution.Width, resolution.Height, true)
+            this.browser = API.createCefBrowser(resolution.Width, resolution.Height, false)
             API.waitUntilCefBrowserInit(this.browser)
             API.setCefBrowserPosition(this.browser, 0, 0)
             API.loadPageCefBrowser(this.browser, this.path)
