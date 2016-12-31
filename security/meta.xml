@@ -3,4 +3,5 @@
 	<script src="clientID.cs" type="server" lang="csharp" />
 
 	<assembly ref="MySql.Data.dll" />
+	<assembly ref="System.Data.dll" />
 </meta>
