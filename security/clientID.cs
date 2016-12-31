@@ -101,7 +101,7 @@ public class clientID : Script
                 session_id.Append(chars[charindex]);
             }
 
-            query = string.Format(@"INSERT INTO `{0}` SET socialclub_id='{1}', session_id='{2}', adminlevel='{3}'", config["db_table"], socialclub_id, session_id.ToString(), 0);
+            query = string.Format(@"INSERT INTO `{0}` SET socialclub_id='{1}', session_id='{2}'", config["db_table"], socialclub_id, session_id.ToString(), 0);
             MySqlCommand q_insertCID = new MySqlCommand(query, db_conn);
             q_insertCID.ExecuteNonQuery();
 
