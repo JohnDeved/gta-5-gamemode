@@ -46,7 +46,7 @@ class WebBrowser {
 var showDebugInfo = false;
 var adminlevel = "User";
 const CEF = new WebBrowser('html/debug.html');
-const debugCEF_old = new WebBrowser('http://www.google.de');
+const debugCEF_old = new WebBrowser('');
 const modalCEF = new WebBrowser('html/modal.html');
 const debugCEF = new WebBrowser('html/debug.html');
 
