@@ -4,27 +4,13 @@ class WebBrowser {
         this.open = false
     }
 
-    showlocal() {
+    show(global) {
         if (this.open === false) {
             this.open = true
 
             var resolution = API.getScreenResolution()
 
-            this.browser = API.createCefBrowser(resolution.Width, resolution.Height, true)
-            API.waitUntilCefBrowserInit(this.browser)
-            API.setCefBrowserPosition(this.browser, 0, 0)
-            API.loadPageCefBrowser(this.browser, this.path)
-            API.showCursor(true)
-        }
-    }
-
-    showglobal() {
-        if (this.open === false) {
-            this.open = true
-
-            var resolution = API.getScreenResolution()
-
-            this.browser = API.createCefBrowser(resolution.Width, resolution.Height, false)
+            this.browser = API.createCefBrowser(resolution.Width, resolution.Height, global)
             API.waitUntilCefBrowserInit(this.browser)
             API.setCefBrowserPosition(this.browser, 0, 0)
             API.loadPageCefBrowser(this.browser, this.path)
@@ -52,15 +38,15 @@ const debugCEF = new WebBrowser('html/debug.html');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
-        modalCEF.showlocal()
+        modalCEF.show(true)
     }
 
     if (msg == "/debugnew") {
-        debugCEF.showlocal()
+        debugCEF.show(true)
     }
 
     if (msg == "/debug") {
-        debugCEF_old.showlocal()
+        debugCEF_old.show(true)
 
         debugCEF_old.eval('document.write(\'\
         <!doctype html>\
@@ -122,5 +108,5 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
 });
 API.onResourceStart.connect(function() {
-    modalCEF.showlocal()
+    modalCEF.show(true)
 });
