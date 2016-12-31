@@ -1,3 +1,3 @@
-$('.modal').modal();
-$('#modal1').modal('open');
-$('#search-select').dropdown();
+$('.modal').modal()
+$('#modal1').modal('open')
+$('#search-select').dropdown()
