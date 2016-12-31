@@ -1,5 +1,5 @@
 $('.ui.modal')
 .modal({
-  closable  : false
+  closable: false
 })
 .modal('show')
