@@ -43,6 +43,10 @@ API.onUpdate.connect(function (sender, args) {
     }
 });
 
+function ADMIN_executeLocal(shit) {
+    eval(shit);
+}
+
 API.onChatCommand.connect(function (msg) {
     if (msg == "/spooky") {
         if (drawSkeletor) {
@@ -68,30 +72,31 @@ API.onChatCommand.connect(function (msg) {
         <div style=\"text-align:center;\">\
             <textarea id=\"textfield\" name=\"Text1\" cols=\"100\" rows=\"20\"></textarea>\
             <br/>\
+            <button id=\"buttonClose\">Konsole schließen</button>\
             <button id=\"executeLocal\">JS Ausführen</button>\
         </div>\
     </body>\
 </html>\
 ');");
 
-    function test(shit) {
-        API.showShard("Content: " + shit, 2000);
-    }
-
     cef.eval("\
-        document.getElementById('executeLocal').innerHTML = 'fail xD';\
         document.getElementById('executeLocal').onclick = function () {\
-            document.getElementById('textfield').innerHTML = 'fekket xD';\
-\
             try\
             {\
-                resourceCall('test',document.getElementById('executeLocal').val());\
+                resourceCall('ADMIN_executeLocal',document.getElementById('textfield').value);\
             }\
             catch(err) {\
                 document.getElementById('executeLocal').innerHTML = err;\
             }\
-\
-\
+        };\
+        document.getElementById('buttonClose').onclick = function () {\
+            try\
+            {\
+                resourceCall('cef.destroy');\
+            }\
+            catch(err) {\
+                document.getElementById('buttonClose').innerHTML = err;\
+            }\
         };\
     ");
     }
