@@ -108,5 +108,5 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
 });
 API.onResourceStart.connect(function() {
-    modalCEF.show();
+  
 });
