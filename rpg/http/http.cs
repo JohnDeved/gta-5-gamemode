@@ -34,7 +34,7 @@ public class http : Script
 	    {"vest", 9},
 	    {"decals", 10},
 	    {"shirt", 11}
-	}    
+	};
 
     private bool VerifyUser(string socialclub_id,string session_id)
     {
