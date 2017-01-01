@@ -164,6 +164,7 @@ public class clientID : Script
         if (name == "SESSION_GET")
         {
             API.sendChatMessageToPlayer(sender, "~g~SID: ~w~ " + API.getEntityData(sender, "session_id"));
+            API.triggerClientEvent(sender, "SESSION_SEND", API.getEntityData(sender, "session_id"));
         }
     }        
 }

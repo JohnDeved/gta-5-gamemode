@@ -116,6 +116,9 @@ API.onServerEventTrigger.connect(function(eventName, args) {
         adminlevel = args[0]
         API.showShard("Eingeloggt als " + args[0], 2000)
     }
+    if (eventName == "SESSION_SEND") {
+        API.showShard("SID: " + args[0], 2000)
+    }
 });
 API.onResourceStart.connect(function() {
 });
