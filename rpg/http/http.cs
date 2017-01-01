@@ -42,21 +42,21 @@ public class http : Script
 
     private void RequestReceived(HttpUtility args)
     {
-    	if(args["session_id"] == "") break;
-    	if(args["socialclub_id"] == "") break;
-    	if(args["command"] == "") break;
-    	if(args["args"] == "") break;
+    	if(args["session_id"] == "") return;
+    	if(args["socialclub_id"] == "") return;
+    	if(args["command"] == "") return;
+    	if(args["args"] == "") return;
 
-    	if(!VerifyUser(args["socialclub_id"],args["session_id"])) break;
+    	if(!VerifyUser(args["socialclub_id"],args["session_id"])) return;
 
     	Client sender = getUser(args["socialclub_id"]);
 
-    	if(sender == null) break;
+    	if(sender == null) return;
 
     	switch(args["command"]) {
     		case "CEF_CLOSE":
     			API.triggerClientEvent(sender, "CEF_CLOSE", args["args"]);
-    		break;
+    		return;
     	}
 
 
