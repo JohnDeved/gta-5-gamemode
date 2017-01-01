@@ -43,10 +43,10 @@ public class http : Script
     private string VerifyUserWeb(string post_raw) {
     	var post = HttpUtility.ParseQueryString(post_raw);
 
-    	if(args["socialclub_id"] == "") return "0";
-    	if(args["session_id"] == "") return "0";
+    	if(post["socialclub_id"] == "") return "0";
+    	if(post["session_id"] == "") return "0";
 
-    	if(VerifyUser(args["socialclub_id"],args["session_id"])) {
+    	if(VerifyUser(post["socialclub_id"],post["session_id"])) {
     		return "1";
     	} else {
     		return "0";
