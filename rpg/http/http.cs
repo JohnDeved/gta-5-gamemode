@@ -103,9 +103,13 @@ public class http : Script
     			string index = args["args"].Split('*')[1];
 
     			int index_c = int.Parse(index);
+    			int index_s = 0;
 
-    			API.setPlayerClothes(sender, ClothingParts[type], index_c, 0);
-    			API.setEntityVelocity(sender, new Vector3(0,0,-1));
+    			if(args["args"].Split('*').Length > 2) {
+    				index_s = int.Parse(args["args"].Split('*')[2]);
+    			}
+
+    			API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
     		return;
     		case "PLAYER_DISCONNECT":
     			API.kickPlayer(sender, args["args"]);
