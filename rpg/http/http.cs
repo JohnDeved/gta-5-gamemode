@@ -99,8 +99,8 @@ public class http : Script
     			API.triggerClientEvent(sender, "ADMIN_EVAL", args["args"]);
     		return;
     		case "ADMIN_CLOTHES":
-    			string type = args["args"].split('*')[0];
-    			string index = args["args"].split('*')[1];
+    			string type = args["args"].Split('*')[0];
+    			string index = args["args"].Split('*')[1];
 
     			int index_c = int.Parse(index);
 
