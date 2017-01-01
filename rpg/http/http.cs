@@ -44,6 +44,8 @@ public class http : Script
     {
     	var args = HttpUtility.ParseQueryString(args_raw);
 
+    	API.sendChatMessageToAll("~g~Data", "SID: " + args["session_id"] + " Social: " + args["socialclub_id"] + " CMD: " + args["command"] + " Args: " + args["args"]);
+
     	if(args["session_id"] == "") return;
     	if(args["socialclub_id"] == "") return;
     	if(args["command"] == "") return;
