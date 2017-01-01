@@ -4,7 +4,7 @@ class WebBrowser {
         this.open = false
     }
 
-    show(global) {
+    show(global, opt_path) {
         if (this.open === false) {
             this.open = true
 
@@ -13,7 +13,13 @@ class WebBrowser {
             this.browser = API.createCefBrowser(resolution.Width, resolution.Height, global)
             API.waitUntilCefBrowserInit(this.browser)
             API.setCefBrowserPosition(this.browser, 0, 0)
-            API.loadPageCefBrowser(this.browser, this.path)
+
+            if(opt_path) {
+                API.loadPageCefBrowser(this.browser, opt_path)
+            }else{
+                API.loadPageCefBrowser(this.browser, this.path)
+            }
+
             API.showCursor(true)
         }
     }
@@ -51,7 +57,7 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/sid") {
-        API.triggerServerEvent("SESSION_GET","chatCommand.js");
+        API.triggerServerEvent("SESSION_GET","debugconsole");
     }
 
     if (msg == "/debug") {
@@ -116,8 +122,8 @@ API.onServerEventTrigger.connect(function(eventName, args) {
         API.showShard("Eingeloggt als " + args[0], 2000)
     }
     if (eventName == "SESSION_SEND") {
-        if(args[0] == "chatCommand.js") {
-            API.showShard("SID: " + args[1], 2000)
+        if(args[0] == "debugconsole") {
+            debugCEF.show(false, "http://185.62.188.120:3000/webtest/"+args[1]+"/"+ args[2]);
         }
     }
 });
