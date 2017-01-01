@@ -105,6 +105,7 @@ public class http : Script
     			int index_c = int.Parse(index);
 
     			API.setPlayerClothes(sender, ClothingParts[type], index_c, 0);
+    			API.setEntityVelocity(sender, new Vector3(0,0,-1));
     		return;
     		case "PLAYER_DISCONNECT":
     			API.kickPlayer(sender, args["args"]);
