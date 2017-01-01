@@ -80,7 +80,6 @@ public class http : Script
         try
         {
             var json = JObject.Parse(args_raw);
-            (string)(json.SelectToken("socialclub_id"));
         }catch(Exception e){
             
         }
