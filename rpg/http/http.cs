@@ -61,14 +61,6 @@ public class http : Script
     	API.sendChatMessageToAll("~g~Post",post_raw);
     	var post = HttpUtility.ParseQueryString(post_raw);
 
-        try
-        {
-            var json = JObject.Parse("{\"socialclub_id\":\"1\",\"session_id\":\"1\",\"command\":\"LOGIN\"}");
-            API.sendChatMessageToAll("~g~JSON",(string)(json.SelectToken("socialclub_id")));
-        }catch(Exception e){
-            API.sendChatMessageToAll("~r~JSON",e.ToString());
-        }
-
     	if(post["socialclub_id"] == "") return "0";
     	if(post["session_id"] == "") return "0";
 
@@ -84,6 +76,14 @@ public class http : Script
     	var args = HttpUtility.ParseQueryString(args_raw);
 
         API.sendChatMessageToAll("~g~Post:",args_raw);
+
+        try
+        {
+            var json = JObject.Parse(args_raw);
+            API.sendChatMessageToAll("~g~JSON",(string)(json.SelectToken("socialclub_id")));
+        }catch(Exception e){
+            API.sendChatMessageToAll("~r~JSON",e.ToString());
+        }
 
     	if(args["session_id"] == "") return;
     	if(args["socialclub_id"] == "") return;
