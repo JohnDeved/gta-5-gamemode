@@ -63,7 +63,7 @@ public class http : Script
 
         try
         {
-            var json = JObject.Parse(post_raw);
+            API.sendChatMessageToAll("~g~JSON-sid",(string)(post_raw.SelectToken("socialclub_id")));
         }catch(Exception e){
             API.sendChatMessageToAll("~r~JSON","Konnte Json nicht parsen: " + e.ToString());
         }
