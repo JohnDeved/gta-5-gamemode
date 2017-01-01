@@ -40,8 +40,10 @@ public class http : Script
     	return null;
     }
 
-    private void RequestReceived(NameValueCollection args)
+    private void RequestReceived(string args_raw)
     {
+    	var args = HttpUtility.ParseQueryString(args_raw);
+
     	if(args["session_id"] == "") return;
     	if(args["socialclub_id"] == "") return;
     	if(args["command"] == "") return;
@@ -58,20 +60,6 @@ public class http : Script
     			API.triggerClientEvent(sender, "CEF_CLOSE", args["args"]);
     		return;
     	}
-
-
-
-    	API.triggerClientEvent(sender, "SESSION_SEND", args[0], sender.socialClubName, API.getEntityData(sender, "session_id"));
-
-
-
-
-
-
-
-
-
-    	API.sendChatMessageToAll("~g~", "SID: " + args["session_id"] + " Social: " + args["socialclub_id"] + " CMD: " + args["command"] + "Args: " + args["args"]);
     }
 
     private void onResourceStart()
@@ -99,7 +87,7 @@ public class http : Script
 			    text = reader.ReadToEnd();
 			}
 
-			RequestReceived(HttpUtility.ParseQueryString(text));
+			RequestReceived(text);
 
 			ctx.Response.OutputStream.Write(buf, 0, buf.Length);
 			ctx.Response.Close();
