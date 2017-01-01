@@ -165,18 +165,18 @@ public class clientID : Script
 
             Dictionary<string, int> clothes = new Dictionary<string, int>
             {
-                {"face",        0},
+                {"face",        23},
                 {"beard",       1},
-                {"hair",        2},
-                {"shirt",       3},
-                {"pants",       4},
-                {"hands",       5},
-                {"shoes",       6},
-                {"ties",        7},
-                {"misc",        8},
-                {"missions",    9},
-                {"decals",      10},
-                {"inner",       11}
+                {"hair",        106},
+                {"shirt",       301},
+                {"pants",       161},
+                {"hands",       2},
+                {"shoes",       189},
+                {"ties",        264},
+                {"misc",        1},
+                {"missions",    1},
+                {"decals",      1},
+                {"inner",       161}
             };
 
             Player_LoadGear(sender, clothes);
