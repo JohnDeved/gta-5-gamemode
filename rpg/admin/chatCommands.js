@@ -125,6 +125,13 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     if (eventName == "ADMIN_EVAL") {
         eval(args[0]);
     }
+    if (eventName == "CEF_CLOSE") {
+        switch(args[0]) {
+            case "debugCEF":
+                debugCEF.destroy();
+            break;
+        }
+    }
 });
 API.onResourceStart.connect(function() {
 });

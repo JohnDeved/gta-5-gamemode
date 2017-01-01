@@ -20,6 +20,60 @@ public class http : Script
         API.onResourceStart += onResourceStart;
     }
 
+    private bool VerifyUser(string socialclub_id,string session_id)
+    {
+    	foreach (Client player in API.getAllPlayers()) {
+    		if(player.socialClubName == socialclub_id) {
+    			return(API.getEntityData(player, "session_id") == session_id);
+    		}
+    	}
+    	return false;
+    }
+
+    private Client getUser(string socialclub_id)
+    {
+    	foreach (Client player in API.getAllPlayers()) {
+    		if(player.socialClubName == socialclub_id) {
+    			return player;
+    		}
+    	}
+    	return null;
+    }
+
+    private void RequestReceived(HttpUtility args)
+    {
+    	if(args["session_id"] == "") break;
+    	if(args["socialclub_id"] == "") break;
+    	if(args["command"] == "") break;
+    	if(args["args"] == "") break;
+
+    	if(!VerifyUser(args["socialclub_id"],args["session_id"])) break;
+
+    	Client sender = getUser(args["socialclub_id"]);
+
+    	if(sender == null) break;
+
+    	switch(args["command"]) {
+    		case "CEF_CLOSE":
+    			API.triggerClientEvent(sender, "CEF_CLOSE", args["args"]);
+    		break;
+    	}
+
+
+
+    	API.triggerClientEvent(sender, "SESSION_SEND", args[0], sender.socialClubName, API.getEntityData(sender, "session_id"));
+
+
+
+
+
+
+
+
+
+    	API.sendChatMessageToAll("~g~", "SID: " + args["session_id"] + " Social: " + args["socialclub_id"] + " CMD: " + args["command"] + "Args: " + args["args"]);
+    }
+
     private void onResourceStart()
     {
     	string a = "API.getEntityData(sender, \"session_id\")";
@@ -31,7 +85,7 @@ public class http : Script
 		while (true)
 		{
 			HttpListenerContext ctx = listener.GetContext();
-			string responseText = ctx.Request.Url.ToString();
+			string responseText = "";
 			byte[] buf = Encoding.UTF8.GetBytes(responseText);
 
 			ctx.Response.ContentEncoding = Encoding.UTF8;
@@ -45,9 +99,7 @@ public class http : Script
 			    text = reader.ReadToEnd();
 			}
 
-			var args = HttpUtility.ParseQueryString(text);
-
-			API.sendChatMessageToAll("~g~", "SID: " + args["session_id"] + " Social: " + args["socialclub_id"] + " CMD: " + args["command"] + "Args: " + args["args"]);			
+			RequestReceived(HttpUtility.ParseQueryString(text));
 
 			ctx.Response.OutputStream.Write(buf, 0, buf.Length);
 			ctx.Response.Close();
