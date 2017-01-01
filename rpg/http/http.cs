@@ -104,7 +104,7 @@ public class http : Script
 
     			int index_c = int.Parse(index);
 
-    			API.setPlayerClothes(sender, ClothingParts[type], index_c);
+    			API.setPlayerClothes(sender, ClothingParts[type], index_c, 0);
     		return;
     		case "PLAYER_DISCONNECT":
     			API.kickPlayer(sender, args["args"]);
