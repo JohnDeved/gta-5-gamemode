@@ -34,6 +34,15 @@ public class http : Script
 			ctx.Response.ContentEncoding = Encoding.UTF8;
 			ctx.Response.ContentType = "text/html";
 			ctx.Response.ContentLength64 = buf.Length;
+			var request = ctx.Request;
+			string text;
+			using (var reader = new StreamReader(request.InputStream,
+			                                     request.ContentEncoding))
+			{
+			    text = reader.ReadToEnd();
+			}
+
+			API.sendChatMessageToAll("~g~", "POST: " + text);			
 
 			ctx.Response.OutputStream.Write(buf, 0, buf.Length);
 			ctx.Response.Close();
