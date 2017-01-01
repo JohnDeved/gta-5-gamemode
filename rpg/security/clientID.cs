@@ -198,14 +198,16 @@ public class clientID : Script
     {
         if (name == "SESSION_INIT")
         {
+            API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
+            
             if(Player_isRegistered(sender.socialClubName))
             {
                 Player_LoadGear(sender);
                 API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist registriert");
             }else{
                 API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist nicht registriert");
+                API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
             }            
-            API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
         }
         if (name == "SESSION_GET")
         {

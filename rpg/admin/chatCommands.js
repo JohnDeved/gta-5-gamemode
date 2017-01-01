@@ -37,9 +37,10 @@ class WebBrowser {
 
 var showDebugInfo = false;
 var adminlevel = "User";
-const CEF = new WebBrowser('');
+
 const modalCEF = new WebBrowser('');
 const debugCEF = new WebBrowser('');
+const startCEF = new WebBrowser('');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
@@ -47,7 +48,7 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/debug") {
-        API.triggerServerEvent("SESSION_GET","debugconsole");
+        API.triggerServerEvent("SESSION_GET","debug");
     }
 
     if (adminlevel == "Admin") {
@@ -64,11 +65,14 @@ API.onServerEventTrigger.connect(function(eventName, args) {
         API.showShard("Eingeloggt als " + args[0], 2000)
     }
     if (eventName == "SESSION_SEND") {
-        if(args[0] == "debugconsole") {
+        if(args[0] == "debug") {
             debugCEF.show(false, "http://185.62.188.120:3000/debug/"+args[1]+"/"+ args[2]);
         }
         if(args[0] == "modal") {
             modalCEF.show(false, "http://185.62.188.120:3000/modal/"+args[1]+"/"+ args[2])
+        }
+        if(args[0] == "start") {
+            startCEF.show(false, "http://185.62.188.120:3000/start/"+args[1]+"/"+ args[2])
         }
     }
     if (eventName == "ADMIN_EVAL") {
@@ -83,6 +87,9 @@ API.onServerEventTrigger.connect(function(eventName, args) {
             case "modalCEF":
                 API.sleep(200);
                 modalCEF.destroy();
+            case "startCEF":
+                API.sleep(200);
+                startCEF.destroy();
             break;
         }
     }
