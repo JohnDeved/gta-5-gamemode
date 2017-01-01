@@ -6,8 +6,10 @@ using System.Text;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
+//GTANetwork
 using GTANetworkServer;
 using GTANetworkShared;
+//External
 using MySql.Data.MySqlClient;
 
 public class http : Script
@@ -42,7 +44,9 @@ public class http : Script
 			    text = reader.ReadToEnd();
 			}
 
-			API.sendChatMessageToAll("~g~", "POST: " + text);			
+			var args = HttpUtility.ParseQueryString(text);
+
+			API.sendChatMessageToAll("~g~", "SID: " + args["session_id"] + " Social: " + args["socialclub_id"] + " CMD: " + args["command"] + "Args: " + args["args"]);			
 
 			ctx.Response.OutputStream.Write(buf, 0, buf.Length);
 			ctx.Response.Close();
