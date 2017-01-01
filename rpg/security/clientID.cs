@@ -140,7 +140,7 @@ public class clientID : Script
         CreateTableIfNotExists();
     }
 
-    private bool Player_isRegistered(socialclub_id)
+    private bool Player_isRegistered(string socialclub_id)
     {
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return false;
