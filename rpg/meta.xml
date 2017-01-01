@@ -13,4 +13,5 @@
 
     <assembly ref="MySql.Data.dll" />
     <assembly ref="System.Data.dll" />
+    <assembly ref="System.Web.dll" />
 </meta>
