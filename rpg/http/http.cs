@@ -75,7 +75,7 @@ public class http : Script
 		while (true)
 		{
 			HttpListenerContext ctx = listener.GetContext();
-			string responseText = "";
+			string responseText = "asdfg";
 			byte[] buf = Encoding.UTF8.GetBytes(responseText);
 
 			ctx.Response.ContentEncoding = Encoding.UTF8;
