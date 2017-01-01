@@ -26,7 +26,7 @@ public class clientID : Script
         {"db_password", "EKbYU6DJNVEwpDTJNFwV3jiG3"},
         {"cid_length", "25"}
     };
-    private Random _random = new Random();
+    private static Random _random = new Random();
 
     private MySqlConnection ConnectToDatabase()
     {
