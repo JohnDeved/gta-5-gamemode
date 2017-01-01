@@ -105,7 +105,7 @@ public class http : Script
                     int index_s = 0;
 
                     if((string)args.SelectToken("args.index_s") != "") {
-                        index_s = (string)args.SelectToken("args.index_s");
+                        index_s = int.Parse((string)args.SelectToken("args.index_s"));
                     }
 
                     API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
