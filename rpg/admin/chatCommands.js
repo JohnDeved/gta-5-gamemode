@@ -131,11 +131,11 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     if (eventName == "CEF_CLOSE") {
         switch(args[0]) {
             case "debugCEF":
-                API.sleep(.5);
+                API.sleep(1000);
                 debugCEF.destroy();
             break;
             case "modalCEF":
-                API.sleep(.5);
+                API.sleep(1000);
                 modalCEF.destroy();
             break;
         }
