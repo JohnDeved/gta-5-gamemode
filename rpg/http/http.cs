@@ -20,6 +20,22 @@ public class http : Script
         API.onResourceStart += onResourceStart;
     }
 
+	public Dictionary<string, int> ClothingParts = new Dictionary<string, int>
+	{
+	    {"face", 0},
+	    {"masc", 1},
+	    {"hair", 2},
+	    {"arms", 3},
+	    {"legs", 4},
+	    {"back", 5},
+	    {"shoes", 6},
+	    {"ties", 7},
+	    {"inner", 8},
+	    {"vest", 9},
+	    {"decals", 10},
+	    {"shirt", 11}
+	}    
+
     private bool VerifyUser(string socialclub_id,string session_id)
     {
     	foreach (Client player in API.getAllPlayers()) {
@@ -81,6 +97,14 @@ public class http : Script
     		return;
     		case "ADMIN_EVAL":
     			API.triggerClientEvent(sender, "ADMIN_EVAL", args["args"]);
+    		return;
+    		case "ADMIN_CLOTHES":
+    			string type = args["args"].split('*')[0];
+    			string index = args["args"].split('*')[1];
+
+    			int index_c = int.Parse(index);
+
+    			API.setPlayerClothes(sender, ClothingParts[type], index_c);
     		return;
     		case "PLAYER_DISCONNECT":
     			API.kickPlayer(sender, args["args"]);
