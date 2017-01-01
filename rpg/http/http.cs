@@ -40,7 +40,7 @@ public class http : Script
     	return null;
     }
 
-    private void RequestReceived(var args)
+    private void RequestReceived(NameValueCollection args)
     {
     	if(args["session_id"] == "") return;
     	if(args["socialclub_id"] == "") return;
