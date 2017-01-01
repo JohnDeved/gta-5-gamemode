@@ -12,6 +12,7 @@ using GTANetworkServer;
 using GTANetworkShared;
 //External
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json.Linq;
 
 public class http : Script
 {
@@ -59,12 +60,12 @@ public class http : Script
     private string VerifyUserWeb(string post_raw) {
     	API.sendChatMessageToAll("~g~Post",post_raw);
     	var post = HttpUtility.ParseQueryString(post_raw);
+        var json = JObject.Parse(json);
 
     	if(post["socialclub_id"] == "") return "0";
     	if(post["session_id"] == "") return "0";
 
-    	API.sendChatMessageToAll("~g~so_id","na?: "+post["socialclub_id"]);
-    	API.sendChatMessageToAll("~g~se_id","na?: "+post["session_id"]);
+    	API.sendChatMessageToAll("~g~JSON-sid",(string)(json.SelectToken("socialclub_id")));
     	API.sendChatMessageToAll("~g~result",VerifyUser(post["socialclub_id"],post["session_id"]).ToString());
 
     	if(VerifyUser(post["socialclub_id"],post["session_id"])) {
