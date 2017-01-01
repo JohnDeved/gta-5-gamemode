@@ -95,5 +95,5 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
 });
 API.onResourceStart.connect(function() {
-    API.triggerServerEvent("SESSION_GET","modal");
+
 });
