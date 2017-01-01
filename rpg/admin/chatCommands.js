@@ -51,8 +51,7 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/sid") {
-        API.sendChatMessage("Requesting...")
-        API.triggerServerEvent("SESSION_GET");
+        API.triggerServerEvent("SESSION_GET","chatCommand.js");
     }
 
     if (msg == "/debug") {
@@ -117,7 +116,9 @@ API.onServerEventTrigger.connect(function(eventName, args) {
         API.showShard("Eingeloggt als " + args[0], 2000)
     }
     if (eventName == "SESSION_SEND") {
-        API.showShard("SID: " + args[0], 2000)
+        if(args[0] == "chatCommand.js") {
+            API.showShard("SID: " + args[1], 2000)
+        }
     }
 });
 API.onResourceStart.connect(function() {

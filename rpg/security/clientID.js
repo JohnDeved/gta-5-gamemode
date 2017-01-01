@@ -7,7 +7,4 @@ API.onServerEventTrigger.connect(function(eventName, args) {
         sessionID = args[0];
         API.sendChatMessage("SessionID: " + args[0]);
     }
-    if (eventName == "SESSION_SEND") {
-    	API.sendChatMessage("Hier meldet sich die Client.js");
-    }
 });
