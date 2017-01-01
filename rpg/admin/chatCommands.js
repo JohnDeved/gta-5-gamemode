@@ -51,6 +51,7 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/sid") {
+        API.sendChatMessage("Requesting...")
         API.triggerServerEvent("SESSION_GET");
     }
 
