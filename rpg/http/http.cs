@@ -64,6 +64,9 @@ public class http : Script
     		case "ADMIN_EVAL":
     			API.triggerClientEvent(sender, "ADMIN_EVAL", args["args"]);
     		return;
+    		case "PLAYER_DISCONNECT":
+    			API.kickPlayer(sender, args["args"]);
+    		return;
     	}
     }
 
