@@ -179,7 +179,7 @@ public class clientID : Script
             {"inner",       161}
         };
 
-        API.setPlayerSkin(sender, (PedHash)1885233650);
+        API.setPlayerSkin(player, (PedHash)1885233650);
         API.setPlayerClothes(player, 0, clothes["face"], 0);
         API.setPlayerClothes(player, 1, clothes["beard"], 0);
         API.setPlayerClothes(player, 2, clothes["hair"], 0);
