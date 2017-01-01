@@ -130,6 +130,9 @@ API.onServerEventTrigger.connect(function(eventName, args) {
             case "debugCEF":
                 debugCEF.destroy();
             break;
+            case "modalCEF":
+                modalCEF.destroy();
+            break;
         }
     }
 });
