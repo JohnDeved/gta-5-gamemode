@@ -49,15 +49,11 @@ API.onChatCommand.connect(function(msg) {
     }
 
     if (msg == "/debugnew") {
-        debugCEF.show(false)
+        API.triggerServerEvent("SESSION_GET","debugconsole");
     }
 
     if (msg == "/web") {
         testCEF.show(false)
-    }
-
-    if (msg == "/sid") {
-        API.triggerServerEvent("SESSION_GET","debugconsole");
     }
 
     if (msg == "/debug") {
@@ -123,7 +119,7 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
     if (eventName == "SESSION_SEND") {
         if(args[0] == "debugconsole") {
-            debugCEF.show(false, "http://185.62.188.120:3000/webtest/"+args[1]+"/"+ args[2]);
+            debugCEF.show(false, "http://185.62.188.120:3000/debug/"+args[1]+"/"+ args[2]);
         }
     }
 });
