@@ -50,6 +50,10 @@ API.onChatCommand.connect(function(msg) {
         testCEF.show(false)
     }
 
+    if (msg == "/sid") {
+        API.triggerServerEvent("SESSION_GET");
+    }
+
     if (msg == "/debug") {
         debugCEF_old.show(true)
 

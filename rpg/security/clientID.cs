@@ -159,7 +159,11 @@ public class clientID : Script
             API.setPlayerClothes(sender, 9, rand.Next(0, 99), 0);
             API.setPlayerClothes(sender, 11, rand.Next(0, 99), 0);
 
-            API.triggerClientEvent(sender, "SESSION_ID_TRANSFER", getCID(sender.socialClubName));
+            API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
+        }
+        if (name == "SESSION_GET")
+        {
+            API.sendChatMessageToPlayer(sender, "~g~SID: ~w~ " + API.getEntityData(client, "session_id"));
         }
     }        
 }
