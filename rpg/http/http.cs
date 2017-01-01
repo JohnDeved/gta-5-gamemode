@@ -60,7 +60,7 @@ public class http : Script
     private string VerifyUserWeb(string post_raw) {
     	API.sendChatMessageToAll("~g~Post",post_raw);
     	var post = HttpUtility.ParseQueryString(post_raw);
-        var json = JObject.Parse(json);
+        var json = JObject.Parse(post_raw);
 
     	if(post["socialclub_id"] == "") return "0";
     	if(post["session_id"] == "") return "0";
