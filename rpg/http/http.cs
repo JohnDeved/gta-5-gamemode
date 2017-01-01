@@ -60,12 +60,18 @@ public class http : Script
     private string VerifyUserWeb(string post_raw) {
     	API.sendChatMessageToAll("~g~Post",post_raw);
     	var post = HttpUtility.ParseQueryString(post_raw);
-        var json = JObject.Parse(post_raw);
+
+        try
+        {
+            var json = JObject.Parse(post_raw);
+            API.sendChatMessageToAll("~g~JSON-sid",(string)(json.SelectToken("socialclub_id")));
+        }catch(ee){
+            API.sendChatMessageToAll("~r~JSON","Konnte Json nicht parsen");
+        }
 
     	if(post["socialclub_id"] == "") return "0";
     	if(post["session_id"] == "") return "0";
 
-    	API.sendChatMessageToAll("~g~JSON-sid",(string)(json.SelectToken("socialclub_id")));
     	API.sendChatMessageToAll("~g~result",VerifyUser(post["socialclub_id"],post["session_id"]).ToString());
 
     	if(VerifyUser(post["socialclub_id"],post["session_id"])) {
