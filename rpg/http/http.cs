@@ -73,51 +73,53 @@ public class http : Script
 
     private void RequestReceived(string args_raw)
     {
+    	var args = HttpUtility.ParseQueryString(args_raw);
+
         API.sendChatMessageToAll("~g~Post:",args_raw);
 
         try
         {
-            var args = JObject.Parse(args_raw);
-
-            if((string)args.SelectToken("session_id") == "") return;
-            if((string)args.SelectToken("socialclub_id") == "") return;
-            if((string)args.SelectToken("command") == "") return;
-            if((string)args.SelectToken("args") == "") return;
-
-            if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
-
-            Client sender = getUser((string)args.SelectToken("socialclub_id"));
-
-            if(sender == null) return;
-
-            switch((string)args.SelectToken("command")) {
-                case "CEF_CLOSE":
-                    API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
-                return;
-                case "ADMIN_EVAL":
-                    API.triggerClientEvent(sender, "ADMIN_EVAL", (string)args.SelectToken("args"));
-                return;
-                case "ADMIN_CLOTHES":
-                    string type = (string)args.SelectToken("args.type");
-                    string index = (string)args.SelectToken("args.index");
-
-                    int index_c = int.Parse(index);
-                    int index_s = 0;
-
-                    if((string)args.SelectToken("args.index_s") != "") {
-                        index_s = int.Parse((string)args.SelectToken("args.index_s"));
-                    }
-
-                    API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
-                return;
-                case "PLAYER_DISCONNECT":
-                    API.kickPlayer(sender, (string)args.SelectToken("args"));
-                return;
-            }
-
+            var json = JObject.Parse(args_raw);
+            (string)(json.SelectToken("socialclub_id"));
         }catch(Exception e){
-            return;
+            
         }
+
+    	if(args["session_id"] == "") return;
+    	if(args["socialclub_id"] == "") return;
+    	if(args["command"] == "") return;
+    	if(args["args"] == "") return;
+
+    	if(!VerifyUser(args["socialclub_id"],args["session_id"])) return;
+
+    	Client sender = getUser(args["socialclub_id"]);
+
+    	if(sender == null) return;
+
+    	switch(args["command"]) {
+    		case "CEF_CLOSE":
+    			API.triggerClientEvent(sender, "CEF_CLOSE", args["args"]);
+    		return;
+    		case "ADMIN_EVAL":
+    			API.triggerClientEvent(sender, "ADMIN_EVAL", args["args"]);
+    		return;
+    		case "ADMIN_CLOTHES":
+    			string type = args["args"].Split('*')[0];
+    			string index = args["args"].Split('*')[1];
+
+    			int index_c = int.Parse(index);
+    			int index_s = 0;
+
+    			if(args["args"].Split('*').Length > 2) {
+    				index_s = int.Parse(args["args"].Split('*')[2]);
+    			}
+
+    			API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
+    		return;
+    		case "PLAYER_DISCONNECT":
+    			API.kickPlayer(sender, args["args"]);
+    		return;
+    	}
     }
 
     private void onResourceStart()
