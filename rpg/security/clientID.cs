@@ -140,6 +140,22 @@ public class clientID : Script
         CreateTableIfNotExists();
     }
 
+    public void Player_LoadGear(Client player, Dictionary<string, int> clothes)
+    {
+        API.setPlayerClothes(sender, 0, clothes["face"], 0);
+        API.setPlayerClothes(sender, 1, clothes["beard"], 0);
+        API.setPlayerClothes(sender, 2, clothes["hair"], 0);
+        API.setPlayerClothes(sender, 3, clothes["shirt"], 0);
+        API.setPlayerClothes(sender, 4, clothes["pants"], 0);
+        API.setPlayerClothes(sender, 5, clothes["hands"], 0);
+        API.setPlayerClothes(sender, 6, clothes["shoes"], 0);
+        API.setPlayerClothes(sender, 7, clothes["ties"], 0);
+        API.setPlayerClothes(sender, 8, clothes["misc"], 0);
+        API.setPlayerClothes(sender, 9, clothes["missions"], 0);
+        API.setPlayerClothes(sender, 10, clothes["decals"], 0);
+        API.setPlayerClothes(sender, 11, clothes["inner"], 0);
+    }
+
     public void onClientEventTrigger(Client sender, string name, object[] args)
     {
         if (name == "SESSION_INIT")
@@ -147,17 +163,23 @@ public class clientID : Script
             API.setPlayerSkin(sender, (PedHash)1885233650);
             Random rand = new Random();
 
-            API.setPlayerClothes(sender, 0, rand.Next(0, 45), 0);
-            API.setPlayerClothes(sender, 1, rand.Next(0, 0), 0);
-            API.setPlayerClothes(sender, 2, rand.Next(0, 36), 4);
-            API.setPlayerClothes(sender, 3, rand.Next(0, 0), 0);
-            API.setPlayerClothes(sender, 4, rand.Next(0, 85), 0);
-            API.setPlayerClothes(sender, 5, rand.Next(0, 69), 0);
-            API.setPlayerClothes(sender, 6, rand.Next(0, 59), 0);
-            API.setPlayerClothes(sender, 7, rand.Next(0, 99), 0);
-            API.setPlayerClothes(sender, 8, rand.Next(0, 99), 0);
-            API.setPlayerClothes(sender, 9, rand.Next(0, 99), 0);
-            API.setPlayerClothes(sender, 11, rand.Next(0, 99), 0);
+            Dictionary<string, int> clothes = new Dictionary<string, int>
+            {
+                {"face",        0},
+                {"beard",       1},
+                {"hair",        2},
+                {"shirt",       3},
+                {"pants",       4},
+                {"hands",       5},
+                {"shoes",       6},
+                {"ties",        7},
+                {"misc",        8},
+                {"missions",    9},
+                {"decals",      10},
+                {"inner",       11}
+            };
+
+            Player_LoadGear(sender, clothes);
             
             API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
         }
