@@ -66,7 +66,7 @@ public class http : Script
             var json = JObject.Parse(post_raw);
             API.sendChatMessageToAll("~g~JSON",(string)(json.SelectToken("socialclub_id")));
         }catch(Exception e){
-
+            API.sendChatMessageToAll("~r~JSON",e.ToString());
         }
 
     	if(post["socialclub_id"] == "") return "0";
