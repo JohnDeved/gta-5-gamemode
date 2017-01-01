@@ -90,7 +90,7 @@ public class http : Script
 
             if(sender == null) return;
 
-            switch(args["command"]) {
+            switch((string)args.SelectToken("command")) {
                 case "CEF_CLOSE":
                     API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
                 return;
