@@ -140,8 +140,46 @@ public class clientID : Script
         CreateTableIfNotExists();
     }
 
-    public void Player_LoadGear(Client player, Dictionary<string, int> clothes)
+    private bool Player_isRegistered(socialclub_id)
     {
+        MySqlConnection db_conn = ConnectToDatabase();
+        if (db_conn == null) return false;
+
+        string query = string.Format(@"SELECT IFNULL((SELECT 1 FROM account WHERE socialclub_id='{0}'),0)", socialclub_id);
+        string registered;
+        object result = new MySqlCommand(query, db_conn).ExecuteScalar();
+
+        if (result != DBNull.Value)
+        {
+            registered = result.ToString();
+            db_conn.Close();
+            return registered == "1";
+        }
+        else
+        {
+            return false;
+        }        
+    }
+
+    public void Player_LoadGear(Client player)
+    {
+        Dictionary<string, int> clothes = new Dictionary<string, int>
+        {
+            {"face",        23},
+            {"beard",       1},
+            {"hair",        106},
+            {"shirt",       301},
+            {"pants",       161},
+            {"hands",       2},
+            {"shoes",       189},
+            {"ties",        264},
+            {"misc",        1},
+            {"missions",    1},
+            {"decals",      1},
+            {"inner",       161}
+        };
+
+        API.setPlayerSkin(sender, (PedHash)1885233650);
         API.setPlayerClothes(player, 0, clothes["face"], 0);
         API.setPlayerClothes(player, 1, clothes["beard"], 0);
         API.setPlayerClothes(player, 2, clothes["hair"], 0);
@@ -160,27 +198,13 @@ public class clientID : Script
     {
         if (name == "SESSION_INIT")
         {
-            API.setPlayerSkin(sender, (PedHash)1885233650);
-            Random rand = new Random();
-
-            Dictionary<string, int> clothes = new Dictionary<string, int>
+            if(Player_isRegistered(sender.socialClubName))
             {
-                {"face",        23},
-                {"beard",       1},
-                {"hair",        106},
-                {"shirt",       301},
-                {"pants",       161},
-                {"hands",       2},
-                {"shoes",       189},
-                {"ties",        264},
-                {"misc",        1},
-                {"missions",    1},
-                {"decals",      1},
-                {"inner",       161}
-            };
-
-            Player_LoadGear(sender, clothes);
-            
+                Player_LoadGear(sender);
+                API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist registriert");
+            }else{
+                API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist nicht registriert");
+            }            
             API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
         }
         if (name == "SESSION_GET")
