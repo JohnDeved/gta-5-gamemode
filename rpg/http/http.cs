@@ -104,10 +104,12 @@ public class http : Script
 			    post = reader.ReadToEnd();
 			}
 
+			string responseText;
+
 			if(ctx.Request.Url.ToString() == "http://185.62.188.120:3001/VerifyUser") {
-				string responseText = VerifyUserWeb(post);		
+				responseText = VerifyUserWeb(post);		
 			}else{
-				string responseText = "asdfg";
+				responseText = "asdfg";
 				RequestReceived(post);	
 			}
 
