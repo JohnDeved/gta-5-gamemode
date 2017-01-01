@@ -1,7 +1,7 @@
 <meta>
 	<info name="RPG" author="Anton and DevSec" type="gamemode" />
 
-    <script>
+    <script type="text/javascript">
         var agim = true;
     </script>
 
