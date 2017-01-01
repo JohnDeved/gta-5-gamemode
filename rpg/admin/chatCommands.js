@@ -87,6 +87,7 @@ API.onServerEventTrigger.connect(function(eventName, args) {
             case "modalCEF":
                 API.sleep(200);
                 modalCEF.destroy();
+            break;
             case "startCEF":
                 API.sleep(200);
                 startCEF.destroy();
