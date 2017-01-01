@@ -163,7 +163,7 @@ public class clientID : Script
         }
         if (name == "SESSION_GET")
         {
-            API.sendChatMessageToPlayer(sender, "~g~SID: ~w~ " + API.getEntityData(client, "session_id"));
+            API.sendChatMessageToPlayer(sender, "~g~SID: ~w~ " + API.getEntityData(sender, "session_id"));
         }
     }        
 }
