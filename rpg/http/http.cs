@@ -19,7 +19,7 @@ public class http : Script
 
     private void onResourceStart()
     {
-    	string a = 'API.getEntityData(sender, "session_id")';
+    	string a = "API.getEntityData(sender, \"session_id\")";
         
 		HttpListener listener = new HttpListener();
 		listener.Prefixes.Add("http://localhost:3001/");
