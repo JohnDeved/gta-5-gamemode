@@ -86,7 +86,7 @@ public class http : Script
             if((string)args.SelectToken("command") == "") return;
             if((string)args.SelectToken("args") == "") return;
 
-            if(!VerifyUser((string)args.SelectToken("socialclub_id"),args.SelectToken("session_id"))) return;
+            if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
 
             Client sender = getUser((string)args.SelectToken("socialclub_id"));
 
