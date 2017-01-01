@@ -1,5 +1,3 @@
-var sessionID;
-
 API.onResourceStart.connect(function() {
     API.triggerServerEvent("SESSION_INIT")
 });
