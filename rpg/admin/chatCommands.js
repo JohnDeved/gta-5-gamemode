@@ -38,70 +38,16 @@ class WebBrowser {
 var showDebugInfo = false;
 var adminlevel = "User";
 const CEF = new WebBrowser('');
-const debugCEF_old = new WebBrowser('');
 const modalCEF = new WebBrowser('');
 const debugCEF = new WebBrowser('');
-const testCEF = new WebBrowser('');
 
 API.onChatCommand.connect(function(msg) {
     if (msg == "/modal") {
         API.triggerServerEvent("SESSION_GET","modal");
     }
 
-    if (msg == "/debugnew") {
-        API.triggerServerEvent("SESSION_GET","debugconsole");
-    }
-
-    if (msg == "/web") {
-        testCEF.show(false)
-    }
-
     if (msg == "/debug") {
-        debugCEF_old.show(true)
-
-        debugCEF_old.eval('document.write(\'\
-        <!doctype html>\
-        <html>\
-            <head>\
-                <meta charset="utf-8">\
-                <meta name="viewport" content="width=device-width, initial-scale=1">\
-\
-                <link rel="stylesheet" href="styles.css">\
-            </head>\
-            <body>\
-                <div style="text-align:center;">\
-                    <textarea id="textfield" name="Text1" cols="100" rows="20"></textarea>\
-                    <br/>\
-                    <button id="buttonClose">Konsole schließen</button>\
-                    <button id="executeLocal">JS Ausführen</button>\
-                </div>\
-            </body>\
-        </html>\
-        \');');
-
-        debugCEF_old.eval("\
-        document.getElementById('executeLocal').onclick = function () {\
-            try\
-            {\
-                resourceCall('eval',document.getElementById('textfield').value);\
-            }\
-            catch(err) {\
-                document.getElementById('executeLocal').innerHTML = err;\
-            }\
-        };\
-        document.getElementById('buttonClose').onclick = function () {\
-            try\
-            {\
-                resourceCall('debugCEF_old.destroy');\
-            }\
-            catch(err) {\
-                document.getElementById('buttonClose').innerHTML = err;\
-            }\
-        };\
-    ");
-    }
-    if (msg == "/hide") {
-        debugCEF_old.destroy()
+        API.triggerServerEvent("SESSION_GET","debugconsole");
     }
 
     if (adminlevel == "Admin") {
