@@ -142,18 +142,18 @@ public class clientID : Script
 
     public void Player_LoadGear(Client player, Dictionary<string, int> clothes)
     {
-        API.setPlayerClothes(sender, 0, clothes["face"], 0);
-        API.setPlayerClothes(sender, 1, clothes["beard"], 0);
-        API.setPlayerClothes(sender, 2, clothes["hair"], 0);
-        API.setPlayerClothes(sender, 3, clothes["shirt"], 0);
-        API.setPlayerClothes(sender, 4, clothes["pants"], 0);
-        API.setPlayerClothes(sender, 5, clothes["hands"], 0);
-        API.setPlayerClothes(sender, 6, clothes["shoes"], 0);
-        API.setPlayerClothes(sender, 7, clothes["ties"], 0);
-        API.setPlayerClothes(sender, 8, clothes["misc"], 0);
-        API.setPlayerClothes(sender, 9, clothes["missions"], 0);
-        API.setPlayerClothes(sender, 10, clothes["decals"], 0);
-        API.setPlayerClothes(sender, 11, clothes["inner"], 0);
+        API.setPlayerClothes(player, 0, clothes["face"], 0);
+        API.setPlayerClothes(player, 1, clothes["beard"], 0);
+        API.setPlayerClothes(player, 2, clothes["hair"], 0);
+        API.setPlayerClothes(player, 3, clothes["shirt"], 0);
+        API.setPlayerClothes(player, 4, clothes["pants"], 0);
+        API.setPlayerClothes(player, 5, clothes["hands"], 0);
+        API.setPlayerClothes(player, 6, clothes["shoes"], 0);
+        API.setPlayerClothes(player, 7, clothes["ties"], 0);
+        API.setPlayerClothes(player, 8, clothes["misc"], 0);
+        API.setPlayerClothes(player, 9, clothes["missions"], 0);
+        API.setPlayerClothes(player, 10, clothes["decals"], 0);
+        API.setPlayerClothes(player, 11, clothes["inner"], 0);
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
