@@ -81,10 +81,10 @@ public class http : Script
         {
             var args = JObject.Parse(args_raw);
 
-            if(!args.SelectToken("session_id")) return;
-            if(!args.SelectToken("socialclub_id")) return;
-            if(!args.SelectToken("command")) return;
-            if(!args.SelectToken("args")) return;
+            if(args.SelectToken("session_id") == "") return;
+            if(args.SelectToken("socialclub_id") == "") return;
+            if(args.SelectToken("command") == "") return;
+            if(args.SelectToken("args") == "") return;
 
             if(!VerifyUser(args.SelectToken("socialclub_id"),args.SelectToken("session_id"))) return;
 
