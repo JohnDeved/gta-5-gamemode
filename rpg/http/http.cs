@@ -61,6 +61,9 @@ public class http : Script
     		case "CEF_CLOSE":
     			API.triggerClientEvent(sender, "CEF_CLOSE", args["args"]);
     		return;
+    		case "ADMIN_EVAL":
+    			API.triggerClientEvent(sender, "ADMIN_EVAL", args["args"]);
+    		return;
     	}
     }
 
