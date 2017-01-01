@@ -47,6 +47,8 @@ public class http : Script
     	if(post["socialclub_id"] == "") return "0";
     	if(post["session_id"] == "") return "0";
 
+    	API.sendChatMessageToAll("~g~so_id",post["socialclub_id"]);
+    	API.sendChatMessageToAll("~g~se_id",post["session_id"]);
     	API.sendChatMessageToAll("~g~result",VerifyUser(post["socialclub_id"],post["session_id"]).ToString());
 
     	if(VerifyUser(post["socialclub_id"],post["session_id"])) {
