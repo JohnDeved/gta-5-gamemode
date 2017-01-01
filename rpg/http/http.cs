@@ -94,26 +94,26 @@ public class http : Script
 
             switch(args["command"]) {
                 case "CEF_CLOSE":
-                    API.triggerClientEvent(sender, "CEF_CLOSE", args.SelectToken("args"));
+                    API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
                 return;
                 case "ADMIN_EVAL":
-                    API.triggerClientEvent(sender, "ADMIN_EVAL", args.SelectToken("args"));
+                    API.triggerClientEvent(sender, "ADMIN_EVAL", (string)args.SelectToken("args"));
                 return;
                 case "ADMIN_CLOTHES":
-                    string type = args.SelectToken("args.type");
-                    string index = args.SelectToken("args.index");
+                    string type = (string)args.SelectToken("args.type");
+                    string index = (string)args.SelectToken("args.index");
 
                     int index_c = int.Parse(index);
                     int index_s = 0;
 
-                    if(args.SelectToken("args.index_s")) {
-                        index_s = args.SelectToken("args.index_s");
+                    if((string)args.SelectToken("args.index_s") != "") {
+                        index_s = (string)args.SelectToken("args.index_s");
                     }
 
                     API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
                 return;
                 case "PLAYER_DISCONNECT":
-                    API.kickPlayer(sender, args.SelectToken("args"));
+                    API.kickPlayer(sender, (string)args.SelectToken("args"));
                 return;
             }
 
