@@ -73,8 +73,6 @@ public class http : Script
 
     private void RequestReceived(string args_raw)
     {
-    	var args = HttpUtility.ParseQueryString(args_raw);
-
         API.sendChatMessageToAll("~g~Post:",args_raw);
 
         try
