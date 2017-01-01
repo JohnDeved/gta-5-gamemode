@@ -66,13 +66,11 @@ public class http : Script
             var json = JObject.Parse(post_raw);
             API.sendChatMessageToAll("~g~JSON-sid",(string)(json.SelectToken("socialclub_id")));
         }catch(Exception e){
-            API.sendChatMessageToAll("~r~JSON","Konnte Json nicht parsen: " + e.ToString());
+
         }
 
     	if(post["socialclub_id"] == "") return "0";
     	if(post["session_id"] == "") return "0";
-
-    	API.sendChatMessageToAll("~g~result",VerifyUser(post["socialclub_id"],post["session_id"]).ToString());
 
     	if(VerifyUser(post["socialclub_id"],post["session_id"])) {
     		return "1";
