@@ -41,6 +41,7 @@ public class http : Script
     }
 
     private string VerifyUserWeb(string post_raw) {
+    	API.sendChatMessageToAll("~g~Post",post_raw);
     	var post = HttpUtility.ParseQueryString(post_raw);
 
     	if(post["socialclub_id"] == "") return "0";
