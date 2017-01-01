@@ -40,6 +40,19 @@ public class http : Script
     	return null;
     }
 
+    private string VerifyUserWeb(string post_raw) {
+    	var post = HttpUtility.ParseQueryString(post_raw);
+
+    	if(args["socialclub_id"] == "") return "0";
+    	if(args["session_id"] == "") return "0";
+
+    	if(VerifyUser(args["socialclub_id"],args["session_id"])) {
+    		return "1";
+    	} else {
+    		return "0";
+    	}
+    }
+
     private void RequestReceived(string args_raw)
     {
     	var args = HttpUtility.ParseQueryString(args_raw);
@@ -83,24 +96,27 @@ public class http : Script
 		while (true)
 		{
 			HttpListenerContext ctx = listener.GetContext();
-			string responseText = "asdfg";
-			byte[] buf = Encoding.UTF8.GetBytes(responseText);
 
-			ctx.Response.ContentEncoding = Encoding.UTF8;
-			ctx.Response.ContentType = "text/html";
-			ctx.Response.ContentLength64 = buf.Length;
-			
-			API.sendChatMessageToAll("~g~URL", ctx.Request.Url.ToString());
 			var request = ctx.Request;
-			string text;
-			using (var reader = new StreamReader(request.InputStream,
-			                                     request.ContentEncoding))
+			string post;
+			using (var reader = new StreamReader(request.InputStream,request.ContentEncoding))
 			{
-			    text = reader.ReadToEnd();
+			    post = reader.ReadToEnd();
 			}
 
-			RequestReceived(text);
+			if(ctx.Request.Url.ToString() == "http://185.62.188.120:3001/VerifyUser") {
+				string responseText = VerifyUserWeb(post);		
+			}else{
+				string responseText = "asdfg";
+				RequestReceived(post);	
+			}
 
+			byte[] buf = Encoding.UTF8.GetBytes(responseText);
+			ctx.Response.ContentEncoding = Encoding.UTF8;
+			ctx.Response.ContentType = "text/html";
+			ctx.Response.ContentLength64 = buf.Length;		
+			
+			API.sendChatMessageToAll("~g~URL", ctx.Request.Url.ToString());
 			ctx.Response.OutputStream.Write(buf, 0, buf.Length);
 			ctx.Response.Close();
 		}
