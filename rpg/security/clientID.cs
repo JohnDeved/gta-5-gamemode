@@ -166,7 +166,7 @@ public class clientID : Script
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return;
 
-        string query = string.Format(@"SELECT IFNULL((SELECT * FROM account WHERE socialclub_id='{0}'),0)", player.socialClubName);
+        string query = string.Format(@"SELECT * FROM account WHERE socialclub_id='{0}'", player.socialClubName);
         
         var reader = new MySqlCommand(query, db_conn).ExecuteReader();
         while(reader.Read())
