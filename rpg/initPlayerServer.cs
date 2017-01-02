@@ -13,6 +13,16 @@ public class initPlayerServer : Script
     public initPlayerServer()
     {
         API.onClientEventTrigger += onClientEventTrigger;
+        API.onChatMessage += onChatMessage;
+    }
+
+    public void OnChatMessageHandler(Client player, string message, CancelEventArgs e)
+    {
+        if (message.StartsWith("/"))
+        {
+            e.Cancel = true;
+            return;
+        }
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
