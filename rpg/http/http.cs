@@ -146,6 +146,22 @@ public class http : Script
         } 
     }
 
+    private void InsertUser(string socialclub_id,string firstname,string lastname,bool gender)
+    {
+        MySqlConnection db_conn = ConnectToDatabase();
+        if (db_conn == null) return false;
+
+        string gender_s;
+        if(gender) {
+            gender_s = "Männlich";
+        }else{
+            gender_s = "Weiblich";
+        }
+
+        string query = string.Format(@"INSERT INTO account SET socialclub_id='{0}',name='{1} {2}',gender='{3}',registered=CURRENT_TIMESTAMP,lastconnected=CURRENT_TIMESTAMP", socialclub_id,firstname,lastname,gender_s);
+        new MySqlCommand(query, db_conn).ExecuteNonQuery();
+    }
+
     private void RequestReceived(string args_raw)
     {
         API.sendChatMessageToAll("~g~Post:",args_raw);
@@ -205,6 +221,7 @@ public class http : Script
                             API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
                         }else{
                             API.sendChatMessageToPlayer(sender, "~g~Du wirst registriert, bitte warte.");
+                            InsertUser(sender.socialClubName,firstname,lastname,gender);
                         }
                     }
                 return;
