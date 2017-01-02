@@ -50,7 +50,7 @@ public partial class rpg : Script
         if(post["socialclub_id"] == "") return "0";
         if(post["session_id"] == "") return "0";
 
-        if(validateSessionID(post["socialclub_id"],post["session_id"])) {
+        if(player_isSessionIDValid(post["socialclub_id"],post["session_id"])) {
             return "1";
         } else {
             return "0";
@@ -82,7 +82,7 @@ public partial class rpg : Script
             if((string)args.SelectToken("socialclub_id") == "") return;
             if((string)args.SelectToken("command") == "") return;
 
-            if(!validateSessionID((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
+            if(!player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
 
             Client sender = getUser((string)args.SelectToken("socialclub_id"));
 

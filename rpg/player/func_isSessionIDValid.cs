@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private bool player_validateSessionID(string socialclub_id,string session_id)
+    private bool player_isSessionIDValid(string socialclub_id,string session_id)
     {
         foreach (Client player in API.getAllPlayers()) {
             if(player.socialClubName == socialclub_id) {
