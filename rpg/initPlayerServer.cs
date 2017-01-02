@@ -16,7 +16,7 @@ public class initPlayerServer : Script
         API.onChatMessage += onChatMessage;
     }
 
-    public void OnChatMessageHandler(Client player, string message, CancelEventArgs e)
+    public void onChatMessage(Client player, string message, CancelEventArgs e)
     {
         if (message.StartsWith("/"))
         {
