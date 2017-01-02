@@ -17,7 +17,7 @@ public class clientID : Script
         API.onClientEventTrigger += onClientEventTrigger;
     }
 
-    private Dictionary<string, string> config = new Dictionary<string, string>
+    public static Dictionary<string, string> config = new Dictionary<string, string>
     {
         {"db_name", "gta_server"},
         {"db_host", "localhost"},

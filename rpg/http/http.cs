@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
@@ -37,6 +38,47 @@ public class http : Script
         {"shirt", 11}
     };
 
+    private Dictionary<string, string> config = clientID.config;
+    private MySqlConnection ConnectToDatabase()
+    {
+        MySqlConnection db_conn = null;
+        try
+        {
+            db_conn = new MySqlConnection(string.Format("server={0};database={1};uid={2};password={3}",config["db_host"],config["db_name"],config["db_user"],config["db_password"]));
+            db_conn.Open();
+        }
+        catch (ArgumentException a_ex)
+        {
+            return null;
+        }
+        catch (MySqlException ex)
+        {
+            return null;
+        }
+        return db_conn;
+    }
+
+    private bool Player_isRegistered(string socialclub_id)
+    {
+        MySqlConnection db_conn = ConnectToDatabase();
+        if (db_conn == null) return false;
+
+        string query = string.Format(@"SELECT IFNULL((SELECT 1 FROM account WHERE socialclub_id='{0}'),0)", socialclub_id);
+        string registered;
+        object result = new MySqlCommand(query, db_conn).ExecuteScalar();
+
+        if (result != DBNull.Value)
+        {
+            registered = result.ToString();
+            db_conn.Close();
+            return registered == "1";
+        }
+        else
+        {
+            return false;
+        }        
+    }
+
     private bool VerifyUser(string socialclub_id,string session_id)
     {
         foreach (Client player in API.getAllPlayers()) {
@@ -69,6 +111,19 @@ public class http : Script
         } else {
             return "0";
         }
+    }
+
+    private bool VerifyNameString(string name) {
+        Regex namestring = new Regex("-?[A-zÄäÜüÖöß]{3,15}(.[A-zÄäÜüÖöß]+)?");
+        Match namematch = namestring.Match(name);
+        int matches = 0;
+        while (namematch.Success)
+        {
+            namematch = namematch.NextMatch();
+            matches++;
+        }
+
+        return(matches == 1);
     }
 
     private void RequestReceived(string args_raw)
@@ -109,6 +164,19 @@ public class http : Script
                     }
 
                     API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
+                return;
+                case "REGISTER":
+                    if(Player_isRegistered(sender.socialClubName)) return;
+
+                    string firstname = (string)args.SelectToken("args.firstname");                    
+                    string firstname = (string)args.SelectToken("args.lastname");                    
+                    bool gender = (bool)args.SelectToken("args.gender");
+
+                    if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
+                        API.sendChatMessageToAll("~r~Einbürgerung","Einbürgerungsdaten ungültig");
+                    }else{
+                        API.sendChatMessageToAll("~g~Einbürgerung","Einbürgerungsdaten gültig");
+                   }
                 return;
                 case "PLAYER_DISCONNECT":
                     API.kickPlayer(sender, (string)args.SelectToken("args"));
