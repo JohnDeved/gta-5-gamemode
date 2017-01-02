@@ -222,6 +222,8 @@ public class http : Script
                         }else{
                             API.sendChatMessageToPlayer(sender, "~g~Du wirst registriert, bitte warte.");
                             InsertUser(sender.socialClubName,firstname,lastname,gender);
+                            API.triggerClientEvent(sender, "CEF_CLOSE", "startCEF");
+                            API.triggerClientEvent(sender, "ADMIN_EVAL", "API.triggerServerEvent(\"SESSION_INIT\")");
                         }
                     }
                 return;
