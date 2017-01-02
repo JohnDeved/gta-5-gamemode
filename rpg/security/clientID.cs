@@ -178,7 +178,7 @@ public class clientID : Script
 
             string socialclub_id = (string)reader["socialclub_id"];
             string name = (string)reader["name"];
-            short gender = (short)reader["gender"];
+            byte gender = (byte)reader["gender"];
 
             API.setEntitySyncedData(player, "name", name);
             API.setEntitySyncedData(player, "gender", gender);
