@@ -13,7 +13,6 @@ public class initPlayerServer : Script
     public initPlayerServer()
     {
         API.onClientEventTrigger += onClientEventTrigger;
-        API.onChatCommand = -= API.onChatCommand[0];
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
