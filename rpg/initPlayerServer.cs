@@ -10,7 +10,7 @@ using System.Threading;
 
 public partial class rpg : Script
 {
-    public rpg()
+    public partial rpg()
     {
         API.onClientEventTrigger += onClientEventTrigger;
     }

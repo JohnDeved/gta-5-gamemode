@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    public rpg()
+    public partial rpg()
     {
         API.onResourceStart += onResourceStart;
     }
