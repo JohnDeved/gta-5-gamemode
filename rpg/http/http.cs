@@ -151,11 +151,11 @@ public class http : Script
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return;
 
-        string gender_s;
+        int gender_s;
         if(gender) {
-            gender_s = "Männlich";
+            gender_s = 1;
         }else{
-            gender_s = "Weiblich";
+            gender_s = 0;
         }
 
         string query = string.Format(@"INSERT INTO account SET socialclub_id='{0}',name='{1} {2}',gender='{3}',registered=CURRENT_TIMESTAMP,lastconnected=CURRENT_TIMESTAMP", socialclub_id,firstname,lastname,gender_s);

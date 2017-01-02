@@ -161,8 +161,31 @@ public class clientID : Script
         }        
     }
 
-    public void Player_LoadGear(Client player)
+    private void InitPlayer(Client player)
     {
+        MySqlConnection db_conn = ConnectToDatabase();
+        if (db_conn == null) return;
+
+        string query = string.Format(@"SELECT IFNULL((SELECT * FROM account WHERE socialclub_id='{0}'),0)", player.socialClubName);
+        
+        var reader = new MySqlCommand(query, db_conn).ExecuteReader();
+        while(reader.Read())
+        {
+            if(reader["socialclub_id"] == DBNull.Value) {
+                API.kickPlayer(player, "Fehler beim Initialisieren: 0x01");
+                return;
+            };
+
+            string socialclub_id = (string)reader["socialclub_id"];
+            string name = (string)reader["name"];
+            short gender = (short)reader["gender"];
+
+            API.setEntitySyncedData(sender, "name", name);
+            API.setEntitySyncedData(sender, "gender", gender);
+
+            Console.WriteLine("Name: {0} ; Gender: {1}",name,gender);
+        }
+
         Dictionary<string, int> clothes = new Dictionary<string, int>
         {
             {"face",        23},
@@ -202,7 +225,7 @@ public class clientID : Script
 
             if(Player_isRegistered(sender.socialClubName))
             {
-                Player_LoadGear(sender);
+                InitPlayer(sender);
                 API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist registriert");
                 API.triggerClientEvent(sender, "SESSION_SEND", "modal", sender.socialClubName, API.getEntityData(sender, "session_id"));
             }else{
