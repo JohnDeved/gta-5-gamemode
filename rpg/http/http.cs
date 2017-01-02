@@ -134,16 +134,31 @@ public class http : Script
         {
             var args = JObject.Parse(args_raw);
 
-            if((string)args.SelectToken("session_id") == "") return;
-            if((string)args.SelectToken("socialclub_id") == "") return;
-            if((string)args.SelectToken("command") == "") return;
-            if((string)args.SelectToken("args") == "" && (string)args.SelectToken("args.vorname") == "" && (string)args.SelectToken("args.type") == "") return;
+            if((string)args.SelectToken("session_id") == "") {
+                API.sendChatMessageToAll("~r~Cancel:","1");
+                return;
+            }
+            if((string)args.SelectToken("socialclub_id") == "") {
+                API.sendChatMessageToAll("~r~Cancel:","2");
+                return;
+            }
+            if((string)args.SelectToken("command") == "") {
+                API.sendChatMessageToAll("~r~Cancel:","3");
+                return;
+            }
+            if((string)args.SelectToken("args") == "" && (string)args.SelectToken("args.vorname") == "" && (string)args.SelectToken("args.type") == "") {
+                API.sendChatMessageToAll("~r~Cancel:","4");
+                return;
+            }
 
             if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
 
             Client sender = getUser((string)args.SelectToken("socialclub_id"));
 
-            if(sender == null) return;
+            if(sender == null) {
+                API.sendChatMessageToAll("~r~Cancel:","5");
+                return;
+            }
 
             switch((string)args.SelectToken("command")) {
                 case "CEF_CLOSE":
@@ -166,7 +181,10 @@ public class http : Script
                     API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
                 return;
                 case "REGISTER":
-                    if(Player_isRegistered(sender.socialClubName)) return;
+                    if(Player_isRegistered(sender.socialClubName)) {
+                        API.sendChatMessageToAll("~r~Cancel:","6");
+                        return;
+                    }
 
                     string firstname = (string)args.SelectToken("args.vorname");                    
                     string lastname = (string)args.SelectToken("args.nachname");                    
