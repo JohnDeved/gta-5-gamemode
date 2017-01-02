@@ -1,25 +1,26 @@
 <meta>
-	<info name="RPG" author="Anton and DevSec" type="gamemode" />
+	<info name="RPG" author="Anton and DevSec" type="gamemode"/>
 
                             <!--| SERVER-RESOURCEN |-->
 
 
     <!--| Assemblys  |-->
-    <assembly   ref="MySql.Data.dll" />
-    <assembly   ref="System.Data.dll" />
-    <assembly   ref="System.Web.dll" />
-    <assembly   ref="Newtonsoft.Json.dll" />   
+    <assembly   ref="MySql.Data.dll"/>
+    <assembly   ref="System.Data.dll"/>
+    <assembly   ref="System.Web.dll"/>
+    <assembly   ref="Newtonsoft.Json.dll"/>   
     <!--| Funktionen |-->
-    <script     src="player\func_isPlayerRegistered.cs" type="server" lang="csharp" />
+    <script     src="player\func_isPlayerRegistered.cs" type="server" lang="csharp"/>
+    <script     src="player\func_validateSessionID.cs"  type="server" lang="csharp"/>
     <!--| Classes    |-->
-    <script     src="server.cs" type="server" lang="csharp" />
-    <script     src="mysql\mysql.cs" type="server" lang="csharp" />
-    <script     src="security\clientID.cs" type="server" lang="csharp" />
-    <script     src="http\http.cs" type="server" lang="csharp" />
+    <script     src="server.cs" type="server" lang="csharp"/>
+    <script     src="mysql\mysql.cs" type="server" lang="csharp"/>
+    <script     src="security\clientID.cs" type="server" lang="csharp"/>
+    <script     src="http\http.cs" type="server" lang="csharp"/>
     <!--| Variables  |-->
 
 
                             <!--| CLIENT-RESOURCEN |-->
-    <script     src="admin\chatCommands.js" type="client" lang="javascript" />
-    <script     src="security\clientID.js" type="client" lang="javascript" />
+    <script     src="admin\chatCommands.js" type="client" lang="javascript"/>
+    <script     src="security\clientID.js" type="client" lang="javascript"/>
 </meta>

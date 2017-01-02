@@ -33,16 +33,6 @@ public partial class rpg : Script
         {"shirt", 11}
     };
 
-    private bool VerifyUser(string socialclub_id,string session_id)
-    {
-        foreach (Client player in API.getAllPlayers()) {
-            if(player.socialClubName == socialclub_id) {
-                return(API.getEntityData(player, "session_id") == session_id);
-            }
-        }
-        return false;
-    }
-
     private Client getUser(string socialclub_id)
     {
         foreach (Client player in API.getAllPlayers()) {
@@ -60,7 +50,7 @@ public partial class rpg : Script
         if(post["socialclub_id"] == "") return "0";
         if(post["session_id"] == "") return "0";
 
-        if(VerifyUser(post["socialclub_id"],post["session_id"])) {
+        if(validateSessionID(post["socialclub_id"],post["session_id"])) {
             return "1";
         } else {
             return "0";
@@ -128,7 +118,7 @@ public partial class rpg : Script
             if((string)args.SelectToken("socialclub_id") == "") return;
             if((string)args.SelectToken("command") == "") return;
 
-            if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
+            if(!validateSessionID((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
 
             Client sender = getUser((string)args.SelectToken("socialclub_id"));
 
