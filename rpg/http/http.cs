@@ -126,6 +126,26 @@ public class http : Script
         return(matches == 1);
     }
 
+    private bool NameInUse(string firstname, string lastname) {
+        MySqlConnection db_conn = ConnectToDatabase();
+        if (db_conn == null) return false;
+
+        string query = string.Format(@"SELECT IFNULL((SELECT 1 FROM account WHERE name='{0}'),0)", firstname + " " + lastname);
+        string inuse;
+        object result = new MySqlCommand(query, db_conn).ExecuteScalar();
+
+        if (result != DBNull.Value)
+        {
+            inuse = result.ToString();
+            db_conn.Close();
+            return inuse == "1";
+        }
+        else
+        {
+            return false;
+        } 
+    }
+
     private void RequestReceived(string args_raw)
     {
         API.sendChatMessageToAll("~g~Post:",args_raw);
@@ -175,10 +195,16 @@ public class http : Script
                     bool gender = (bool)args.SelectToken("args.gender");
 
                     if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
-                        API.sendChatMessageToAll("~r~Einbürgerung","Einbürgerungsdaten ungültig");
+                        API.sendChatMessageToPlayer(sender, "~r~Der angegebene Name entspricht nicht den Anforderungen.");
                     }else{
-                        API.sendChatMessageToAll("~g~Einbürgerung","Einbürgerungsdaten gültig");
-                   }
+                        if(NameInUse(firstname,lastname)) {
+                            API.sendChatMessageToPlayer(sender, "~r~Der angegebene Name ist leider schon vergeben.");
+                            API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
+                            API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
+                        }else{
+                            API.sendChatMessageToPlayer(sender, "~g~Du wirst registriert, bitte warte.");
+                        }
+                    }
                 return;
                 case "PLAYER_DISCONNECT":
                     API.kickPlayer(sender, (string)args.SelectToken("args"));
