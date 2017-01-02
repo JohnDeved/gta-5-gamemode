@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private bool player_register(Client player, string firstname, string lastname, bool gender)
+    private void player_register(Client player, string firstname, string lastname, bool gender)
     {
        if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
             API.sendChatMessageToPlayer(player, "~r~Der angegebene Name entspricht nicht den Anforderungen.");
