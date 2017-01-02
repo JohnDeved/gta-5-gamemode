@@ -1,3 +1,11 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using GTANetworkServer;
+using GTANetworkShared;
+
 public partial class rpg : Script
 {
     private bool Player_isRegistered(Client player)
