@@ -202,6 +202,7 @@ public class http : Script
             }
 
         }catch(Exception e){
+            API.sendChatMessageToAll("~r~ERROR:",e.ToString());
             return;
         }
     }
