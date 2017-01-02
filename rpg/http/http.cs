@@ -155,7 +155,7 @@ public partial class rpg : Script
                     API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
                 return;
                 case "REGISTER":
-                    if(Player_isRegistered(sender.socialClubName)) {
+                    if(Player_isRegistered(sender)) {
                         API.sendChatMessageToAll("~r~Cancel:","6");
                         return;
                     }
