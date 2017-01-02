@@ -215,7 +215,8 @@ public partial class rpg : Script
 
     private void onResourceStart()
     {
-        string a = "API.getEntityData(sender, \"session_id\")";
+        DropTableIfNotExists();
+        CreateTableIfNotExists();
         
         HttpListener listener = new HttpListener();
         listener.Prefixes.Add("http://185.62.188.120:3001/");

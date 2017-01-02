@@ -17,16 +17,4 @@ public partial class rpg : Script
         API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
     }
-
-    public void onClientEventTrigger(Client sender, string name, object[] args)
-    {
-        if (name == "ADMIN_VERIFY")
-        {
-            if (Array.IndexOf(new string[] {"Admin"}, API.getPlayerAclGroup(sender)) > -1)
-            {
-                API.sendChatMessageToPlayer(sender, "Sende Admin-Level-Verification");
-                API.triggerClientEvent(sender, "ADMIN_VERIFY", API.getPlayerAclGroup(sender));
-            }
-        }
-    }    
 }
