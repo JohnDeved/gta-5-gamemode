@@ -196,12 +196,12 @@ public class http : Script
 
                     if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
                         API.sendChatMessageToPlayer(sender, "~r~Der angegebene Name entspricht nicht den Anforderungen.");
-                        API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
+                        API.triggerClientEvent(sender, "CEF_CLOSE", "startCEF");
                         API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
                     }else{
                         if(NameInUse(firstname,lastname)) {
                             API.sendChatMessageToPlayer(sender, "~r~Der angegebene Name ist leider schon vergeben.");
-                            API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
+                            API.triggerClientEvent(sender, "CEF_CLOSE", "startCEF");
                             API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
                         }else{
                             API.sendChatMessageToPlayer(sender, "~g~Du wirst registriert, bitte warte.");
