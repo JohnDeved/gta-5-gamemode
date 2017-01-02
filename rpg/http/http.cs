@@ -146,9 +146,17 @@ public class http : Script
                 API.sendChatMessageToAll("~r~Cancel:","3");
                 return;
             }
-            if((string)args.SelectToken("args") == "" && (string)args.SelectToken("args.vorname") == "" && (string)args.SelectToken("args.type") == "") {
-                API.sendChatMessageToAll("~r~Cancel:","4");
-                return;
+
+            if(typeof(args.SelectToken("args")) == typeof(args)) {
+                if((string)args.SelectToken("args.vorname") == "" || (string)args.SelectToken("args.type") == "") {
+                    API.sendChatMessageToAll("~r~Cancel:","4");
+                    return;  
+                }
+            }else{
+                if((string)args.SelectToken("args") == "") {
+                    API.sendChatMessageToAll("~r~Cancel:","4.1");
+                    return;
+                }
             }
 
             if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
