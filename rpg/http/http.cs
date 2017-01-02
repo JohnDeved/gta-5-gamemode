@@ -168,8 +168,8 @@ public class http : Script
                 case "REGISTER":
                     if(Player_isRegistered(sender.socialClubName)) return;
 
-                    string firstname = (string)args.SelectToken("args.firstname");                    
-                    string firstname = (string)args.SelectToken("args.lastname");                    
+                    string firstname = (string)args.SelectToken("args.vorname");                    
+                    string lastname = (string)args.SelectToken("args.nachname");                    
                     bool gender = (bool)args.SelectToken("args.gender");
 
                     if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
