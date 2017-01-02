@@ -134,39 +134,15 @@ public class http : Script
         {
             var args = JObject.Parse(args_raw);
 
-            if((string)args.SelectToken("session_id") == "") {
-                API.sendChatMessageToAll("~r~Cancel:","1");
-                return;
-            }
-            if((string)args.SelectToken("socialclub_id") == "") {
-                API.sendChatMessageToAll("~r~Cancel:","2");
-                return;
-            }
-            if((string)args.SelectToken("command") == "") {
-                API.sendChatMessageToAll("~r~Cancel:","3");
-                return;
-            }
-
-            if(typeof(args.SelectToken("args")) == typeof(args)) {
-                if((string)args.SelectToken("args.vorname") == "" || (string)args.SelectToken("args.type") == "") {
-                    API.sendChatMessageToAll("~r~Cancel:","4");
-                    return;  
-                }
-            }else{
-                if((string)args.SelectToken("args") == "") {
-                    API.sendChatMessageToAll("~r~Cancel:","4.1");
-                    return;
-                }
-            }
+            if((string)args.SelectToken("session_id") == "") return;
+            if((string)args.SelectToken("socialclub_id") == "") return;
+            if((string)args.SelectToken("command") == "") return;
 
             if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
 
             Client sender = getUser((string)args.SelectToken("socialclub_id"));
 
-            if(sender == null) {
-                API.sendChatMessageToAll("~r~Cancel:","5");
-                return;
-            }
+            if(sender == null) return;
 
             switch((string)args.SelectToken("command")) {
                 case "CEF_CLOSE":
