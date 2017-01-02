@@ -176,9 +176,9 @@ public class clientID : Script
                 return;
             };
 
-            string socialclub_id = (string)reader["socialclub_id"];
-            string name = (string)reader["name"];
-            byte gender = (byte)reader["gender"];
+            var socialclub_id = reader["socialclub_id"];
+            var name = reader["name"];
+            var gender = reader["gender"];
 
             API.setEntitySyncedData(player, "name", name);
             API.setEntitySyncedData(player, "gender", gender);
