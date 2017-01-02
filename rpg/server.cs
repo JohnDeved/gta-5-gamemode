@@ -14,7 +14,6 @@ public partial class rpg : Script
     {
         API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
-        API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
     }
 }
