@@ -222,7 +222,7 @@ public partial class rpg : Script
         listener.Prefixes.Add("http://185.62.188.120:3001/");
         listener.Start();
 
-        clientID._random.Next(0,3);
+        _random.Next(0,3);
 
         while (true)
         {

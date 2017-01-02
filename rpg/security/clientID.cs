@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 public partial class rpg : Script
 {
-    public static Dictionary<string, string> config = new Dictionary<string, string>
+    private Dictionary<string, string> config = new Dictionary<string, string>
     {
         {"db_name", "gta_server"},
         {"db_host", "localhost"},
@@ -20,7 +20,7 @@ public partial class rpg : Script
         {"db_password", "EKbYU6DJNVEwpDTJNFwV3jiG3"},
         {"cid_length", "25"}
     };
-    public static Random _random = new Random();
+    private Random _random = new Random();
 
     private bool CreateTableIfNotExists()
     {
