@@ -180,8 +180,8 @@ public class clientID : Script
             string name = (string)reader["name"];
             short gender = (short)reader["gender"];
 
-            API.setEntitySyncedData(sender, "name", name);
-            API.setEntitySyncedData(sender, "gender", gender);
+            API.setEntitySyncedData(player, "name", name);
+            API.setEntitySyncedData(player, "gender", gender);
 
             Console.WriteLine("Name: {0} ; Gender: {1}",name,gender);
         }
