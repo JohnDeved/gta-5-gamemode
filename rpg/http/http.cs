@@ -149,7 +149,7 @@ public class http : Script
     private void InsertUser(string socialclub_id,string firstname,string lastname,bool gender)
     {
         MySqlConnection db_conn = ConnectToDatabase();
-        if (db_conn == null) return false;
+        if (db_conn == null) return;
 
         string gender_s;
         if(gender) {
