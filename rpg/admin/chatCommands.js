@@ -66,10 +66,10 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
     if (eventName == "SESSION_SEND") {
         if(args[0] == "debug") {
-            debugCEF.show(false, "http://185.62.188.120:3000/debug/"+args[1]+"/"+ args[2]);
+            debugCEF.show(false, "http://185.62.188.120:3000/debug/"+args[1]+"/"+ args[2])
         }
         if(args[0] == "modal") {
-            modalCEF.show(false, "http://185.62.188.120:3000/modal/"+args[1]+"/"+ args[2])
+            modalCEF.show(false, "http://185.62.188.120:3000/modal/"+args[1]+"/"+ args[2] + "/Testserver/Der Server ist in Moment in Entwicklung*Nur Entwickler sind online, es gibt noch nichts zu sehen.*Willst du fortfahren?")
         }
         if(args[0] == "start") {
             startCEF.show(false, "http://185.62.188.120:3000/start/"+args[1]+"/"+ args[2])
