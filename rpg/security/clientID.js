@@ -1,5 +1,6 @@
 API.onResourceStart.connect(function() {
     API.triggerServerEvent("SESSION_INIT")
+	API.triggerServerEvent("ADMIN_VERIFY")       
 });
 
 API.onServerEventTrigger.connect(function(eventName, args) {

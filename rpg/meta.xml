@@ -8,7 +8,6 @@
 	
     <script src="admin\chatCommands.js" type="client" lang="javascript" />
     <script src="security\clientID.js" type="client" lang="javascript" />
-    <script src="initPlayerLocal.js" type="client" lang="javascript" />
 
     <assembly ref="MySql.Data.dll" />
     <assembly ref="System.Data.dll" />
