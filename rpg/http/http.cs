@@ -213,18 +213,13 @@ public partial class rpg : Script
         }
     }
 
-    private void onResourceStart()
+    private void HttpListener_Thread()
     {
-        DropTableIfNotExists();
-        CreateTableIfNotExists();
-        
         HttpListener listener = new HttpListener();
         listener.Prefixes.Add("http://185.62.188.120:3001/");
         listener.Start();
 
-        _random.Next(0,3);
-
-        while (false)
+        while (true)
         {
             HttpListenerContext ctx = listener.GetContext();
 
@@ -253,5 +248,13 @@ public partial class rpg : Script
             ctx.Response.OutputStream.Write(buf, 0, buf.Length);
             ctx.Response.Close();
         }
+    }
+
+    private void onResourceStart()
+    {
+        DropTableIfNotExists();
+        CreateTableIfNotExists();
+
+        new Thread(new ThreadStart(HttpListener_Thread)).Start();  
     }   
 }
