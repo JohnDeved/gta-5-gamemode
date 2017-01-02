@@ -10,7 +10,9 @@
     <assembly   ref="System.Web.dll"/>
     <assembly   ref="Newtonsoft.Json.dll"/>   
     <!--| Funktionen |-->
-    <script     src="player\func_isPlayerRegistered.cs" type="server" lang="csharp"/>
+    <script     src="player\func_isNameInUse.cs"        type="server" lang="csharp"/>
+    <script     src="player\func_isRegistered.cs"       type="server" lang="csharp"/>
+    <script     src="player\func_register.cs"           type="server" lang="csharp"/>
     <script     src="player\func_validateSessionID.cs"  type="server" lang="csharp"/>
     <!--| Classes    |-->
     <script     src="server.cs" type="server" lang="csharp"/>

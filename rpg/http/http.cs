@@ -70,42 +70,6 @@ public partial class rpg : Script
         return(matches == 1);
     }
 
-    private bool NameInUse(string firstname, string lastname) {
-        MySqlConnection db_conn = ConnectToDatabase();
-        if (db_conn == null) return false;
-
-        string query = string.Format(@"SELECT IFNULL((SELECT 1 FROM account WHERE name='{0}'),0)", firstname + " " + lastname);
-        string inuse;
-        object result = new MySqlCommand(query, db_conn).ExecuteScalar();
-
-        if (result != DBNull.Value)
-        {
-            inuse = result.ToString();
-            db_conn.Close();
-            return inuse == "1";
-        }
-        else
-        {
-            return false;
-        } 
-    }
-
-    private void InsertUser(string socialclub_id,string firstname,string lastname,bool gender)
-    {
-        MySqlConnection db_conn = ConnectToDatabase();
-        if (db_conn == null) return;
-
-        int gender_s;
-        if(gender) {
-            gender_s = 1;
-        }else{
-            gender_s = 0;
-        }
-
-        string query = string.Format(@"INSERT INTO account SET socialclub_id='{0}',name='{1} {2}',gender='{3}',registered=CURRENT_TIMESTAMP,lastconnected=CURRENT_TIMESTAMP", socialclub_id,firstname,lastname,gender_s);
-        new MySqlCommand(query, db_conn).ExecuteNonQuery();
-    }
-
     private void RequestReceived(string args_raw)
     {
         API.sendChatMessageToAll("~g~Post:",args_raw);
@@ -145,7 +109,7 @@ public partial class rpg : Script
                     API.setPlayerClothes(sender, ClothingParts[type], index_c, index_s);
                 return;
                 case "REGISTER":
-                    if(Player_isRegistered(sender)) {
+                    if(player_isRegistered(sender)) {
                         API.sendChatMessageToAll("~r~Cancel:","6");
                         return;
                     }
@@ -154,22 +118,7 @@ public partial class rpg : Script
                     string lastname = (string)args.SelectToken("args.nachname");                    
                     bool gender = (bool)args.SelectToken("args.gender");
 
-                    if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
-                        API.sendChatMessageToPlayer(sender, "~r~Der angegebene Name entspricht nicht den Anforderungen.");
-                        API.triggerClientEvent(sender, "CEF_CLOSE", "startCEF");
-                        API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
-                    }else{
-                        if(NameInUse(firstname,lastname)) {
-                            API.sendChatMessageToPlayer(sender, "~r~Der angegebene Name ist leider schon vergeben.");
-                            API.triggerClientEvent(sender, "CEF_CLOSE", "startCEF");
-                            API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
-                        }else{
-                            API.sendChatMessageToPlayer(sender, "~g~Du wirst registriert, bitte warte.");
-                            InsertUser(sender.socialClubName,firstname,lastname,gender);
-                            API.triggerClientEvent(sender, "CEF_CLOSE", "startCEF");
-                            API.triggerClientEvent(sender, "ADMIN_EVAL", "API.triggerServerEvent(\"SESSION_INIT\")");
-                        }
-                    }
+                    player_register(sender,firstname,lastname,gender);
                 return;
                 case "PLAYER_DISCONNECT":
                     API.kickPlayer(sender, (string)args.SelectToken("args"));

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private bool Player_isRegistered(Client player)
+    private bool player_isRegistered(Client player)
     {
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return false;

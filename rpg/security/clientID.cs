@@ -172,7 +172,7 @@ public partial class rpg : Script
         {
             API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
 
-            if(Player_isRegistered(sender))
+            if(player_isRegistered(sender))
             {
                 InitPlayer(sender);
                 API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist registriert");
