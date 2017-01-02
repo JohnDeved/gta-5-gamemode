@@ -184,6 +184,7 @@ public class clientID : Script
             API.setEntitySyncedData(player, "gender", gender);
 
             Console.WriteLine("Name: {0} ; Gender: {1}",name,gender);
+            break;
         }
 
         Dictionary<string, int> clothes = new Dictionary<string, int>
