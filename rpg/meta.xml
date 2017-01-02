@@ -1,9 +1,7 @@
 <meta>
 	<info name="RPG" author="Anton and DevSec" type="gamemode" />
 
-    <!-- ---------------------------------------------------------
-                        SERVER-RESOURCEN
-    ---------------------------------------------------------- -->
+                            <!--| SERVER-RESOURCEN |-->
 
 
     <!--| Assemblys  |-->
@@ -21,9 +19,7 @@
     <!--| Variables  |-->
 
 
-    <!-- ---------------------------------------------------------
-                        CLIENT-RESOURCEN
-    ---------------------------------------------------------- -->
+                            <!--| CLIENT-RESOURCEN |-->
     <script     src="admin\chatCommands.js" type="client" lang="javascript" />
     <script     src="security\clientID.js" type="client" lang="javascript" />
 </meta>
