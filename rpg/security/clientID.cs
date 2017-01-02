@@ -9,7 +9,7 @@ using System.Threading;
 using MySql.Data.MySqlClient;
 
 
-public class clientID : Script
+public partial class rpg : Script
 {
     public clientID()
     {

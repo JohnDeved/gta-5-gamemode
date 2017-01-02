@@ -15,7 +15,7 @@ using GTANetworkShared;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 
-public class http : Script
+public partial class rpg : Script
 {
     public http()
     {

@@ -8,7 +8,7 @@ using GTANetworkServer;
 using GTANetworkShared;
 using System.Threading;
 
-public class initPlayerServer : Script
+public partial class rpg : Script
 {
     public initPlayerServer()
     {
