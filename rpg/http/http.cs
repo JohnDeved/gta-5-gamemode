@@ -33,26 +33,6 @@ public partial class rpg : Script
         {"shirt", 11}
     };
 
-    private Dictionary<string, string> config = clientID.config;
-    private MySqlConnection ConnectToDatabase()
-    {
-        MySqlConnection db_conn = null;
-        try
-        {
-            db_conn = new MySqlConnection(string.Format("server={0};database={1};uid={2};password={3}",config["db_host"],config["db_name"],config["db_user"],config["db_password"]));
-            db_conn.Open();
-        }
-        catch (ArgumentException a_ex)
-        {
-            return null;
-        }
-        catch (MySqlException ex)
-        {
-            return null;
-        }
-        return db_conn;
-    }
-
     private bool Player_isRegistered(string socialclub_id)
     {
         MySqlConnection db_conn = ConnectToDatabase();

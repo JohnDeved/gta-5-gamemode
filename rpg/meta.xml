@@ -1,14 +1,13 @@
 <meta>
 	<info name="RPG" author="Anton and DevSec" type="gamemode" />
 
-    <script src="security\clientID.cs" type="server" lang="csharp" />
-    <script src="security\clientID.js" type="client" lang="javascript" />
-
-    <script src="http\http.cs" type="server" lang="csharp" />
-
-	<script src="admin\chatCommands.js" type="client" lang="javascript" />
-	
     <script src="server.cs" type="server" lang="csharp" />
+    <script src="mysql\mysql.cs" type="server" lang="csharp" />
+    <script src="security\clientID.cs" type="server" lang="csharp" />
+    <script src="http\http.cs" type="server" lang="csharp" />
+	
+    <script src="admin\chatCommands.js" type="client" lang="javascript" />
+    <script src="security\clientID.js" type="client" lang="javascript" />
     <script src="initPlayerLocal.js" type="client" lang="javascript" />
 
     <assembly ref="MySql.Data.dll" />
