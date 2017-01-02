@@ -137,7 +137,7 @@ public class http : Script
             if((string)args.SelectToken("session_id") == "") return;
             if((string)args.SelectToken("socialclub_id") == "") return;
             if((string)args.SelectToken("command") == "") return;
-            if((string)args.SelectToken("args") == "") return;
+            if((string)args.SelectToken("args") == "" && (string)args.SelectToken("args.vorname") == "" && (string)args.SelectToken("args.type") == "") return;
 
             if(!VerifyUser((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) return;
 
