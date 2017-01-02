@@ -11,12 +11,6 @@ using MySql.Data.MySqlClient;
 
 public partial class rpg : Script
 {
-    public partial rpg()
-    {
-        API.onResourceStart += onResourceStart;
-        API.onClientEventTrigger += onClientEventTrigger;
-    }
-
     public static Dictionary<string, string> config = new Dictionary<string, string>
     {
         {"db_name", "gta_server"},

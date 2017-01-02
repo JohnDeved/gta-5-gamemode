@@ -17,11 +17,6 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    public partial rpg()
-    {
-        API.onResourceStart += onResourceStart;
-    }
-
     public Dictionary<string, int> ClothingParts = new Dictionary<string, int>
     {
         {"face", 0},
