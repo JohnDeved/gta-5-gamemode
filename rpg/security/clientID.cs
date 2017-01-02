@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 public partial class rpg : Script
 {
-    public clientID()
+    public rpg()
     {
         API.onResourceStart += onResourceStart;
         API.onClientEventTrigger += onClientEventTrigger;
