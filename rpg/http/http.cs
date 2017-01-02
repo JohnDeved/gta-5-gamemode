@@ -224,7 +224,7 @@ public partial class rpg : Script
 
         _random.Next(0,3);
 
-        while (true)
+        while (false)
         {
             HttpListenerContext ctx = listener.GetContext();
 
