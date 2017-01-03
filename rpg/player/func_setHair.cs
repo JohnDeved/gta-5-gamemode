@@ -25,5 +25,6 @@ public partial class rpg : Script
     	}
 
     	API.setPlayerClothes(player, 2, misc_getClothesIndex(type,hair), texture);
+        API.setEntitySyncedData(player, "hair", hair);
     }
 }
