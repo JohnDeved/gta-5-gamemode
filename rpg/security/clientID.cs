@@ -155,7 +155,7 @@ public partial class rpg : Script
         int[] shirt_t = misc_getClothesTextures("m_glasses",shirt);
         int[] shoes_t = misc_getClothesTextures("m_glasses",shoes);
 
-        player_setGlasses(player, glasses, glasses_t[c_rdm.Next(0,glasses_t.Length)]);
+        player_setGlasses(player, glasses, glasses_t[c_rdm.Next(0,glasses_t.Length));
         player_setHair(player, hair, hair_t[c_rdm.Next(0,hair_t.Length));
         player_setHeadGear(player, headgear, headgear_t[c_rdm.Next(0,headgear_t.Length));
         player_setMasc(player, masc, masc_t[c_rdm.Next(0,masc_t.Length));
