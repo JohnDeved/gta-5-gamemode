@@ -27,5 +27,6 @@ public partial class rpg : Script
     	API.setPlayerClothes(player, 11, misc_getClothesIndex(type,shirt), texture);
     	API.setPlayerClothes(player, 8, misc_getClothesProperty(type,shirt,"inner"), 0);
     	API.setPlayerClothes(player, 3, misc_getClothesProperty(type,shirt,"arms"), 0);
+        API.setEntitySyncedData(player, "shirt", shirt);
     }
 }
