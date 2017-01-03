@@ -30,5 +30,6 @@ public partial class rpg : Script
 
     	API.setPlayerAccessory(player, 1, misc_getClothesIndex(type,glasses), texture);
         API.setEntitySyncedData(player, "glasses", glasses);
+        API.setEntitySyncedData(player, "glasses_t", texture);
     }
 }
