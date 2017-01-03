@@ -19,19 +19,12 @@ public partial class rpg : Script
 {
     private int misc_getClothesIndex(string type, string classname)
     {
-        switch(type) {
-            case"m_headgear":
-                foreach (string Line in File.ReadAllLines(@"resources\rpg\player\clothes\m_headgear.json")) {
-                    var jObj = JObject.Parse(Line);
-                    if((string)jObj.SelectToken("class") == classname) {
-                        return((int)(decimal)jObj.SelectToken("index"));
-                    };
-                }
-                return -1;
-            break;
-            default:
-                return -1;
-            break;
+        foreach (string Line in File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json",type))) {
+            var jObj = JObject.Parse(Line);
+            if((string)jObj.SelectToken("class") == classname) {
+                return((int)(decimal)jObj.SelectToken("index"));
+            };
         }
+        return -1;
     }
 }
