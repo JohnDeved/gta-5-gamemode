@@ -22,6 +22,7 @@
     <script     src="player\func_setShirt.cs"           type="server" lang="csharp"/>
     <script     src="player\func_setShoes.cs"           type="server" lang="csharp"/>
     <script     src="misc\func_getClothesIndex.cs"      type="server" lang="csharp"/>
+    <script     src="misc\func_getClothesProperty.cs"   type="server" lang="csharp"/>
     <script     src="misc\func_getClothesTextures.cs"   type="server" lang="csharp"/>
     <script     src="misc\func_getAllClothes.cs"        type="server" lang="csharp"/>
     <!--| Classes    |-->
