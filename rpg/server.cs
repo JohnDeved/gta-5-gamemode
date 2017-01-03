@@ -14,6 +14,7 @@ public partial class rpg : Script
     {
         API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
+        API.onResourceStart += onServerStart;
     }
 
 	private string[] Clothing_glasses;
@@ -24,7 +25,7 @@ public partial class rpg : Script
 	private string[] Clothing_shirt;
 	private string[] Clothing_shoes;
 
-    public void onResourceStart() {
+    public void onServerStart() {
 		Clothing_glasses = misc_getAllClothes("m_glasses");
 		Clothing_hair = misc_getAllClothes("m_hair");
 		Clothing_headgear = misc_getAllClothes("m_headgear");
