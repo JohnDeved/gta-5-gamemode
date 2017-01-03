@@ -19,7 +19,7 @@ public partial class rpg : Script
 {
     private int[] misc_getClothesTextures(string type, string classname)
     {
-         JObject[] Parts = new JObject[0];
+        JObject[] Parts = new JObject[0];
 
         switch(type)
         {
@@ -52,7 +52,7 @@ public partial class rpg : Script
                 int[] colors = new int[colors_raw.Split(',').Length];
                 for(int i2 = 0;i2 < colors_raw.Split(',').Length;i2++)
                 {
-                    colors[i] = int.Parse(colors_raw.Split(',')[i2]);
+                    colors[i2] = int.Parse(colors_raw.Split(',')[i2]);
                 }
 
                 return colors;
