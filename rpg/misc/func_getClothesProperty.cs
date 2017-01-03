@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private string misc_getClothesProperty(string type, string classname, string property)
+    private int misc_getClothesProperty(string type, string classname, string property)
     {
         foreach (string Line in File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json",type))) {
             var jObj = JObject.Parse(Line);
