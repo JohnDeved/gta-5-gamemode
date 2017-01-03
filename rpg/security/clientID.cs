@@ -139,13 +139,13 @@ public partial class rpg : Script
 
         Random c_rdm = new Random();
 
-        string glasses = Clothing_glasses[c_rdm.Next(0,Clothing_glasses.Length)];
-        string hair = Clothing_hair[c_rdm.Next(0,Clothing_hair.Length)];
-        string headgear = Clothing_headgear[c_rdm.Next(0,Clothing_headgear.Length)];
-        string masc = Clothing_masc[c_rdm.Next(0,Clothing_masc.Length)];
-        string pants = Clothing_pants[c_rdm.Next(0,Clothing_pants.Length)];
-        string shirt = Clothing_shirt[c_rdm.Next(0,Clothing_shirt.Length)];
-        string shoes = Clothing_shoes[c_rdm.Next(0,Clothing_shoes.Length)];
+        string glasses = m_glasses[c_rdm.Next(0,m_glasses.Length)];
+        string hair = m_hair[c_rdm.Next(0,m_hair.Length)];
+        string headgear = m_headgear[c_rdm.Next(0,m_headgear.Length)];
+        string masc = m_masc[c_rdm.Next(0,m_masc.Length)];
+        string pants = m_pants[c_rdm.Next(0,m_pants.Length)];
+        string shirt = m_shirt[c_rdm.Next(0,m_shirt.Length)];
+        string shoes = m_shoes[c_rdm.Next(0,m_shoes.Length)];
 
         API.sendChatMessageToPlayer(player,"~y~GLASSES: ~w~ "+glasses+"; ~y~HAIR: ~w~ "+hair+"; ~y~HEADGEAR: ~w~ "+headgear+"; ~y~MASC: ~w~ "+masc+"; ~y~PANTS: ~w~ "+pants+"; ~y~SHIRT: ~w~ "+shirt+"; ~y~SHOES: ~w~ "+shoes);
 
