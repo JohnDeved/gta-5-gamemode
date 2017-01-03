@@ -18,6 +18,7 @@
     <script     src="player\func_setHeadGear.cs"        type="server" lang="csharp"/>
     <script     src="misc\func_getClothesIndex.cs"      type="server" lang="csharp"/>
     <script     src="misc\func_getClothesTextures.cs"   type="server" lang="csharp"/>
+    <script     src="misc\func_getAllClothes.cs"        type="server" lang="csharp"/>
     <!--| Classes    |-->
     <script     src="server.cs" type="server" lang="csharp"/>
     <script     src="mysql\mysql.cs" type="server" lang="csharp"/>

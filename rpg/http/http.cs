@@ -176,6 +176,10 @@ public partial class rpg : Script
         Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_shirt","leatherjacket"));
         Console.WriteLine("Textures: {0}",misc_getClothesTextures("m_shirt","leatherjacket").Length.ToString());
 
+        foreach(string className in misc_getAllClothes("m_shirt")) {
+            Console.WriteLine(className);
+        }
+
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
     }   
 }
