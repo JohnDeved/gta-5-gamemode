@@ -173,10 +173,6 @@ public partial class rpg : Script
         DropTableIfNotExists();
         CreateTableIfNotExists();
 
-        foreach(string className in misc_getAllClothes("m_shirt")) {
-            Console.WriteLine(className);
-        }
-
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
     }   
 }
