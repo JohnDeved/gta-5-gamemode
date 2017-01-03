@@ -15,6 +15,7 @@
     <script     src="player\func_isSessionIDValid.cs"   type="server" lang="csharp"/>
     <script     src="player\func_register.cs"           type="server" lang="csharp"/>
     <script     src="player\func_setGlasses.cs"         type="server" lang="csharp"/>
+    <script     src="player\func_setHair.cs"            type="server" lang="csharp"/>
     <script     src="player\func_setHeadGear.cs"        type="server" lang="csharp"/>
     <script     src="player\func_setMasc.cs"            type="server" lang="csharp"/>
     <script     src="player\func_setPants.cs"           type="server" lang="csharp"/>
