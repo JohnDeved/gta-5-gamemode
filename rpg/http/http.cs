@@ -174,7 +174,7 @@ public partial class rpg : Script
         CreateTableIfNotExists();
 
         Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_shirt","leatherjacket"));
-        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_headgear","sacko"));
+        Console.WriteLine("Textures: {0}",misc_getClothesTextures("m_shirt","leatherjacket").Length.ToString());
 
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
     }   
