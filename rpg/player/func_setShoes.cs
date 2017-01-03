@@ -24,6 +24,6 @@ public partial class rpg : Script
     		type = "m_shoes";
     	}
 
-    	API.setPlayerClothes(player, 2, misc_getClothesIndex(type,shoes), texture);
+    	API.setPlayerClothes(player, 6, misc_getClothesIndex(type,shoes), texture);
     }
 }
