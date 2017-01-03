@@ -25,7 +25,7 @@ public partial class rpg : Script
     private JObject[] m_shirt;
     private JObject[] m_shoes;
 
-    private void misc_ImportClothes()
+    private void misc_importClothes()
     {
         string[] Lines = File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json","m_glasses");
         m_glasses = new JObject[Lines.Length];
