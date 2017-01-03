@@ -139,31 +139,31 @@ public partial class rpg : Script
 
         Random c_rdm = new Random();
 
-        string glasses = m_glasses[c_rdm.Next(0,m_glasses.Length)];
-        string hair = m_hair[c_rdm.Next(0,m_hair.Length)];
-        string headgear = m_headgear[c_rdm.Next(0,m_headgear.Length)];
-        string masc = m_masc[c_rdm.Next(0,m_masc.Length)];
-        string pants = m_pants[c_rdm.Next(0,m_pants.Length)];
-        string shirt = m_shirt[c_rdm.Next(0,m_shirt.Length)];
-        string shoes = m_shoes[c_rdm.Next(0,m_shoes.Length)];
+        JObject glasses = m_glasses[c_rdm.Next(0,m_glasses.Length)];
+        JObject hair = m_hair[c_rdm.Next(0,m_hair.Length)];
+        JObject headgear = m_headgear[c_rdm.Next(0,m_headgear.Length)];
+        JObject masc = m_masc[c_rdm.Next(0,m_masc.Length)];
+        JObject pants = m_pants[c_rdm.Next(0,m_pants.Length)];
+        JObject shirt = m_shirt[c_rdm.Next(0,m_shirt.Length)];
+        JObject shoes = m_shoes[c_rdm.Next(0,m_shoes.Length)];
 
-        API.sendChatMessageToPlayer(player,"~y~GLASSES: ~w~ "+glasses+"; ~y~HAIR: ~w~ "+hair+"; ~y~HEADGEAR: ~w~ "+headgear+"; ~y~MASC: ~w~ "+masc+"; ~y~PANTS: ~w~ "+pants+"; ~y~SHIRT: ~w~ "+shirt+"; ~y~SHOES: ~w~ "+shoes);
+        API.sendChatMessageToPlayer(player,"~y~GLASSES: ~w~ "+(string)glasses.SelectToken("class")+"; ~y~HAIR: ~w~ "+(string)hair.SelectToken("class")+"; ~y~HEADGEAR: ~w~ "+(string)headgear.SelectToken("class")+"; ~y~MASC: ~w~ "+(string)masc.SelectToken("class")+"; ~y~PANTS: ~w~ "+(string)pants.SelectToken("class")+"; ~y~SHIRT: ~w~ "+(string)shirt.SelectToken("class")+"; ~y~SHOES: ~w~ "+(string)shoes.SelectToken("class"));
 
-        int[] glasses_t = misc_getClothesTextures("m_glasses",glasses);
-        int[] hair_t = misc_getClothesTextures("m_hair",hair);
-        int[] headgear_t = misc_getClothesTextures("m_headgear",headgear);
-        int[] masc_t = misc_getClothesTextures("m_masc",masc);
-        int[] pants_t = misc_getClothesTextures("m_pants",pants);
-        int[] shirt_t = misc_getClothesTextures("m_shirt",shirt);
-        int[] shoes_t = misc_getClothesTextures("m_shoes",shoes);
+        int[] glasses_t = misc_getClothesTextures("m_glasses",(string)glasses.SelectToken("class"));
+        int[] hair_t = misc_getClothesTextures("m_hair",(string)hair.SelectToken("class"));
+        int[] headgear_t = misc_getClothesTextures("m_headgear",(string)headgear.SelectToken("class"));
+        int[] masc_t = misc_getClothesTextures("m_masc",(string)masc.SelectToken("class"));
+        int[] pants_t = misc_getClothesTextures("m_pants",(string)pants.SelectToken("class"));
+        int[] shirt_t = misc_getClothesTextures("m_shirt",(string)shirt.SelectToken("class"));
+        int[] shoes_t = misc_getClothesTextures("m_shoes",(string)shoes.SelectToken("class"));
 
-        player_setGlasses(player, glasses, glasses_t[c_rdm.Next(0,glasses_t.Length)]);
-        player_setHair(player, hair, hair_t[c_rdm.Next(0,hair_t.Length)]);
-        player_setHeadGear(player, headgear, headgear_t[c_rdm.Next(0,headgear_t.Length)]);
-        player_setMasc(player, masc, masc_t[c_rdm.Next(0,masc_t.Length)]);
-        player_setPants(player, pants, pants_t[c_rdm.Next(0,pants_t.Length)]);
-        player_setShirt(player, shirt, shirt_t[c_rdm.Next(0,shirt_t.Length)]);
-        player_setShoes(player, shoes, shoes_t[c_rdm.Next(0,shoes_t.Length)]);
+        player_setGlasses(player, (string)glasses.SelectToken("class"), glasses_t[c_rdm.Next(0,glasses_t.Length)]);
+        player_setHair(player, (string)hair.SelectToken("class"), hair_t[c_rdm.Next(0,hair_t.Length)]);
+        player_setHeadGear((string)player.SelectToken("class"), headgear, headgear_t[c_rdm.Next(0,headgear_t.Length)]);
+        player_setMasc(player, (string)masc.SelectToken("class"), masc_t[c_rdm.Next(0,masc_t.Length)]);
+        player_setPants(player, (string)pants.SelectToken("class"), pants_t[c_rdm.Next(0,pants_t.Length)]);
+        player_setShirt(player, (string)shirt.SelectToken("class"), shirt_t[c_rdm.Next(0,shirt_t.Length)]);
+        player_setShoes(player, (string)shoes.SelectToken("class"), shoes_t[c_rdm.Next(0,shoes_t.Length)]);
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
