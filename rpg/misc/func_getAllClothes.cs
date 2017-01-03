@@ -19,7 +19,7 @@ public partial class rpg : Script
 {
     private string[] misc_getAllClothes(string type)
     {
-        JObject[] Parts;
+        JObject[] Parts = new JObject[0];
 
         switch(type)
         {
@@ -45,7 +45,6 @@ public partial class rpg : Script
 				Parts = m_shoes;
 			break;
         }
-
 
         string[] Clothes = new string[Parts.Length];
         for(int i = 0;i < Parts.Length;i++) {

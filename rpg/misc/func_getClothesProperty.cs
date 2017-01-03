@@ -19,7 +19,7 @@ public partial class rpg : Script
 {
     private int misc_getClothesProperty(string type, string classname, string property)
     {
-        JObject[] Parts;
+         JObject[] Parts = new JObject[0];
 
         switch(type)
         {
