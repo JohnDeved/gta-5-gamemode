@@ -13,7 +13,9 @@
     <script     src="player\func_isNameInUse.cs"        type="server" lang="csharp"/>
     <script     src="player\func_isRegistered.cs"       type="server" lang="csharp"/>
     <script     src="player\func_isSessionIDValid.cs"   type="server" lang="csharp"/>
+    <script     src="player\func_loadClothes.cs"        type="server" lang="csharp"/>
     <script     src="player\func_register.cs"           type="server" lang="csharp"/>
+    <script     src="player\func_saveClothes.cs"        type="server" lang="csharp"/>
     <script     src="player\func_setGlasses.cs"         type="server" lang="csharp"/>
     <script     src="player\func_setHair.cs"            type="server" lang="csharp"/>
     <script     src="player\func_setHeadGear.cs"        type="server" lang="csharp"/>

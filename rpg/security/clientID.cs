@@ -143,7 +143,12 @@ public partial class rpg : Script
 
         API.setPlayerSkin(player, (PedHash)1885233650);
 
-        player_setRandomClothes(player);
+        if(!player_loadClothes(player))
+        {
+            player_setRandomClothes(player);
+            player_saveClothes(player);
+        };
+
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
