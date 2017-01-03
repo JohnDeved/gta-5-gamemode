@@ -145,13 +145,13 @@ public partial class rpg : Script
         string shirt = misc_getAllClothes("m_shirt")[0];
         string shoes = misc_getAllClothes("m_shoes")[0];
 
-        player_setGlasses(player, glasses, misc_getClothesTextures(glasses)[0]);
-        player_setHair(player, hair, misc_getClothesTextures(hair)[0]);
-        player_setHeadGear(player, headgear, misc_getClothesTextures(headgear)[0]);
-        player_setMasc(player, masc, misc_getClothesTextures(masc)[0]);
-        player_setPants(player, pants, misc_getClothesTextures(pants)[0]);
-        player_setShirt(player, shirt, misc_getClothesTextures(shirt)[0]);
-        player_setShoes(player, shoes, misc_getClothesTextures(shoes)[0]);
+        player_setGlasses(player, glasses, misc_getClothesTextures("m_glasses",glasses)[0]);
+        player_setHair(player, hair, misc_getClothesTextures("m_hair",hair)[0]);
+        player_setHeadGear(player, headgear, misc_getClothesTextures("m_headgear",headgear)[0]);
+        player_setMasc(player, masc, misc_getClothesTextures("m_masc",masc)[0]);
+        player_setPants(player, pants, misc_getClothesTextures("m_pants",pants)[0]);
+        player_setShirt(player, shirt, misc_getClothesTextures("m_shirt",shirt)[0]);
+        player_setShoes(player, shoes, misc_getClothesTextures("m_shoes",shoes)[0]);
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
