@@ -148,12 +148,12 @@ public partial class rpg : Script
         string shoes = Clothing_shoes[c_rdm.Next(0,Clothing_shoes.Length-1)];
 
         int[] glasses_t = misc_getClothesTextures("m_glasses",glasses);
-        int[] hair_t = misc_getClothesTextures("m_glasses",hair);
-        int[] headgear_t = misc_getClothesTextures("m_glasses",headgear);
-        int[] masc_t = misc_getClothesTextures("m_glasses",masc);
-        int[] pants_t = misc_getClothesTextures("m_glasses",pants);
-        int[] shirt_t = misc_getClothesTextures("m_glasses",shirt);
-        int[] shoes_t = misc_getClothesTextures("m_glasses",shoes);
+        int[] hair_t = misc_getClothesTextures("m_hair",hair);
+        int[] headgear_t = misc_getClothesTextures("m_headgear",headgear);
+        int[] masc_t = misc_getClothesTextures("m_masc",masc);
+        int[] pants_t = misc_getClothesTextures("m_pants",pants);
+        int[] shirt_t = misc_getClothesTextures("m_shirt",shirt);
+        int[] shoes_t = misc_getClothesTextures("m_shoes",shoes);
 
         player_setGlasses(player, glasses, glasses_t[c_rdm.Next(0,glasses_t.Length-1)]);
         player_setHair(player, hair, hair_t[c_rdm.Next(0,hair_t.Length-1)]);
