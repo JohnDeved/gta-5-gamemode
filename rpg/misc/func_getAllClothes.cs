@@ -20,9 +20,9 @@ public partial class rpg : Script
     private string[] misc_getAllClothes(string type)
     {
         string[] Lines = File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json",type));
-        string[] Clothes = new string[Files.Length];
-        foreach (string Line in Lines) {
-            Clothes[i] = (string)JObject.Parse(Line).SelectToken("class");
+        string[] Clothes = new string[Lines.Length];
+        for(int i = 0;i < Lines.Length;i++) {
+            Clothes[i] = (string)JObject.Parse(Lines[i]).SelectToken("class");
         }
         return Clothes;
     }
