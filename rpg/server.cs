@@ -34,4 +34,27 @@ public partial class rpg : Script
 		Clothing_shirt = misc_getAllClothes("m_shirt");
 		Clothing_shoes = misc_getAllClothes("m_shoes");
     }
+
+    [Command("create")]
+    public void SpawnCarCommand(Client sender, VehicleHash model)
+    {
+        var rot = API.getEntityRotation(sender.handle);
+        var veh = API.createVehicle(model, sender.position, new Vector3(0, 0, rot.Z), 0, 0);
+
+        if (VehicleHistory.ContainsKey(sender))
+        {
+            VehicleHistory[sender].Add(veh);
+            if (VehicleHistory[sender].Count > 3)
+            {
+                API.deleteEntity(VehicleHistory[sender][0]);
+                VehicleHistory[sender].RemoveAt(0);
+            }
+        }
+        else
+        {
+            VehicleHistory.Add(sender, new List<NetHandle> { veh });
+        }
+        
+        API.setPlayerIntoVehicle(sender, veh, -1);        
+    }    
 }
