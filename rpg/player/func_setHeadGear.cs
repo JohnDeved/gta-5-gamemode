@@ -24,6 +24,10 @@ public partial class rpg : Script
     		type = "f_headgear";
     	}
 
+    	if(headgear == "none") {
+    		API.clearPlayerAccessory(player, 0);
+    	}
+
     	API.setPlayerAccessory(player, 0, misc_getClothesIndex(type,headgear), texture);
     }
 }
