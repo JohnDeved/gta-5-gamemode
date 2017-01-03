@@ -19,10 +19,37 @@ public partial class rpg : Script
 {
     private string[] misc_getAllClothes(string type)
     {
-        string[] Lines = File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json",type));
-        string[] Clothes = new string[Lines.Length];
-        for(int i = 0;i < Lines.Length;i++) {
-            Clothes[i] = (string)JObject.Parse(Lines[i]).SelectToken("class");
+        JObject[] Parts;
+
+        switch(type)
+        {
+        	case"m_glasses":
+        		Parts = m_glasses;
+			break;
+        	case"m_hair":
+				Parts = m_hair;
+			break;
+        	case"m_headgear":
+				Parts = m_headgear;
+			break;
+        	case"m_masc":
+				Parts = m_masc;
+			break;
+        	case"m_pants":
+				Parts = m_pants;
+			break;
+        	case"m_shirt":
+				Parts = m_shirt;
+			break;
+        	case"m_shoes":
+				Parts = m_shoes;
+			break;
+        }
+
+
+        string[] Clothes = new string[Parts.Length];
+        for(int i = 0;i < Parts.Length;i++) {
+            Clothes[i] = Parts[i].SelectToken("class");
         }
         return Clothes;
     }

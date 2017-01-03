@@ -19,10 +19,36 @@ public partial class rpg : Script
 {
     private int[] misc_getClothesTextures(string type, string classname)
     {
-        foreach (string Line in File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json",type))) {
-            var jObj = JObject.Parse(Line);
-            if((string)jObj.SelectToken("class") == classname) {
-                string colors_raw = (string)jObj.SelectToken("colors");
+        JObject[] Parts;
+
+        switch(type)
+        {
+            case"m_glasses":
+                Parts = m_glasses;
+            break;
+            case"m_hair":
+                Parts = m_hair;
+            break;
+            case"m_headgear":
+                Parts = m_headgear;
+            break;
+            case"m_masc":
+                Parts = m_masc;
+            break;
+            case"m_pants":
+                Parts = m_pants;
+            break;
+            case"m_shirt":
+                Parts = m_shirt;
+            break;
+            case"m_shoes":
+                Parts = m_shoes;
+            break;
+        }
+
+        for(int i = 0;i < Parts.Length;i++) {
+            if(Parts[i].SelectToken("class") == classname) {
+                string colors_raw = (string)Parts[i].SelectToken("colors");
                 int[] colors = new int[colors_raw.Split(',').Length];
                 for(int i = 0;i < colors_raw.Split(',').Length;i++)
                 {
