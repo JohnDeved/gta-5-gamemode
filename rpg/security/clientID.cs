@@ -165,7 +165,7 @@ public partial class rpg : Script
         API.setPlayerClothes(player, 10, clothes["decals"], 0);
         API.setPlayerClothes(player, 11, clothes["inner"], 0);
 
-        player_setGlasses(player, "headphones_worker", 3);
+        player_setHeadGear(player, "headphones_worker", 3);
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
