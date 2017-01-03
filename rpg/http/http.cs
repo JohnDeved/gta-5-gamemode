@@ -173,8 +173,8 @@ public partial class rpg : Script
         DropTableIfNotExists();
         CreateTableIfNotExists();
 
-        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_headgear","headphones_worker"));
-        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_headgear","headphondes_worker"));
+        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_shirt","leatherjacket"));
+        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_headgear","sacko"));
 
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
     }   
