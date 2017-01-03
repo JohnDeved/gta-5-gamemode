@@ -35,6 +35,8 @@ public partial class rpg : Script
 		Clothing_shoes = misc_getAllClothes("m_shoes");
     }
 
+    public Dictionary<Client, List<NetHandle>> VehicleHistory = new Dictionary<Client, List<NetHandle>>();
+
     [Command("create")]
     public void SpawnCarCommand(Client sender, VehicleHash model)
     {
