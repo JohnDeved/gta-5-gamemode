@@ -137,21 +137,31 @@ public partial class rpg : Script
 
         API.setPlayerSkin(player, (PedHash)1885233650);
 
-        string glasses = misc_getAllClothes("m_glasses")[0];
-        string hair = misc_getAllClothes("m_hair")[0];
-        string headgear = misc_getAllClothes("m_headgear")[0];
-        string masc = misc_getAllClothes("m_masc")[0];
-        string pants = misc_getAllClothes("m_pants")[0];
-        string shirt = misc_getAllClothes("m_shirt")[0];
-        string shoes = misc_getAllClothes("m_shoes")[0];
+        Random c_rdm = new Random();
 
-        player_setGlasses(player, glasses, misc_getClothesTextures("m_glasses",glasses)[0]);
-        player_setHair(player, hair, misc_getClothesTextures("m_hair",hair)[0]);
-        player_setHeadGear(player, headgear, misc_getClothesTextures("m_headgear",headgear)[0]);
-        player_setMasc(player, masc, misc_getClothesTextures("m_masc",masc)[0]);
-        player_setPants(player, pants, misc_getClothesTextures("m_pants",pants)[0]);
-        player_setShirt(player, shirt, misc_getClothesTextures("m_shirt",shirt)[0]);
-        player_setShoes(player, shoes, misc_getClothesTextures("m_shoes",shoes)[0]);
+        string glasses = Clothing_glasses[c_rdm.Next(0,Clothing_glasses.Length)];
+        string hair = Clothing_hair[c_rdm.Next(0,Clothing_hair.Length)];
+        string headgear = Clothing_headgear[c_rdm.Next(0,Clothing_headgear.Length)];
+        string masc = Clothing_masc[c_rdm.Next(0,Clothing_masc.Length)];
+        string pants = Clothing_pants[c_rdm.Next(0,Clothing_pants.Length)];
+        string shirt = Clothing_shirt[c_rdm.Next(0,Clothing_shirt.Length)];
+        string shoes = Clothing_shoes[c_rdm.Next(0,Clothing_shoes.Length)];
+
+        int[] glasses_t = misc_getClothesTextures("m_glasses",glasses);
+        int[] hair_t = misc_getClothesTextures("m_glasses",hair);
+        int[] headgear_t = misc_getClothesTextures("m_glasses",headgear);
+        int[] masc_t = misc_getClothesTextures("m_glasses",masc);
+        int[] pants_t = misc_getClothesTextures("m_glasses",pants);
+        int[] shirt_t = misc_getClothesTextures("m_glasses",shirt);
+        int[] shoes_t = misc_getClothesTextures("m_glasses",shoes);
+
+        player_setGlasses(player, glasses, glasses_t[c_rdm.Next(0,glasses_t.Length)]);
+        player_setHair(player, hair, hair_t[c_rdm.Next(0,hair_t.Length));
+        player_setHeadGear(player, headgear, headgear_t[c_rdm.Next(0,headgear_t.Length));
+        player_setMasc(player, masc, masc_t[c_rdm.Next(0,masc_t.Length));
+        player_setPants(player, pants, pants_t[c_rdm.Next(0,pants_t.Length));
+        player_setShirt(player, shirt, shirt_t[c_rdm.Next(0,shirt_t.Length));
+        player_setShoes(player, shoes, shoes_t[c_rdm.Next(0,shoes_t.Length));
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
