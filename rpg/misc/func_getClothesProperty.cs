@@ -22,7 +22,7 @@ public partial class rpg : Script
         foreach (string Line in File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json",type))) {
             var jObj = JObject.Parse(Line);
             if((string)jObj.SelectToken("class") == classname) {
-                return((string)jObj.SelectToken(property));
+                return((int)(decimal)jObj.SelectToken(property));
             };
         }
         return -1;
