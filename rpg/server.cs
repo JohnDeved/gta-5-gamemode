@@ -21,6 +21,9 @@ public partial class rpg : Script
 
     public void onServerStart() {
         misc_importClothes();
+
+        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_shirt","leatherjacket"));
+        Console.WriteLine("Textures: {0}",misc_getClothesTextures("m_shirt","leatherjacket").Length.ToString());        
     }
 
     public void onPlayerConnected(Client player) {
