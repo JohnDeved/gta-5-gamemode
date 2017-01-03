@@ -1,9 +1,9 @@
-{"class":"shoes","disp":"Schlichte Schuhe","index":0,"colors":[10]}
-{"class":"shoes1","disp":"Schlichte Schuhe","index":1,"colors":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
-{"class":"shoes_sport","disp":"Sportschuhe","index":2,"colors":[6,13]}
-{"class":"shoes_leather","disp":"Lederschuhe","index":3,"colors":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
-{"class":"shoes_sneakers","disp":"Sneakers","index":4,"colors":[0,1,2,4]}
-{"class":"shoes_flipflop","disp":"FlipFlops","index":5,"colors":[0,1,2,3]}
-{"class":"shoes_bath","disp":"Badeschuhe","index":6,"colors":[0,1]}
-{"class":"shoes_nike","disp":"Nikes","index":7,"colors":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
-{"class":"shoes_run","disp":"Laufschuhe","index":8,"colors":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
+{"class":"shoes","disp":"Schlichte Schuhe","index":0,"colors":"10"}
+{"class":"shoes1","disp":"Schlichte Schuhe","index":1,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"shoes_sport","disp":"Sportschuhe","index":2,"colors":"6,13"}
+{"class":"shoes_leather","disp":"Lederschuhe","index":3,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"shoes_sneakers","disp":"Sneakers","index":4,"colors":"0,1,2,4"}
+{"class":"shoes_flipflop","disp":"FlipFlops","index":5,"colors":"0,1,2,3"}
+{"class":"shoes_bath","disp":"Badeschuhe","index":6,"colors":"0,1"}
+{"class":"shoes_nike","disp":"Nikes","index":7,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"shoes_run","disp":"Laufschuhe","index":8,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
