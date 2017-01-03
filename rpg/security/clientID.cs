@@ -147,6 +147,8 @@ public partial class rpg : Script
         string shirt = Clothing_shirt[c_rdm.Next(0,Clothing_shirt.Length-1)];
         string shoes = Clothing_shoes[c_rdm.Next(0,Clothing_shoes.Length-1)];
 
+        API.sendChatMessageToPlayer(sender,"~y~GLASSES: ~w~ "+glasses+"; ~y~HAIR: ~w~ "+hair+"; ~y~GLASSES: ~w~ "+headgear+"; ~y~GLASSES: ~w~ "+masc+"; ~y~GLASSES: ~w~ "+pants+"; ~y~GLASSES: ~w~ "+shirt+"; ~y~GLASSES: ~w~ "+shoes);
+
         int[] glasses_t = misc_getClothesTextures("m_glasses",glasses);
         int[] hair_t = misc_getClothesTextures("m_hair",hair);
         int[] headgear_t = misc_getClothesTextures("m_headgear",headgear);
