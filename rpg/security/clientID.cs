@@ -135,37 +135,23 @@ public partial class rpg : Script
             break;
         }
 
-        Dictionary<string, int> clothes = new Dictionary<string, int>
-        {
-            {"face",        23},
-            {"beard",       1},
-            {"hair",        106},
-            {"shirt",       301},
-            {"pants",       161},
-            {"hands",       2},
-            {"shoes",       189},
-            {"ties",        264},
-            {"misc",        1},
-            {"missions",    1},
-            {"decals",      1},
-            {"inner",       161}
-        };
-
         API.setPlayerSkin(player, (PedHash)1885233650);
-        API.setPlayerClothes(player, 0, clothes["face"], 0);
-        API.setPlayerClothes(player, 1, clothes["beard"], 0);
-        API.setPlayerClothes(player, 2, clothes["hair"], 0);
-        API.setPlayerClothes(player, 3, clothes["shirt"], 0);
-        API.setPlayerClothes(player, 4, clothes["pants"], 0);
-        API.setPlayerClothes(player, 5, clothes["hands"], 0);
-        API.setPlayerClothes(player, 6, clothes["shoes"], 0);
-        API.setPlayerClothes(player, 7, clothes["ties"], 0);
-        API.setPlayerClothes(player, 8, clothes["misc"], 0);
-        API.setPlayerClothes(player, 9, clothes["missions"], 0);
-        API.setPlayerClothes(player, 10, clothes["decals"], 0);
-        API.setPlayerClothes(player, 11, clothes["inner"], 0);
 
-        player_setHeadGear(player, "headphones_worker", 3);
+        string glasses = misc_getAllClothes("m_glasses")[0];
+        string hair = misc_getAllClothes("m_hair")[0];
+        string headgear = misc_getAllClothes("m_headgear")[0];
+        string masc = misc_getAllClothes("m_masc")[0];
+        string pants = misc_getAllClothes("m_pants")[0];
+        string shirt = misc_getAllClothes("m_shirt")[0];
+        string shoes = misc_getAllClothes("m_shoes")[0];
+
+        player_setGlasses(player, glasses, misc_getClothesTextures(glasses)[0]);
+        player_setHair(player, hair, misc_getClothesTextures(hair)[0]);
+        player_setHeadGear(player, headgear, misc_getClothesTextures(headgear)[0]);
+        player_setMasc(player, masc, misc_getClothesTextures(masc)[0]);
+        player_setPants(player, pants, misc_getClothesTextures(pants)[0]);
+        player_setShirt(player, shirt, misc_getClothesTextures(shirt)[0]);
+        player_setShoes(player, shoes, misc_getClothesTextures(shoes)[0]);
     }
 
     public void onClientEventTrigger(Client sender, string name, object[] args)
