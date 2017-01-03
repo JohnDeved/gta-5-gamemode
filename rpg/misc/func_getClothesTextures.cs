@@ -47,7 +47,7 @@ public partial class rpg : Script
         }
 
         for(int i = 0;i < Parts.Length;i++) {
-            if(Parts[i].SelectToken("class") == classname) {
+            if((string)Parts[i].SelectToken("class") == classname) {
                 string colors_raw = (string)Parts[i].SelectToken("colors");
                 int[] colors = new int[colors_raw.Split(',').Length];
                 for(int i = 0;i < colors_raw.Split(',').Length;i++)

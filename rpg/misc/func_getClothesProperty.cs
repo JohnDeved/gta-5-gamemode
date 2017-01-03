@@ -47,7 +47,7 @@ public partial class rpg : Script
         }
 
         for(int i = 0;i < Parts.Length;i++) {
-            if(Parts[i].SelectToken("class") == classname) {
+            if((string)Parts[i].SelectToken("class") == classname) {
                 return((int)(decimal)Parts[i].SelectToken(property));
             };
         }
