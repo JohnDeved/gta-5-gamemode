@@ -27,25 +27,25 @@ public partial class rpg : Script
         var reader = new MySqlCommand(query, db_conn).ExecuteReader();
         while(reader.Read())
         {
-            if(reader["c_glasses"] == DBNull.Value) {
+            if(reader["c_glasses"] == DBNull.Value||reader["c_glasses"]=="") {
                 return false;
             };
-            if(reader["c_hair"] == DBNull.Value) {
+            if(reader["c_hair"] == DBNull.Value||reader["c_hair"]=="") {
                 return false;
             };
-            if(reader["c_headgear"] == DBNull.Value) {
+            if(reader["c_headgear"] == DBNull.Value||reader["c_headgear"]=="") {
                 return false;
             };
-            if(reader["c_mask"] == DBNull.Value) {
+            if(reader["c_mask"] == DBNull.Value||reader["c_mask"]=="") {
                 return false;
             };
-            if(reader["c_pants"] == DBNull.Value) {
+            if(reader["c_pants"] == DBNull.Value||reader["c_pants"]=="") {
                 return false;
             };
-            if(reader["c_shirt"] == DBNull.Value) {
+            if(reader["c_shirt"] == DBNull.Value||reader["c_shirt"]=="") {
                 return false;
             };
-            if(reader["c_shoes"] == DBNull.Value) {
+            if(reader["c_shoes"] == DBNull.Value||reader["c_shoes"]=="") {
                 return false;
             };
 
