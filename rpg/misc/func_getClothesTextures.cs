@@ -23,7 +23,7 @@ public partial class rpg : Script
             var jObj = JObject.Parse(Line);
             if((string)jObj.SelectToken("class") == classname) {
                 string colors_raw = (string)jObj.SelectToken("colors");
-                int[] colors = new int[colors_raw.Split(',').Length]
+                int[] colors = new int[colors_raw.Split(',').Length];
                 for(int i = 0;i < colors_raw.Split(',').Length;i++)
                 {
                     colors[i] = int.Parse(colors_raw.Split(',')[i]);
