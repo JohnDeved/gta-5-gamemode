@@ -20,7 +20,7 @@ public partial class rpg : Script
     public Dictionary<string, int> ClothingParts = new Dictionary<string, int>
     {
         {"face", 0},
-        {"masc", 1},
+        {"mask", 1},
         {"hair", 2},
         {"arms", 3},
         {"legs", 4},

@@ -32,8 +32,8 @@ public partial class rpg : Script
         	case"m_headgear":
 				Parts = m_headgear;
 			break;
-        	case"m_masc":
-				Parts = m_masc;
+        	case"m_mask":
+				Parts = m_mask;
 			break;
         	case"m_pants":
 				Parts = m_pants;

@@ -17,13 +17,13 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private void player_setMasc(Client player, string masc, int texture)
+    private void player_setmask(Client player, string mask, int texture)
     {
-    	string type = "m_masc";
+    	string type = "m_mask";
     	if(!API.getEntitySyncedData(player, "gender")) {
-    		type = "f_masc";
+    		type = "f_mask";
     	}
 
-    	API.setPlayerClothes(player, 1, misc_getClothesIndex(type,masc), texture);
+    	API.setPlayerClothes(player, 1, misc_getClothesIndex(type,mask), texture);
     }
 }

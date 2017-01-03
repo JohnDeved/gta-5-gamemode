@@ -20,7 +20,7 @@ public partial class rpg : Script
     private JObject[] m_glasses;
     private JObject[] m_hair;
     private JObject[] m_headgear;
-    private JObject[] m_masc;
+    private JObject[] m_mask;
     private JObject[] m_pants;
     private JObject[] m_shirt;
     private JObject[] m_shoes;
@@ -45,11 +45,11 @@ public partial class rpg : Script
         {
             m_headgear[i] = JObject.Parse(Lines[i]);
         }
-        Lines = File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json","m_masc"));
-        m_masc = new JObject[Lines.Length];
+        Lines = File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json","m_mask"));
+        m_mask = new JObject[Lines.Length];
         for(int i = 0;i < Lines.Length;i++)
         {
-            m_masc[i] = JObject.Parse(Lines[i]);
+            m_mask[i] = JObject.Parse(Lines[i]);
         }
         Lines = File.ReadAllLines(string.Format(@"resources\rpg\player\clothes\{0}.json","m_pants"));
         m_pants = new JObject[Lines.Length];
