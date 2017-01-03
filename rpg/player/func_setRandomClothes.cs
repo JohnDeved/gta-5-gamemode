@@ -42,7 +42,7 @@ public partial class rpg : Script
         player_setGlasses(player, (string)glasses.SelectToken("class"), glasses_t[c_rdm.Next(0,glasses_t.Length)]);
         player_setHair(player, (string)hair.SelectToken("class"), hair_t[c_rdm.Next(0,hair_t.Length)]);
         player_setHeadGear(player, (string)headgear.SelectToken("class"), headgear_t[c_rdm.Next(0,headgear_t.Length)]);
-        player_setmask(player, (string)mask.SelectToken("class"), mask_t[c_rdm.Next(0,mask_t.Length)]);
+        player_setMask(player, (string)mask.SelectToken("class"), mask_t[c_rdm.Next(0,mask_t.Length)]);
         player_setPants(player, (string)pants.SelectToken("class"), pants_t[c_rdm.Next(0,pants_t.Length)]);
         player_setShirt(player, (string)shirt.SelectToken("class"), shirt_t[c_rdm.Next(0,shirt_t.Length)]);
         player_setShoes(player, (string)shoes.SelectToken("class"), shoes_t[c_rdm.Next(0,shoes_t.Length)]);

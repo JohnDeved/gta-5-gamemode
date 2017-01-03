@@ -49,13 +49,13 @@ public partial class rpg : Script
                 return false;
             };
 
-            player_setGlasses(player,reader["c_glasses"],0);
-            player_setHair(player,reader["c_hair"],0);
-            player_setHeadgear(player,reader["c_headgear"],0);
-            player_setMask(player,reader["c_mask"],0);
-            player_setPants(player,reader["c_pants"],0);
-            player_setShirt(player,reader["c_shirt"],0);
-            player_setShoes(player,reader["c_shoes"],0);
+            player_setGlasses(player,(int)reader["c_glasses"],0);
+            player_setHair(player,(int)reader["c_hair"],0);
+            player_setHeadGear(player,(int)reader["c_headgear"],0);
+            player_setMask(player,(int)reader["c_mask"],0);
+            player_setPants(player,(int)reader["c_pants"],0);
+            player_setShirt(player,(int)reader["c_shirt"],0);
+            player_setShoes(player,(int)reader["c_shoes"],0);
 
             break;
         }

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private void player_setmask(Client player, string mask, int texture)
+    private void player_setMask(Client player, string mask, int texture)
     {
     	string type = "m_mask";
     	if(!API.getEntitySyncedData(player, "gender")) {
