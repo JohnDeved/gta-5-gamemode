@@ -12,6 +12,7 @@ public partial class rpg : Script
 {
     public rpg()
     {
+    	API.onPlayerConnected += onPlayerConnected;
         API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
         API.onResourceStart += onServerStart;
@@ -33,6 +34,10 @@ public partial class rpg : Script
 		Clothing_pants = misc_getAllClothes("m_pants");
 		Clothing_shirt = misc_getAllClothes("m_shirt");
 		Clothing_shoes = misc_getAllClothes("m_shoes");
+    }
+
+    public void onPlayerConnected(Client player) {
+    	API.setEntityPosition(player, new Vector3(-77.00125885009766,-824.2607421875,326.1755676269531));
     }
 
     public Dictionary<Client, List<NetHandle>> VehicleHistory = new Dictionary<Client, List<NetHandle>>();
@@ -58,5 +63,5 @@ public partial class rpg : Script
         }
         
         API.setPlayerIntoVehicle(sender, veh, -1);        
-    }    
+    }   
 }
