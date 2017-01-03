@@ -49,7 +49,7 @@ public partial class rpg : Script
 
         string[] Clothes = new string[Parts.Length];
         for(int i = 0;i < Parts.Length;i++) {
-            Clothes[i] = Parts[i].SelectToken("class");
+            Clothes[i] = (string)Parts[i].SelectToken("class");
         }
         return Clothes;
     }
