@@ -13,6 +13,7 @@ public partial class rpg : Script
     public rpg()
     {
     	API.onPlayerConnected += onPlayerConnected;
+    	API.onPlayerRespawn += onPlayerConnected;
         API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
         API.onResourceStart += onServerStart;
