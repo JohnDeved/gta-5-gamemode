@@ -38,6 +38,7 @@ class WebBrowser {
 var showDebugInfo = false
 var adminlevel = 'User'
 
+const CEF = new WebBrowser('')
 const modalCEF = new WebBrowser('')
 const debugCEF = new WebBrowser('')
 const startCEF = new WebBrowser('')
