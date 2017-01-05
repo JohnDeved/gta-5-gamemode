@@ -165,7 +165,7 @@ public partial class rpg : Script
             }else{
                 API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist nicht registriert");
                 API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
-            }            
+            }
         }
         if (name == "SESSION_GET")
         {
