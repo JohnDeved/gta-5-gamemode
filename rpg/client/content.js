@@ -1911,4 +1911,4 @@ API.sendChatMessage('yey xD');
 API.sendChatMessage('yey xD');
 API.sendChatMessage('yey xD');
 API.sendChatMessage('yey xD');
-API.sendChatMessage('yey xD');
+API.sendChatMessage('"yey xD"');
