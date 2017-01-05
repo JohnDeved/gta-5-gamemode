@@ -28,8 +28,7 @@ public partial class rpg : Script
     		API.clearPlayerAccessory(player, 0);
     	}
 
-    	API.setPlayerAccessory(player, 0, misc_getClothesIndex(type,headgear), texture);
-        API.setEntitySyncedData(player, "headgear", headgear);
+    	API.setEntitySyncedData(player, "headgear", headgear);
         API.setEntitySyncedData(player, "headgear_t", texture);
     }
 }
