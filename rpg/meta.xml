@@ -39,5 +39,4 @@
 
                             <!--| CLIENT-RESOURCEN |-->
     <script     src="client\main.js" type="client" lang="javascript"/>
-    <script     src="client\init\init.js" type="client" lang="javascript"/>
 </meta>
