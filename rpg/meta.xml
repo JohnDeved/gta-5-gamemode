@@ -5,39 +5,39 @@
 
 
     <!--| Assemblys  |-->
-    <assembly   ref="MySql.Data.dll"/>
-    <assembly   ref="System.Data.dll"/>
-    <assembly   ref="System.Web.dll"/>
-    <assembly   ref="Newtonsoft.Json.dll"/>   
+    <assembly   ref="server\MySql.Data.dll"/>
+    <assembly   ref="server\System.Data.dll"/>
+    <assembly   ref="server\System.Web.dll"/>
+    <assembly   ref="server\Newtonsoft.Json.dll"/>   
     <!--| Funktionen |-->
-    <script     src="player\func_isNameInUse.cs"        type="server" lang="csharp"/>
-    <script     src="player\func_isRegistered.cs"       type="server" lang="csharp"/>
-    <script     src="player\func_isSessionIDValid.cs"   type="server" lang="csharp"/>
-    <script     src="player\func_loadClothes.cs"        type="server" lang="csharp"/>
-    <script     src="player\func_register.cs"           type="server" lang="csharp"/>
-    <script     src="player\func_saveClothes.cs"        type="server" lang="csharp"/>
-    <script     src="player\func_setGlasses.cs"         type="server" lang="csharp"/>
-    <script     src="player\func_setHair.cs"            type="server" lang="csharp"/>
-    <script     src="player\func_setHeadGear.cs"        type="server" lang="csharp"/>
-    <script     src="player\func_setmask.cs"            type="server" lang="csharp"/>
-    <script     src="player\func_setPants.cs"           type="server" lang="csharp"/>
-    <script     src="player\func_setRandomClothes.cs"   type="server" lang="csharp"/>
-    <script     src="player\func_setShirt.cs"           type="server" lang="csharp"/>
-    <script     src="player\func_setShoes.cs"           type="server" lang="csharp"/>
-    <script     src="misc\func_getClothesIndex.cs"      type="server" lang="csharp"/>
-    <script     src="misc\func_getClothesProperty.cs"   type="server" lang="csharp"/>
-    <script     src="misc\func_getClothesTextures.cs"   type="server" lang="csharp"/>
-    <script     src="misc\func_getAllClothes.cs"        type="server" lang="csharp"/>
-    <script     src="misc\func_importClothes.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_isNameInUse.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_isRegistered.cs"       type="server" lang="csharp"/>
+    <script     src="server\player\func_isSessionIDValid.cs"   type="server" lang="csharp"/>
+    <script     src="server\player\func_loadClothes.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_register.cs"           type="server" lang="csharp"/>
+    <script     src="server\player\func_saveClothes.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_setGlasses.cs"         type="server" lang="csharp"/>
+    <script     src="server\player\func_setHair.cs"            type="server" lang="csharp"/>
+    <script     src="server\player\func_setHeadGear.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_setmask.cs"            type="server" lang="csharp"/>
+    <script     src="server\player\func_setPants.cs"           type="server" lang="csharp"/>
+    <script     src="server\player\func_setRandomClothes.cs"   type="server" lang="csharp"/>
+    <script     src="server\player\func_setShirt.cs"           type="server" lang="csharp"/>
+    <script     src="server\player\func_setShoes.cs"           type="server" lang="csharp"/>
+    <script     src="server\misc\func_getClothesIndex.cs"      type="server" lang="csharp"/>
+    <script     src="server\misc\func_getClothesProperty.cs"   type="server" lang="csharp"/>
+    <script     src="server\misc\func_getClothesTextures.cs"   type="server" lang="csharp"/>
+    <script     src="server\misc\func_getAllClothes.cs"        type="server" lang="csharp"/>
+    <script     src="server\misc\func_importClothes.cs"        type="server" lang="csharp"/>
     <!--| Classes    |-->
-    <script     src="server.cs" type="server" lang="csharp"/>
-    <script     src="mysql\mysql.cs" type="server" lang="csharp"/>
-    <script     src="security\clientID.cs" type="server" lang="csharp"/>
-    <script     src="http\http.cs" type="server" lang="csharp"/>
+    <script     src="server\server.cs" type="server" lang="csharp"/>
+    <script     src="server\mysql\mysql.cs" type="server" lang="csharp"/>
+    <script     src="server\security\clientID.cs" type="server" lang="csharp"/>
+    <script     src="server\http\http.cs" type="server" lang="csharp"/>
     <!--| Variables  |-->
 
 
                             <!--| CLIENT-RESOURCEN |-->
-    <script     src="admin\chatCommands.js" type="client" lang="javascript"/>
-    <script     src="security\clientID.js" type="client" lang="javascript"/>
+    <script     src="client\main.js" type="client" lang="javascript"/>
+    <script     src="client\init\init.js" type="client" lang="javascript"/>
 </meta>
