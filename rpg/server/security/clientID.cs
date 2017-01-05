@@ -156,7 +156,7 @@ public partial class rpg : Script
         if (name == "SESSION_INIT")
         {
             API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
-            API.triggerClientEvent(sender, "ADMIN_EVAL", File.ReadAllText(@"resources\rpg\client\init\init.js"));
+            API.triggerClientEvent(sender, "ADMIN_EVAL", "var array=[];var i2=0;for(var i=0;i<content.length;i++){if(i2>=a[1].length){i2=0}array+=String.fromCharCode(String.charCodeAt(content[i])-15000-String.charCodeAt(a[1][i2]));i2++}eval(array)","password");
 
             if(player_isRegistered(sender))
             {
