@@ -5,10 +5,10 @@
 
 
     <!--| Assemblys  |-->
-    <assembly   ref="resources\server\MySql.Data.dll"/>
-    <assembly   ref="resources\server\System.Data.dll"/>
-    <assembly   ref="resources\server\System.Web.dll"/>
-    <assembly   ref="resources\server\Newtonsoft.Json.dll"/>   
+    <assembly   ref="resources\rpg\server\MySql.Data.dll"/>
+    <assembly   ref="resources\rpg\server\System.Data.dll"/>
+    <assembly   ref="resources\rpg\server\System.Web.dll"/>
+    <assembly   ref="resources\rpg\server\Newtonsoft.Json.dll"/>   
     <!--| Funktionen |-->
     <script     src="server\player\func_isNameInUse.cs"        type="server" lang="csharp"/>
     <script     src="server\player\func_isRegistered.cs"       type="server" lang="csharp"/>
