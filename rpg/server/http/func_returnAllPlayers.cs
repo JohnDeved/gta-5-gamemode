@@ -36,7 +36,7 @@ public partial class rpg : Script
 			dictionary.Add("session_id", "123");
 			dictionary.Add("socialclub_id", "abc");
 
-			var serialized = JsonConvert.SerializeObject(points, Formatting.Indented);
+			var serialized = JsonConvert.SerializeObject(dictionary, Formatting.Indented);
 			Console.WriteLine(serialized);
 			return serialized;
         } else {
