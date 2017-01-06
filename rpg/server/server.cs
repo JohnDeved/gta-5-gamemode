@@ -2,11 +2,19 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
-using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;
+using System.Web;
+//GTANetwork
 using GTANetworkServer;
 using GTANetworkShared;
-using System.Threading;
+//External
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
@@ -28,8 +36,7 @@ public partial class rpg : Script
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
 
         string s_m_glasses = "[" + string.Join(",",JsonConvert.SerializeObject(m_glasses)) + "]";
-        File.WriteAllText("TestFile.txt",s_m_glasses);
-        return s_m_glasses;        
+        File.WriteAllText("TestFile.txt",s_m_glasses);     
     }
 
     public void onPlayerConnected(Client player) {
