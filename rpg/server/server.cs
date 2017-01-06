@@ -17,6 +17,8 @@ public partial class rpg : Script
         API.onClientEventTrigger += onClientEventTrigger;
         API.onResourceStart += onResourceStart;
         API.onResourceStart += onServerStart;
+        API.onPlayerConnected += markers_onPlayerConnected;
+        API.onPlayerDisconnected += markers_onPlayerDisconnected;
     }
 
     public void onServerStart() {

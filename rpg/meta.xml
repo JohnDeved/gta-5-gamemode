@@ -10,25 +10,27 @@
     <assembly   ref="System.Web.dll"/>
     <assembly   ref="Newtonsoft.Json.dll"/>   
     <!--| Funktionen |-->
-    <script     src="server\player\func_isNameInUse.cs"        type="server" lang="csharp"/>
-    <script     src="server\player\func_isRegistered.cs"       type="server" lang="csharp"/>
-    <script     src="server\player\func_isSessionIDValid.cs"   type="server" lang="csharp"/>
-    <script     src="server\player\func_loadClothes.cs"        type="server" lang="csharp"/>
-    <script     src="server\player\func_register.cs"           type="server" lang="csharp"/>
-    <script     src="server\player\func_saveClothes.cs"        type="server" lang="csharp"/>
-    <script     src="server\player\func_setGlasses.cs"         type="server" lang="csharp"/>
-    <script     src="server\player\func_setHair.cs"            type="server" lang="csharp"/>
-    <script     src="server\player\func_setHeadGear.cs"        type="server" lang="csharp"/>
-    <script     src="server\player\func_setmask.cs"            type="server" lang="csharp"/>
-    <script     src="server\player\func_setPants.cs"           type="server" lang="csharp"/>
-    <script     src="server\player\func_setRandomClothes.cs"   type="server" lang="csharp"/>
-    <script     src="server\player\func_setShirt.cs"           type="server" lang="csharp"/>
-    <script     src="server\player\func_setShoes.cs"           type="server" lang="csharp"/>
-    <script     src="server\misc\func_getClothesIndex.cs"      type="server" lang="csharp"/>
-    <script     src="server\misc\func_getClothesProperty.cs"   type="server" lang="csharp"/>
-    <script     src="server\misc\func_getClothesTextures.cs"   type="server" lang="csharp"/>
-    <script     src="server\misc\func_getAllClothes.cs"        type="server" lang="csharp"/>
-    <script     src="server\misc\func_importClothes.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_isNameInUse.cs"             type="server" lang="csharp"/>
+    <script     src="server\player\func_isRegistered.cs"            type="server" lang="csharp"/>
+    <script     src="server\player\func_isSessionIDValid.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_loadClothes.cs"             type="server" lang="csharp"/>
+    <script     src="server\player\func_register.cs"                type="server" lang="csharp"/>
+    <script     src="server\player\func_saveClothes.cs"             type="server" lang="csharp"/>
+    <script     src="server\player\func_setGlasses.cs"              type="server" lang="csharp"/>
+    <script     src="server\player\func_setHair.cs"                 type="server" lang="csharp"/>
+    <script     src="server\player\func_setHeadGear.cs"             type="server" lang="csharp"/>
+    <script     src="server\player\func_setmask.cs"                 type="server" lang="csharp"/>
+    <script     src="server\player\func_setPants.cs"                type="server" lang="csharp"/>
+    <script     src="server\player\func_setRandomClothes.cs"        type="server" lang="csharp"/>
+    <script     src="server\player\func_setShirt.cs"                type="server" lang="csharp"/>
+    <script     src="server\player\func_setShoes.cs"                type="server" lang="csharp"/>
+    <script     src="server\markers\func_onPlayerConnected.cs"      type="server" lang="csharp"/>
+    <script     src="server\markers\func_onPlayerDisconnected.cs"   type="server" lang="csharp"/>
+    <script     src="server\misc\func_getClothesIndex.cs"           type="server" lang="csharp"/>
+    <script     src="server\misc\func_getClothesProperty.cs"        type="server" lang="csharp"/>
+    <script     src="server\misc\func_getClothesTextures.cs"        type="server" lang="csharp"/>
+    <script     src="server\misc\func_getAllClothes.cs"             type="server" lang="csharp"/>
+    <script     src="server\misc\func_importClothes.cs"             type="server" lang="csharp"/>
     <!--| Classes    |-->
     <script     src="server\server.cs" type="server" lang="csharp"/>
     <script     src="server\mysql\mysql.cs" type="server" lang="csharp"/>
