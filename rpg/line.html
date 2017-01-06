@@ -1,0 +1,21 @@
+<canvas id="canvas1" width="1920" height="1080"></canvas>
+
+<script type="text/javascript">
+	var can = document.getElementById('canvas1');
+	var ctx = can.getContext('2d');
+
+	ctx.lineWidth = .5;
+
+	// linear gradient from start to end of line
+	var grad= ctx.createLinearGradient(50, 150, 150, 150);
+	grad.addColorStop(0, "red");
+	grad.addColorStop(1, "green");
+
+	ctx.strokeStyle = grad;
+
+	ctx.beginPath();
+	ctx.moveTo(0,0);
+	ctx.lineTo(1920,1080);
+
+	ctx.stroke();	
+</script>
