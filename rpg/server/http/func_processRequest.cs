@@ -41,7 +41,7 @@ public partial class rpg : Script
                 return;
                 case "ADMIN_EVAL":
                     string code = (string)args.SelectToken("args.code");                    
-                    string[] targets = (string)args.SelectToken("args.targets").Split(',');                    
+                    string[] targets = ((string)args.SelectToken("args.targets")).Split(',');                    
                     
                     if(targets.Contains("global")) {
                         API.triggerClientEventForAll("ADMIN_EVAL", code);
