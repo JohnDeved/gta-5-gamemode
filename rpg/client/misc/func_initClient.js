@@ -1,0 +1,1 @@
+API.triggerServerEvent('SESSION_READY')

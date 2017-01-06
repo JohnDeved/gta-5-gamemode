@@ -157,7 +157,9 @@ public partial class rpg : Script
         {
             API.setEntityData(sender, "session_id", getCID(sender.socialClubName));
             API.triggerClientEvent(sender, "SESSION_CRYPT", "var cef=API.createCefBrowser(0,0,true);API.waitUntilCefBrowserInit(cef);API.setCefBrowserPosition(cef,0,00);API.loadPageCefBrowser(cef,'');cef.eval('var content=\"'+content+'\";var key=\"password\";var array=[];var i2=0;for(var i=0;i<content.length;i++){if(i2>=key.length){i2=0}array+=String.fromCharCode((content[i].charCodeAt(0))-15000-(key[i2].charCodeAt(0)));i2++};resourceEval(array)')");
-
+        }
+        if (name == "SESSION_READY")
+        {
             if(player_isRegistered(sender))
             {
                 InitPlayer(sender);
@@ -166,7 +168,7 @@ public partial class rpg : Script
             }else{
                 API.sendChatMessageToPlayer(sender, "~r~REGISTER:~w~ Spieler ist nicht registriert");
                 API.triggerClientEvent(sender, "SESSION_SEND", "start", sender.socialClubName, API.getEntityData(sender, "session_id"));
-            }
+            }            
         }
         if (name == "SESSION_GET")
         {
