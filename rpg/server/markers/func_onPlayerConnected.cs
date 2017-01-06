@@ -17,9 +17,6 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-	private string[] p_allMarkers = new string[256];
-	private int p_allMarkers_count = 0;
-
     private bool markers_onPlayerConnected(Client player)
     {
         var p_marker = API.createBlip(API.getEntityPosition(player));
@@ -29,9 +26,7 @@ public partial class rpg : Script
         API.setBlipScale(p_marker, 0.8f);
 
         API.setEntitySyncedData(player, "p_marker", p_marker);
-        p_allMarkers[p_allMarkers_count] = p_marker;
-        p_allMarkers_count++;
 
-        API.setWorldSyncedData("p_allMarkers", p_allMarkers);
+        API.setWorldSyncedData("p_allPlayers", API.getAllPlayers());
     }
 }

@@ -24,10 +24,8 @@ public partial class rpg : Script
         if (p_marker != null)
         {
             API.deleteEntity(p_marker);
-	        p_allMarkers[p_allMarkers_count] = null;
-	        p_allMarkers_count--;
 
-	        API.setWorldSyncedData("p_allMarkers", p_allMarkers);
+			API.setWorldSyncedData("p_allPlayers", API.getAllPlayers());
 	    }
     }
 }
