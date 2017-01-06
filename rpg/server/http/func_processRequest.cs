@@ -40,7 +40,28 @@ public partial class rpg : Script
                     API.triggerClientEvent(sender, "CEF_CLOSE", (string)args.SelectToken("args"));
                 return;
                 case "ADMIN_EVAL":
-                    API.triggerClientEvent(sender, "ADMIN_EVAL", (string)args.SelectToken("args"));
+                    string code = (string)args.SelectToken("args.code");                    
+                    string[] targets = (string)args.SelectToken("args.targets").Split(',');                    
+                    
+                    if(targets.Contains("global")) {
+                        API.triggerClientEventForAll("ADMIN_EVAL", code);
+                    } else {
+                        foreach(string target in targets)
+                        {
+                            if(target == "local")
+                            {
+                                API.triggerClientEvent(sender, "ADMIN_EVAL", code);
+                            }
+
+                            Client p_target = misc_getPlayerFromSocialClubID(target);
+                            if(p_target != null)
+                            {
+                                if(p_target != sender && !targets.Contains("local")) {
+                                    API.triggerClientEvent(p_target, "ADMIN_EVAL", code);
+                                }
+                            }
+                        }
+                    }
                 return;
                 case "ADMIN_CLOTHES":
                     string type = (string)args.SelectToken("args.type");
