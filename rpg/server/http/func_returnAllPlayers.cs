@@ -31,7 +31,7 @@ public partial class rpg : Script
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
-			var dictionary = new Dictionary<string, string>
+			var dictionary = new Dictionary<string, string>{};
 			dictionary.Add("session_id", "123");
 			dictionary.Add("socialclub_id", "abc");
 
