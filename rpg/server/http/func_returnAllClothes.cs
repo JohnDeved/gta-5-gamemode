@@ -34,7 +34,15 @@ public partial class rpg : Script
             dictionary.Add("m_pants", string.Join(",",JsonConvert.SerializeObject(m_pants)));
             dictionary.Add("m_shirt", string.Join(",",JsonConvert.SerializeObject(m_shirt)));
             dictionary.Add("m_shoes", string.Join(",",JsonConvert.SerializeObject(m_shoes)));
-            dictionary.Add("c_owned", JObject.Parse("{owned:'0'}"));
+            dictionary.Add("c_owned", new JObject[] {
+                JObject.Parse("{m_glasses:'0'}"),
+                JObject.Parse("{m_hair:'0'}"),
+                JObject.Parse("{m_headgear:'0'}"),
+                JObject.Parse("{m_mask:'0'}"),
+                JObject.Parse("{m_pants:'0'}"),
+                JObject.Parse("{m_shirt:'0'}"),
+                JObject.Parse("{m_shoes:'0'}")
+            });
 
             return JsonConvert.SerializeObject(dictionary);
         } else {
