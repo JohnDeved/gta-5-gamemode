@@ -13,6 +13,7 @@ using GTANetworkServer;
 using GTANetworkShared;
 //External
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
@@ -35,7 +36,7 @@ public partial class rpg : Script
 			dictionary.Add("session_id", "123");
 			dictionary.Add("socialclub_id", "abc");
 
-			var serialized = JsonConvert.SerializeObject(dictionary);
+			var serialized = JsonConvert.SerializeObject(points, Formatting.Indented);
 			Console.WriteLine(serialized);
 			return serialized;
         } else {
