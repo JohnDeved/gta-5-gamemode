@@ -26,6 +26,7 @@
     <script     src="server\player\func_setShoes.cs"                type="server" lang="csharp"/>
     <script     src="server\http\func_httpListener.cs"              type="server" lang="csharp"/>
     <script     src="server\http\func_processRequest.cs"            type="server" lang="csharp"/>
+    <script     src="server\http\func_returnAllClothes.cs"          type="server" lang="csharp"/>
     <script     src="server\http\func_returnAllPlayers.cs"          type="server" lang="csharp"/>
     <script     src="server\http\func_verifySessionData.cs"         type="server" lang="csharp"/>
     <script     src="server\markers\func_onPlayerConnected.cs"      type="server" lang="csharp"/>

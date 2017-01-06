@@ -44,6 +44,9 @@ public partial class rpg : Script
                 case "http://185.62.188.120:3001/getAllPlayers":
                     responseText = http_returnAllPlayers(post);
                     break;
+                case "http://185.62.188.120:3001/getAllClothes":
+                    responseText = http_returnAllClothes(post);
+                    break;
                 default:
                     responseText = "asdfg";
                     http_processRequest(post);
