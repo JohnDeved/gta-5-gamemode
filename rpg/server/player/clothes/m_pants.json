@@ -1,10 +1,10 @@
-{"class":"jeans","disp":"Jeans Hose","index":0,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
-{"class":"jeans_down","disp":"Jeans Hose","index":1,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
-{"class":"sport_shorts","disp":"Sport Shorts","index":2,"colors":"11"}
-{"class":"jogging","disp":"Jogginghose","index":3,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
-{"class":"slim_jeans","disp":"Jeans Hose (eng)","index":4,"colors":"0,1,2,4"}
-{"class":"jogging_wide","disp":"Jogginghose (weit)","index":5,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
-{"class":"pants_short","disp":"Kurze Hose","index":6,"colors":"0,1,2,10"}
-{"class":"pants_sacko","disp":"Sacko Hose","index":7,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
-{"class":"pants_cort","disp":"Sacko Hose","index":7,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
-{"class":"pants_work","disp":"Arbeitshose","index":8,"colors":"0,3,4,14"}
+{"class":"jeans","disp":"Jeans Hose","price":100,"index":0,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"jeans_down","disp":"Jeans Hose","price":100,"index":1,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"sport_shorts","disp":"Sport Shorts","price":100,"index":2,"colors":"11"}
+{"class":"jogging","disp":"Jogginghose","price":100,"index":3,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"slim_jeans","disp":"Jeans Hose (eng)","price":100,"index":4,"colors":"0,1,2,4"}
+{"class":"jogging_wide","disp":"Jogginghose (weit)","price":100,"index":5,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"pants_short","disp":"Kurze Hose","price":100,"index":6,"colors":"0,1,2,10"}
+{"class":"pants_sacko","disp":"Sacko Hose","price":100,"index":7,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"pants_cort","disp":"Sacko Hose","price":100,"index":7,"colors":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"}
+{"class":"pants_work","disp":"Arbeitshose","price":100,"index":8,"colors":"0,3,4,14"}
