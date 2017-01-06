@@ -35,14 +35,14 @@ public partial class rpg : Script
 
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
 
-        var dictionary = new Dictionary<string, string>{};
-        dictionary.Add("m_glasses", string.Join(",",JsonConvert.SerializeObject(m_glasses)));
-        dictionary.Add("m_hair", string.Join(",",JsonConvert.SerializeObject(m_hair)));
-        dictionary.Add("m_headgear", string.Join(",",JsonConvert.SerializeObject(m_headgear)));
-        dictionary.Add("m_mask", string.Join(",",JsonConvert.SerializeObject(m_mask)));
-        dictionary.Add("m_pants", string.Join(",",JsonConvert.SerializeObject(m_pants)));
-        dictionary.Add("m_shirt", string.Join(",",JsonConvert.SerializeObject(m_shirt)));
-        dictionary.Add("m_shoes", string.Join(",",JsonConvert.SerializeObject(m_shoes)));
+        var dictionary = new Dictionary<string, JObject>{};
+        dictionary.Add("m_glasses", JsonConvert.SerializeObject(m_glasses));
+        dictionary.Add("m_hair", JsonConvert.SerializeObject(m_hair));
+        dictionary.Add("m_headgear", JsonConvert.SerializeObject(m_headgear));
+        dictionary.Add("m_mask", JsonConvert.SerializeObject(m_mask));
+        dictionary.Add("m_pants", JsonConvert.SerializeObject(m_pants));
+        dictionary.Add("m_shirt", JsonConvert.SerializeObject(m_shirt));
+        dictionary.Add("m_shoes", JsonConvert.SerializeObject(m_shoes));
 
         File.WriteAllText("TestFile.txt",JsonConvert.SerializeObject(dictionary));
     }
