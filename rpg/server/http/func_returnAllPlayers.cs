@@ -26,13 +26,17 @@ public partial class rpg : Script
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
-			var dictionary = new Dictionary<string, string>{};
-			dictionary.Add("socialclub_id", "123");
-			dictionary.Add("player_name", "abc");
+        	string body = "[";
 
-			var serialized = JsonConvert.SerializeObject(dictionary, Formatting.Indented);
-			Console.WriteLine(serialized);
-			return "["+serialized+"]";
+        	foreach(var player in API.getAllPlayers())
+        	{
+				var dictionary = new Dictionary<string, string>{};
+				dictionary.Add("socialclub_id", player.socialClubName);
+				dictionary.Add("player_name", API.getEntitySyncedData(player, "name"));
+
+				body += JsonConvert.SerializeObject(dictionary, Formatting.Indented) + ",";
+        	}
+			return body.Substring(0,body.Length-1)+"]";
         } else {
             return "0";
         }
