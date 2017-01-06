@@ -20,11 +20,11 @@ public partial class rpg : Script
     private string http_verifySessionData(string post_raw)
     {
         var args = JObject.Parse(post_raw);
-        
+
         if((string)args.SelectToken("session_id") == "") return "0";
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
-        if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id")) {
+        if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
             return "1";
         } else {
             return "0";
