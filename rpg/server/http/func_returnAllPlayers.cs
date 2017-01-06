@@ -37,6 +37,7 @@ public partial class rpg : Script
 		    dict["player3"][1] = new Player { name = "bb", value = "34" };
 		    dict["player4"][2] = new Player { name = "cc", value = "56" };
 
+		    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(dict));
 		    return Newtonsoft.Json.JsonConvert.SerializeObject(dict);
         } else {
             return "0";
