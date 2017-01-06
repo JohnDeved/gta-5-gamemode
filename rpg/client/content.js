@@ -79,15 +79,19 @@ API.onServerEventTrigger.connect(function(eventName, args) {
 
 API.onUpdate.connect(function() {
     var p_allPlayers = API.getWorldSyncedData("p_allPlayers")
-    for(var i; i < p_allPlayers.Count; i++)
-    {
-        var p_marker = API.getEntitySyncedData(p_allPlayers[i],"p_marker")
 
-        if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && p_allPlayers[i] != API.getLocalPlayer())
+    if(p_allPlayers != null)
+    {
+        for(var i; i < p_allPlayers.Count; i++)
         {
-            API.setBlipTransparency(p_marker, 255)
-        } else {
-            API.setBlipTransparency(p_marker, 0)
+            var p_marker = API.getEntitySyncedData(p_allPlayers[i],"p_marker")
+
+            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && p_allPlayers[i] != API.getLocalPlayer())
+            {
+                API.setBlipTransparency(p_marker, 255)
+            } else {
+                API.setBlipTransparency(p_marker, 0)
+            }
         }
     }
 });
