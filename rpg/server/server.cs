@@ -36,13 +36,13 @@ public partial class rpg : Script
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
 
         var dictionary = new Dictionary<string, JObject>{};
-        dictionary.Add("m_glasses", JsonConvert.SerializeObject(m_glasses));
-        dictionary.Add("m_hair", JsonConvert.SerializeObject(m_hair));
-        dictionary.Add("m_headgear", JsonConvert.SerializeObject(m_headgear));
-        dictionary.Add("m_mask", JsonConvert.SerializeObject(m_mask));
-        dictionary.Add("m_pants", JsonConvert.SerializeObject(m_pants));
-        dictionary.Add("m_shirt", JsonConvert.SerializeObject(m_shirt));
-        dictionary.Add("m_shoes", JsonConvert.SerializeObject(m_shoes));
+        dictionary.Add("m_glasses", m_glasses);
+        dictionary.Add("m_hair", m_hair);
+        dictionary.Add("m_headgear", m_headgear);
+        dictionary.Add("m_mask", m_mask);
+        dictionary.Add("m_pants", m_pants);
+        dictionary.Add("m_shirt", m_shirt);
+        dictionary.Add("m_shoes", m_shoes);
 
         File.WriteAllText("TestFile.txt",JsonConvert.SerializeObject(dictionary));
     }
