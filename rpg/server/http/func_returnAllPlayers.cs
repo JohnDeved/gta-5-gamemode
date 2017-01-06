@@ -31,14 +31,13 @@ public partial class rpg : Script
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
-		    var dict = new Dictionary<string, Player[]>();
-		    dict.Add("player1", new Player[3]);
-		    dict["player2"][0] = new Player { socialclub_id = "aaa", player_name = "123" };
-		    dict["player3"][1] = new Player { socialclub_id = "bb", player_name = "34" };
-		    dict["player4"][2] = new Player { socialclub_id = "cc", player_name = "56" };
+			var dictionary = new Dictionary<string, string>
+			dictionary.Add("session_id", "123");
+			dictionary.Add("socialclub_id", "abc");
 
-		    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(dict));
-		    return Newtonsoft.Json.JsonConvert.SerializeObject(dict);
+			var serialized = JsonConvert.SerializeObject(dictionary);
+			Console.WriteLine(serialized);
+			return serialized;
         } else {
             return "0";
         }
