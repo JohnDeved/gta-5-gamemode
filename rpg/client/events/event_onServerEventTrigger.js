@@ -10,10 +10,10 @@ API.onServerEventTrigger.connect(function(event, args) {
 				case "modal":
 					modalCEF.show(false, "http://185.62.188.120:3000/modal/" + args[1] + "/" + args[2] + "/Testserver/Der Server ist in Moment in Entwicklung*Nur Entwickler sind online, es gibt noch nichts zu sehen.*Willst du fortfahren?")
 					break
-				case "start"
+				case "start":
 					startCEF.show(false, "http://185.62.188.120:3000/start/" + args[1] + "/" + args[2])
 					break
-				case "clothing"
+				case "clothing":
 					clothCEF.show(false, "http://185.62.188.120:3000/clothing/" + args[1] + "/" + args[2])
 					break
 			}
