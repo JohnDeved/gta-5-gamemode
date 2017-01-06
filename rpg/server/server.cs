@@ -25,7 +25,11 @@ public partial class rpg : Script
         DropTableIfNotExists();
         CreateTableIfNotExists();
 
-        new Thread(new ThreadStart(HttpListener_Thread)).Start();    
+        new Thread(new ThreadStart(HttpListener_Thread)).Start();
+
+        string s_m_glasses = "[" + string.Join(",",JsonConvert.SerializeObject(m_glasses)) + "]";
+        File.WriteAllText("TestFile.txt",s_m_glasses);
+        return s_m_glasses;        
     }
 
     public void onPlayerConnected(Client player) {

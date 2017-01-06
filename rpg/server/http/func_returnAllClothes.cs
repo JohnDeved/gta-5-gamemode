@@ -26,9 +26,9 @@ public partial class rpg : Script
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
-            string m_glasses = "[" + string.Join(",",JsonConvert.SerializeObject(m_glasses)) + "]";
-            File.WriteAllText("TestFile.txt",m_glasses);
-            return m_glasses;
+            string s_m_glasses = "[" + string.Join(",",JsonConvert.SerializeObject(m_glasses)) + "]";
+            File.WriteAllText("TestFile.txt",s_m_glasses);
+            return s_m_glasses;
         } else {
             return "0";
         }
