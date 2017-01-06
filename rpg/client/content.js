@@ -85,7 +85,7 @@ API.onUpdate.connect(function() {
             var p_marker = API.getEntitySyncedData(p_allPlayers[i],"p_marker")
             var l_marker = API.getEntitySyncedData(API.getLocalPlayer(),"p_marker")
 
-            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && p_marker != null)
+            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && API.returnNative("IS_ENTITY_ON_SCREEN",8,p_allPlayers[i]) && p_marker != null)
             {
                 API.setBlipTransparency(p_marker, 255)
             } else {
@@ -96,4 +96,4 @@ API.onUpdate.connect(function() {
             }
         }
     }
-});
+})
