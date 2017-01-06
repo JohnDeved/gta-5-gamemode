@@ -85,13 +85,14 @@ API.onUpdate.connect(function() {
             var p_marker = API.getEntitySyncedData(p_allPlayers[i],"p_marker")
             var l_marker = API.getEntitySyncedData(API.getLocalPlayer(),"p_marker")
 
-            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && l_marker != API.getLocalPlayer())
+            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && p_marker != null)
             {
-                API.sendChatMessage("true");
                 API.setBlipTransparency(p_marker, 255)
             } else {
-                API.sendChatMessage("false");
                 API.setBlipTransparency(p_marker, 0)
+            }
+            if(l_marker != null) {
+                API.setBlipTransparency(l_marker, 0)
             }
         }
     }
