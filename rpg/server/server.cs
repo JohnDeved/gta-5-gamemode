@@ -35,7 +35,7 @@ public partial class rpg : Script
 
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
 
-        var dictionary = new Dictionary<string, JObject>{};
+        var dictionary = new Dictionary<string, JObject[]>{};
         dictionary.Add("m_glasses", m_glasses);
         dictionary.Add("m_hair", m_hair);
         dictionary.Add("m_headgear", m_headgear);
