@@ -19,8 +19,8 @@ public partial class rpg : Script
 {
 	struct Player
 	{
-	    private string socialclub_id;
-	    private string player_name;
+	    public string socialclub_id;
+	    public string player_name;
 	}
 
     private string http_returnAllPlayers(string post_raw)
