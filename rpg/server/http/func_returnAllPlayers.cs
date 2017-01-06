@@ -18,12 +18,6 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-	struct Player
-	{
-	    public string socialclub_id;
-	    public string player_name;
-	}
-
     private string http_returnAllPlayers(string post_raw)
     {
         var args = JObject.Parse(post_raw);
@@ -33,8 +27,8 @@ public partial class rpg : Script
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
 			var dictionary = new Dictionary<string, string>{};
-			dictionary.Add("session_id", "123");
-			dictionary.Add("socialclub_id", "abc");
+			dictionary.Add("socialclub_id", "123");
+			dictionary.Add("player_name", "abc");
 
 			var serialized = JsonConvert.SerializeObject(dictionary, Formatting.Indented);
 			Console.WriteLine(serialized);
