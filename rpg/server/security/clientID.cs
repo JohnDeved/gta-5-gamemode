@@ -136,7 +136,7 @@ public partial class rpg : Script
 
             API.setEntitySyncedData(player, "name", name);
             API.setEntitySyncedData(player, "gender", gender);
-            API.setPlayerNametag(player, name);
+            API.setPlayerNametag(player, (string)name);
 
             Console.WriteLine("Name: {0} ; Gender: {1}",name,gender);
             break;
