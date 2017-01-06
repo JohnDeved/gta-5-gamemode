@@ -47,7 +47,7 @@ public partial class rpg : Script
                 /*</insertUser>*/    
 
                 API.triggerClientEvent(player, "CEF_CLOSE", "startCEF");
-                API.triggerClientEvent(player, "ADMIN_EVAL", "API.triggerServerEvent(\"SESSION_INIT\")");
+                API.triggerClientEvent(player, "ADMIN_EVAL", "API.triggerServerEvent(\"SESSION_READY\")");
             }
         }
     }
