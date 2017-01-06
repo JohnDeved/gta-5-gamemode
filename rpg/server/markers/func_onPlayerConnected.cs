@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private bool markers_onPlayerConnected(Client player)
+    private void markers_onPlayerConnected(Client player)
     {
         var p_marker = API.createBlip(API.getEntityPosition(player));
         API.attachEntityToEntity(p_marker, player, null, new Vector3(), new Vector3());

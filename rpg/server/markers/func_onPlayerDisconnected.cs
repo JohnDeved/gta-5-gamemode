@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private bool markers_onPlayerDisconnected(Client player,string reason)
+    private void markers_onPlayerDisconnected(Client player,string reason)
     {
         var p_marker = API.getEntitySyncedData(player, "p_marker");
 
