@@ -43,7 +43,7 @@ public partial class rpg : Script
         dictionary.Add("m_pants", string.Join(",",JsonConvert.SerializeObject(m_pants)));
         dictionary.Add("m_shirt", string.Join(",",JsonConvert.SerializeObject(m_shirt)));
         dictionary.Add("m_shoes", string.Join(",",JsonConvert.SerializeObject(m_shoes)));
-        dictionary.Add("c_owned", "0");
+        dictionary.Add("c_owned", JObject.parse("{owned:'0'}"));
 
         File.WriteAllText("TestFile.txt",JsonConvert.SerializeObject(dictionary));
     }
