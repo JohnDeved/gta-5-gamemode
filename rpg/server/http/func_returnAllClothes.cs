@@ -26,7 +26,7 @@ public partial class rpg : Script
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
-            var dictionary = new Dictionary<string, string>{};
+            var dictionary = new Dictionary<string, JObject>{};
             dictionary.Add("m_glasses", m_glasses);
             dictionary.Add("m_hair", m_hair);
             dictionary.Add("m_headgear", m_headgear);
