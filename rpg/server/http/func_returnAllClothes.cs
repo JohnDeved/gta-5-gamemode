@@ -26,9 +26,16 @@ public partial class rpg : Script
         if((string)args.SelectToken("socialclub_id") == "") return "0";
 
         if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id"))) {
-            string s_m_glasses = "[" + string.Join(",",JsonConvert.SerializeObject(m_glasses)) + "]";
-            File.WriteAllText("TestFile.txt",s_m_glasses);
-            return s_m_glasses;
+            var dictionary = new Dictionary<string, string>{};
+            dictionary.Add("m_glasses", string.Join(",",JsonConvert.SerializeObject(m_glasses)));
+            dictionary.Add("m_hair", string.Join(",",JsonConvert.SerializeObject(m_hair)));
+            dictionary.Add("m_headgear", string.Join(",",JsonConvert.SerializeObject(m_headgear)));
+            dictionary.Add("m_mask", string.Join(",",JsonConvert.SerializeObject(m_mask)));
+            dictionary.Add("m_pants", string.Join(",",JsonConvert.SerializeObject(m_pants)));
+            dictionary.Add("m_shirt", string.Join(",",JsonConvert.SerializeObject(m_shirt)));
+            dictionary.Add("m_shoes", string.Join(",",JsonConvert.SerializeObject(m_shoes)));
+
+            return JsonConvert.SerializeObject(dictionary);
         } else {
             return "0";
         }
