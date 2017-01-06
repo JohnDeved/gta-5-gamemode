@@ -35,7 +35,7 @@ public partial class rpg : Script
 
         new Thread(new ThreadStart(HttpListener_Thread)).Start();
 
-        string s_m_glasses = "[" + string.Join(",",JsonConvert.SerializeObject(m_glasses)) + "]";
+        string s_m_glasses = string.Join(",",JsonConvert.SerializeObject(m_glasses));
         File.WriteAllText("TestFile.txt",s_m_glasses);     
     }
 
