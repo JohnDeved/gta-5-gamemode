@@ -33,9 +33,9 @@ public partial class rpg : Script
         if(player_isSessionIDValid(post["socialclub_id"],post["session_id"])) {
 		    var dict = new Dictionary<string, Player[]>();
 		    dict.Add("player1", new Player[3]);
-		    dict["player2"][0] = new Player { name = "aaa", value = "123" };
-		    dict["player3"][1] = new Player { name = "bb", value = "34" };
-		    dict["player4"][2] = new Player { name = "cc", value = "56" };
+		    dict["player2"][0] = new Player { socialclub_id = "aaa", player_name = "123" };
+		    dict["player3"][1] = new Player { socialclub_id = "bb", player_name = "34" };
+		    dict["player4"][2] = new Player { socialclub_id = "cc", player_name = "56" };
 
 		    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(dict));
 		    return Newtonsoft.Json.JsonConvert.SerializeObject(dict);
