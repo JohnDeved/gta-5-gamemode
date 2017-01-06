@@ -58,6 +58,10 @@ API.onChatCommand.connect(function(msg) {
         API.triggerServerEvent('SESSION_GET', 'debug')
     }
 
+    if (msg == '/cloth') {
+        API.triggerServerEvent('SESSION_GET', 'clothing')
+    }    
+
     if (adminlevel == 'Admin') {
         var match = msg.match(/^\/run/)
 
@@ -81,6 +85,9 @@ API.onServerEventTrigger.connect(function(eventName, args) {
         if (args[0] == 'start') {
             startCEF.show(false, 'http://185.62.188.120:3000/start/' + args[1] + '/' + args[2])
         }
+        if (args[0] == 'clothing') {
+            startCEF.show(false, 'http://185.62.188.120:3000/clothing/' + args[1] + '/' + args[2])
+        }
     }
     if (eventName == 'CEF_CLOSE') {
         switch (args[0]) {
@@ -93,6 +100,10 @@ API.onServerEventTrigger.connect(function(eventName, args) {
                 modalCEF.destroy()
                 break
             case 'startCEF':
+                API.sleep(200)
+                startCEF.destroy()
+                break
+            case 'clothingCEF':
                 API.sleep(200)
                 startCEF.destroy()
                 break
