@@ -78,7 +78,5 @@ API.onServerEventTrigger.connect(function(eventName, args) {
 
 
 API.onUpdate.connect(function() {
-    if (ourBlip != null) {
-        API.setBlipTransparency(ourBlip, 0);
-    }
+
 });
