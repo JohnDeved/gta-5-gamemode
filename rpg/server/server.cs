@@ -15,7 +15,6 @@ public partial class rpg : Script
     	API.onPlayerConnected += onPlayerConnected;
     	API.onPlayerRespawn += onPlayerConnected;
         API.onClientEventTrigger += onClientEventTrigger;
-        API.onResourceStart += onResourceStart;
         API.onResourceStart += onServerStart;
         API.onPlayerConnected += markers_onPlayerConnected;
         API.onPlayerDisconnected += markers_onPlayerDisconnected;
@@ -23,12 +22,10 @@ public partial class rpg : Script
 
     public void onServerStart() {
         misc_importClothes();
+        DropTableIfNotExists();
+        CreateTableIfNotExists();
 
-        Console.WriteLine("JSON: {0}",misc_getClothesIndex("m_shirt","leatherjacket"));
-        Console.WriteLine("Textures: {0}",misc_getClothesTextures("m_shirt","leatherjacket").Length.ToString());
-        foreach(string className in misc_getAllClothes("m_shirt")) {
-            Console.WriteLine(className);
-        }        
+        new Thread(new ThreadStart(HttpListener_Thread)).Start();    
     }
 
     public void onPlayerConnected(Client player) {

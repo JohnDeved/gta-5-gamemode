@@ -25,6 +25,22 @@ public partial class rpg : Script
     private JObject[] m_shirt;
     private JObject[] m_shoes;
 
+    private Dictionary<string, int> ClothingParts = new Dictionary<string, int>
+    {
+        {"face", 0},
+        {"mask", 1},
+        {"hair", 2},
+        {"arms", 3},
+        {"legs", 4},
+        {"back", 5},
+        {"shoes", 6},
+        {"ties", 7},
+        {"inner", 8},
+        {"vest", 9},
+        {"decals", 10},
+        {"shirt", 11}
+    };    
+
     private void misc_importClothes()
     {
         string[] Lines = File.ReadAllLines(string.Format(@"resources\rpg\server\player\clothes\{0}.json","m_glasses"));

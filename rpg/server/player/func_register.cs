@@ -19,7 +19,7 @@ public partial class rpg : Script
 {
     private void player_register(Client player, string firstname, string lastname, bool gender)
     {
-       if(!VerifyNameString(firstname)||!VerifyNameString(lastname)) {
+       if(!misc_isNameValid(firstname)||!misc_isNameValid(lastname)) {
             API.sendChatMessageToPlayer(player, "~r~Der angegebene Name entspricht nicht den Anforderungen.");
             API.triggerClientEvent(player, "CEF_CLOSE", "startCEF");
             API.triggerClientEvent(player, "SESSION_SEND", "start", player.socialClubName, API.getEntityData(player, "session_id"));

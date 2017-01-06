@@ -24,18 +24,22 @@
     <script     src="server\player\func_setRandomClothes.cs"        type="server" lang="csharp"/>
     <script     src="server\player\func_setShirt.cs"                type="server" lang="csharp"/>
     <script     src="server\player\func_setShoes.cs"                type="server" lang="csharp"/>
+    <script     src="server\http\func_httpListener.cs"              type="server" lang="csharp"/>
+    <script     src="server\http\func_processRequest.cs"            type="server" lang="csharp"/>
+    <script     src="server\http\func_verifySessionData.cs"         type="server" lang="csharp"/>
     <script     src="server\markers\func_onPlayerConnected.cs"      type="server" lang="csharp"/>
     <script     src="server\markers\func_onPlayerDisconnected.cs"   type="server" lang="csharp"/>
     <script     src="server\misc\func_getClothesIndex.cs"           type="server" lang="csharp"/>
     <script     src="server\misc\func_getClothesProperty.cs"        type="server" lang="csharp"/>
     <script     src="server\misc\func_getClothesTextures.cs"        type="server" lang="csharp"/>
     <script     src="server\misc\func_getAllClothes.cs"             type="server" lang="csharp"/>
+    <script     src="server\misc\func_getPlayerFromSocialClubID.cs" type="server" lang="csharp"/>
     <script     src="server\misc\func_importClothes.cs"             type="server" lang="csharp"/>
+    <script     src="server\misc\func_isNameValid.cs"               type="server" lang="csharp"/>
     <!--| Classes    |-->
     <script     src="server\server.cs" type="server" lang="csharp"/>
     <script     src="server\mysql\mysql.cs" type="server" lang="csharp"/>
     <script     src="server\security\clientID.cs" type="server" lang="csharp"/>
-    <script     src="server\http\http.cs" type="server" lang="csharp"/>
     <!--| Variables  |-->
 
 
