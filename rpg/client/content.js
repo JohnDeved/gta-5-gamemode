@@ -75,21 +75,22 @@ API.onServerEventTrigger.connect(function(eventName, args) {
     }
 })
 
-
-
 API.onUpdate.connect(function() {
     var p_allPlayers = API.getWorldSyncedData("p_allPlayers")
 
     if(p_allPlayers != null)
     {
-        for(var i; i < p_allPlayers.Count; i++)
+        for(var i = 0; i < p_allPlayers.Count; i++)
         {
             var p_marker = API.getEntitySyncedData(p_allPlayers[i],"p_marker")
+            var l_marker = API.getEntitySyncedData(API.getLocalPlayer(),"p_marker")
 
-            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && p_allPlayers[i] != API.getLocalPlayer())
+            if(API.returnNative("HAS_ENTITY_CLEAR_LOS_TO_ENTITY",8,API.getLocalPlayer(),p_allPlayers[i],17) && l_marker != API.getLocalPlayer())
             {
+                API.sendChatMessage("true");
                 API.setBlipTransparency(p_marker, 255)
             } else {
+                API.sendChatMessage("false");
                 API.setBlipTransparency(p_marker, 0)
             }
         }
