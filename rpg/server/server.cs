@@ -52,6 +52,15 @@ public partial class rpg : Script
             JObject.Parse("{m_shirt:'0'}"),
             JObject.Parse("{m_shoes:'0'}")
         });
+        dictionary.Add("c_wearing", new JObject[] {
+            JObject.Parse("{m_glasses:'0'}"),
+            JObject.Parse("{m_hair:'0'}"),
+            JObject.Parse("{m_headgear:'0'}"),
+            JObject.Parse("{m_mask:'0'}"),
+            JObject.Parse("{m_pants:'0'}"),
+            JObject.Parse("{m_shirt:'0'}"),
+            JObject.Parse("{m_shoes:'0'}")
+        });         
 
         File.WriteAllText("TestFile.txt",JsonConvert.SerializeObject(dictionary));
     }
