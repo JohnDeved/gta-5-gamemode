@@ -27,10 +27,10 @@ public partial class rpg : Script
     {
         var post = HttpUtility.ParseQueryString(post_raw);
 
-		if((string)args.SelectToken("session_id") == "") return "0";
-		if((string)args.SelectToken("socialclub_id") == "") return "0";
+        if(post["socialclub_id"] == "") return "0";
+        if(post["session_id"] == "") return "0";
 
-        if(player_isSessionIDValid((string)args.SelectToken("socialclub_id"),(string)args.SelectToken("session_id")) {
+        if(player_isSessionIDValid(post["socialclub_id"],post["session_id"])) {
 		    var dict = new Dictionary<string, Player[]>();
 		    dict.Add("player1", new Player[3]);
 		    dict["player2"][0] = new Player { socialclub_id = "aaa", player_name = "123" };
