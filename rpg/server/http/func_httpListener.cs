@@ -42,7 +42,7 @@ public partial class rpg : Script
                     responseText = http_verifySessionData(post);
                     break;
                 case "http://185.62.188.120:3001/getAllPlayers":
-                    responseText = http_verifySessionData(post);
+                    responseText = http_returnAllPlayers(post);
                     break;
                 default:
                     responseText = "asdfg";
