@@ -94,7 +94,7 @@ API.onUpdate.connect(function () {
             API.setBlipName(p_marker, '')
           }
           API.setBlipTransparency(l_marker, 0)
-          API.setBlipName(p_marker, '')
+          API.setBlipName(l_marker, '')
         }
       }
     }
