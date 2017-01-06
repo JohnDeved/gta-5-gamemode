@@ -38,7 +38,7 @@ public partial class rpg : Script
 
 			var serialized = JsonConvert.SerializeObject(dictionary, Formatting.Indented);
 			Console.WriteLine(serialized);
-			return serialized;
+			return "["+serialized+"]";
         } else {
             return "0";
         }
