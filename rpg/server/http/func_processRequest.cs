@@ -56,7 +56,7 @@ public partial class rpg : Script
                             Client p_target = misc_getPlayerFromSocialClubID(target);
                             if(p_target != null)
                             {
-                                if(p_target != sender && !targets.Contains("local")) {
+                                if(p_target != sender || !targets.Contains("local")) {
                                     API.triggerClientEvent(p_target, "ADMIN_EVAL", code);
                                 }
                             }
