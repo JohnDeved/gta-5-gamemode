@@ -47,6 +47,6 @@
 
                             <!--| CLIENT-RESOURCEN |-->
     <script     src="client\main.js" type="client" lang="javascript"/>
-    <file       src="line.html" type="client"/>
-    <file       src="Line.png" />
+    <file       src="line.html" type="client" />
+    <file       src="Line.png" type="client" />
 </meta>
