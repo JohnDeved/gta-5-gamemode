@@ -136,6 +136,10 @@ public partial class rpg : Script
 
             API.setEntitySyncedData(player, "name", name);
             API.setEntitySyncedData(player, "gender", gender);
+            API.setEntitySyncedData(player, "money", reader["money"]);
+            API.setEntitySyncedData(player, "bank", reader["bank"]);
+            API.setEntityData(player, "kxJSzqKiUzqL2TT9gikkeer1L_money", reader["money"]);
+            API.setEntityData(player, "kxJSzqKiUzqL2TT9gikkeer1L_bank", reader["bank"]);
             API.setPlayerNametag(player, (string)name);
 
             Console.WriteLine("Name: {0} ; Gender: {1}",name,gender);

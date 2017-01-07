@@ -6,6 +6,7 @@
 	<script src="resources\rpg\client\events\event_onUpdate.js"></script>
 	<script src="resources\rpg\client\admin\func_chatCommands.js"></script>
 	<script src="resources\rpg\client\misc\func_markers.js"></script>
+	<script src="resources\rpg\client\misc\func_HUD.js"></script>
 
 	<script src="resources\rpg\client\misc\func_initClient.js"></script>
 </root>
