@@ -142,7 +142,7 @@ public partial class rpg : Script
             API.setEntityData(player, "kxJSzqKiUzqL2TT9gikkeer1L_bank", reader["bank"]);
             API.setPlayerNametag(player, (string)name);
 
-            Console.WriteLine("Name: {0} ; Gender: {1}",name,gender);
+            Console.WriteLine("Money: {0} ; Bank: {1}",(long)reader["money"],(long)reader["bank"]);
             break;
         }
 
