@@ -1,5 +1,5 @@
 API.onUpdate.connect(function() {
-	var money = API.setEntitySyncedData(player, "money");
+	var money = API.setEntitySyncedData(API.getLocalPlayer(), "money");
 
 	if(money != null)
 	{
