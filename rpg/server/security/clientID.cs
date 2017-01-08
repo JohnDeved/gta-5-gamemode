@@ -144,6 +144,7 @@ public partial class rpg : Script
             API.setEntityData(player, "kxJSzqKiUzqL2TT9gikkeer1L_bank", reader["bank"]);
             API.setPlayerNametag(player, (string)name);
             API.setPlayerNametagVisible(player, false);
+            API.setWorldSyncedData("p_allPlayers", API.getAllPlayers());
 
             Console.WriteLine("Money: {0} ; Bank: {1}",(int)reader["money"],(int)reader["bank"]);
             break;
