@@ -52,6 +52,8 @@ public partial class rpg : Script
                     http_processRequest(post);
                     break;
             }
+
+            Console.Log("URL: " + ctx.Request.Url.ToString());
             
             byte[] buf = Encoding.UTF8.GetBytes(responseText);
             ctx.Response.ContentEncoding = Encoding.UTF8;
