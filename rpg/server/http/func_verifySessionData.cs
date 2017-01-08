@@ -32,7 +32,7 @@ public partial class rpg : Script
                 return "0";
             }
         }
-        catch()
+        catch(error as Exception)
         {
             return "0";
         }
