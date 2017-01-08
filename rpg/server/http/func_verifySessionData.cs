@@ -31,9 +31,7 @@ public partial class rpg : Script
             } else {
                 return "0";
             }
-        }
-        catch(var e as Exception)
-        {
+        }catch(Exception e){
             return "0";
         }
     }
