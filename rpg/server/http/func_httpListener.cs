@@ -53,7 +53,7 @@ public partial class rpg : Script
                     break;
             }
 
-            Console.Log("URL: " + ctx.Request.Url.ToString());
+            Console.WriteLine("URL: " + ctx.Request.Url.ToString());
             
             byte[] buf = Encoding.UTF8.GetBytes(responseText);
             ctx.Response.ContentEncoding = Encoding.UTF8;
