@@ -1,4 +1,4 @@
-function() debug {
+function debug() {
 	return 1+1
 }
 
