@@ -10,7 +10,7 @@ API.onUpdate.connect(function() {
 				var head_pos = API.returnNative("GET_PED_BONE_COORDS",5,player,12844,0);
 				var local_pos = API.returnNative("GET_PED_BONE_COORDS",5,API.getLocalPlayer(),12844,0);
 
-				var distance = sqrt(Math.pow(local_pos.X,head_pos.X) + Math.pow(local_pos.Y,head_pos.Y) + Math.pow(local_pos.Z,head_pos.Z));
+				var distance = Math.sqrt(Math.pow(local_pos.X,head_pos.X) + Math.pow(local_pos.Y,head_pos.Y) + Math.pow(local_pos.Z,head_pos.Z));
 
 				skel_head = API.worldToScreen(new Vector3(head_pos.X,head_pos.Y,head_pos.Z + .3));
 
