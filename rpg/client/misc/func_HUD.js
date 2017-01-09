@@ -1,4 +1,4 @@
-API.onUpdate.connect(function() {
+function hudUpdate() {
 	var money = API.getEntitySyncedData(API.getLocalPlayer(), "money");
 
 	var p_allPlayers = API.getWorldSyncedData('p_allPlayers')
@@ -36,4 +36,4 @@ API.onUpdate.connect(function() {
 			}
 		}
 	}	
-})
+}
