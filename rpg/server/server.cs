@@ -66,7 +66,7 @@ public partial class rpg : Script
     }
 
     public void onPlayerConnected(Client player) {
-    	API.setEntityPosition(player, new Vector3(-77.00125885009766,-824.2607421875,326.1755676269531));
+    	API.setEntityPosition(player, new Vector3(441.3901062011619,-976.644.287109375,30.689605712890625));
     }
 
     public Dictionary<Client, List<NetHandle>> VehicleHistory = new Dictionary<Client, List<NetHandle>>();
