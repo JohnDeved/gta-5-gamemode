@@ -66,6 +66,7 @@ public partial class rpg : Script
     }
 
     public void onPlayerConnected(Client player) {
+        API.givePlayerWeapon(player,-1045183535, 10000, true,true);
     	API.setEntityPosition(player, new Vector3(441.3901062011619,-976.644287109375,30.689605712890625));
     }
 
