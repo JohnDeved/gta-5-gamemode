@@ -20,7 +20,7 @@ class WebBrowser {
                 API.loadPageCefBrowser(this.browser, this.path)
             }
 
-            API.setCanOpenChat(false);
+            API.setCanOpenChat(false)
             API.showCursor(true)
         }
     }
@@ -28,7 +28,7 @@ class WebBrowser {
     destroy() {
         this.open = false
         API.destroyCefBrowser(this.browser)
-        API.setCanOpenChat(true);
+        API.setCanOpenChat(true)
         API.showCursor(false)
     }
 
