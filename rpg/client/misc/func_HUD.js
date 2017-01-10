@@ -22,7 +22,7 @@ function hudUpdate() {
 						switch(API.getEntitySyncedData(player,"role"))
 						{
 							case"Civilian":
-								API.drawText(API.getEntitySyncedData(player,"name"), skel_head.X, skel_head.Y, .3, 255, 255, 255, 255, 4, 1, false, true, 256);
+								API.drawText(API.getEntitySyncedData(player,"name"), skel_head.X, skel_head.Y, .3, 181, 0, 0, 255, 4, 1, false, true, 256);
 								break;
 							case"Police":
 								API.drawText(API.getEntitySyncedData(player,"name"), skel_head.X, skel_head.Y, .3, 0, 76, 152, 255, 4, 1, false, true, 256);
