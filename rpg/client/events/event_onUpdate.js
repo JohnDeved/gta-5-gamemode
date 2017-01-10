@@ -16,7 +16,7 @@ function debug() {
 }
 
 API.onKeyDown.connect(function (sender, e) {
-	if (e.KeyCode === Keys.E) {
+	if (e.KeyCode === Keys.E && !API.isPlayerInAnyVehicle(API.getLocalPlayer())) {
 		API.showCursor(true)
 		menu_opened = true
 	}
