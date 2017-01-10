@@ -19,7 +19,7 @@ public partial class rpg : Script
 {
     private int misc_getClothesIndex(string type, string classname)
     {
-         JObject[] Parts = new JObject[0];
+        JObject[] Parts = new JObject[0];
 
         switch(type)
         {
