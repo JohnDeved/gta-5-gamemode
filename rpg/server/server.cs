@@ -60,9 +60,7 @@ public partial class rpg : Script
             JObject.Parse("{m_pants:'0'}"),
             JObject.Parse("{m_shirt:'0'}"),
             JObject.Parse("{m_shoes:'0'}")
-        });         
-
-        File.WriteAllText("TestFile.txt",JsonConvert.SerializeObject(dictionary));
+        });
     }
 
     public void onPlayerConnected(Client player) {
