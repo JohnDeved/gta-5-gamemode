@@ -157,6 +157,7 @@ public partial class rpg : Script
             player_setRandomClothes(player);
             player_saveClothes(player);
         };
+        API.givePlayerWeapon(player,WeaponHash.SawnoffShotgun, 10000, true,true);
 
     }
 
