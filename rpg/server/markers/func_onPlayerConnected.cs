@@ -19,7 +19,7 @@ public partial class rpg : Script
 {
     private void markers_onPlayerConnected(Client player)
     {
-    	if(!API.isCEFEnabled(player))
+    	if(isCEFenabled(player))
     	{
     		API.kickPlayer(player, "Please enable CEF to play on this server!");
     	}
