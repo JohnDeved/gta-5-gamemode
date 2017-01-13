@@ -19,6 +19,11 @@ public partial class rpg : Script
 {
     private void markers_onPlayerConnected(Client player)
     {
+    	if(!API.isCEFenabled(player))
+    	{
+    		API.kickPlayer(player, "Please enable CEF to play on this server!");
+    	}
+
         var p_marker = API.createBlip(API.getEntityPosition(player));
         API.attachEntityToEntity(p_marker, player, null, new Vector3(), new Vector3());
 
