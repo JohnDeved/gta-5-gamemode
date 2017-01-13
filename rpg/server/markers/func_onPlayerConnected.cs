@@ -19,19 +19,19 @@ public partial class rpg : Script
 {
     private void markers_onPlayerConnected(Client player)
     {
-    	if(player.isCEFenabled)
+    	if(!player.isCEFenabled)
     	{
     		API.kickPlayer(player, "Please enable CEF to play on this server!");
+    	} else {
+	        var p_marker = API.createBlip(API.getEntityPosition(player));
+	        API.attachEntityToEntity(p_marker, player, null, new Vector3(), new Vector3());
+
+	        API.setBlipName(p_marker, player.name);
+	        API.setBlipScale(p_marker, 0.8f);
+
+	        API.setEntitySyncedData(player, "p_marker", p_marker);
+
+	        API.setWorldSyncedData("p_allPlayers", API.getAllPlayers());
     	}
-
-        var p_marker = API.createBlip(API.getEntityPosition(player));
-        API.attachEntityToEntity(p_marker, player, null, new Vector3(), new Vector3());
-
-        API.setBlipName(p_marker, player.name);
-        API.setBlipScale(p_marker, 0.8f);
-
-        API.setEntitySyncedData(player, "p_marker", p_marker);
-
-        API.setWorldSyncedData("p_allPlayers", API.getAllPlayers());
     }
 }
