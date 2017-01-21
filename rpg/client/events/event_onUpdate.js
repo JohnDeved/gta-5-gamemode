@@ -22,10 +22,10 @@ API.onKeyDown.connect(function(sender, e) {
 })
 
 API.onKeyUp.connect(function(sender, e) {
-    if (e.KeyCode === Keys.E) {
-        API.showCursor(false)
-        menu_opened = false
-    }
+    // if (e.KeyCode === Keys.E) {
+    //     API.showCursor(false)
+    //     menu_opened = false
+    // }
 })
 
 API.onUpdate.connect(function() {
