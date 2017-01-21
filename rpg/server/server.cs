@@ -157,7 +157,7 @@ public partial class rpg : Script
     }
 
     [Command("lock")]
-    public void DeleteCarCommand(Client sender)
+    public void lockCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
@@ -169,7 +169,7 @@ public partial class rpg : Script
     }
 
     [Command("unlock")]
-    public void DeleteCarCommand(Client sender)
+    public void unlockCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
