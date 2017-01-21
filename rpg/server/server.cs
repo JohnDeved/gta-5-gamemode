@@ -97,4 +97,17 @@ public partial class rpg : Script
 
         API.setPlayerIntoVehicle(sender, veh, -1);
     }
+
+    [Command("sv")]
+    public void SaveCarCommand(Client sender)
+    {
+        if (API.isPlayerInAnyVehicle(sender)) {
+            var veh = API.getPlayerVehicle(sender);
+            var pos = API.getEntityPosition(veh);
+            var rot = API.getEntityRotation(veh);
+            API.sendChatMessageToPlayer(sender, "Position: X" + pos.X + ", Y" + pos.Y + ", Z" + pos.Z + " | Rotation: " + rot);
+        } else {
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug");
+        }
+    }
 }
