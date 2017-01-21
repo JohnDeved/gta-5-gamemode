@@ -26,17 +26,17 @@ API.onKeyUp.connect(function(sender, e) {
     //     API.showCursor(false)
     //     menu_opened = false
     // }
-    if (e.KeyCode === Keys.E) {
+    if (e.KeyCode === Keys.Z) {
         var player = API.getLocalPlayer()
         if (API.isPlayerInAnyVehicle(player)) {
             if (API.getPlayerVehicleSeat(player)) {
                 var veh = API.getPlayerVehicle(player)
                 if (API.getVehicleEngineStatus(veh)) {
                     API.setVehicleEngineStatus(veh, false)
-                    API.sendChatMessage('~r~Motor Aus')
+                    API.sendChatMessage('~c~Motor ~r~Aus')
                 } else {
                     API.setVehicleEngineStatus(veh, true)
-                    API.sendChatMessage('~g~Motor An')
+                    API.sendChatMessage('~c~Motor ~g~An')
                 }
             }
         }
