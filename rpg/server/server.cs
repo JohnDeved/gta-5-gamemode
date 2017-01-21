@@ -135,10 +135,4 @@ public partial class rpg : Script
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
         }
     }
-
-    [Command("spawn")]
-    public void SpawnCarCommand(Client sender)
-    {
-        API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Gespawnt...");
-    }
 }
