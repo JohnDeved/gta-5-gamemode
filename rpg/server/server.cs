@@ -139,6 +139,16 @@ public partial class rpg : Script
     [Command("spawn")]
     public void SpawnCarsCommand(Client sender)
     {
-        API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurde Erstellt!");
+        /*<getCars>*/
+            MySqlConnection db_conn = ConnectToDatabase();
+            if (db_conn == null) return;
+
+            string query = "SELECT * FROM vehicleshop WHERE tier=1";
+            var reader = new MySqlCommand(query, db_conn).ExecuteNonQuery();
+            while(reader.Read()) {
+                break;
+            }
+        /*</getCars>*/
+        API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurden Erstellt!");
     }
 }
