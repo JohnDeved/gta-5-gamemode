@@ -116,7 +116,7 @@ public partial class rpg : Script
     }
 
     [Command("vdel")]
-    public void DeleteCarCommand(Client sender, int tier)
+    public void DeleteCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var oldVeh = API.getPlayerVehicle(sender);
