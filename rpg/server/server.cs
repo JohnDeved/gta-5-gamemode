@@ -65,8 +65,8 @@ public partial class rpg : Script
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return false;
 
-        string query = "SELECT * FROM vehicleshop WHERE tier=1";
-        var reader = new MySqlCommand(query, db_conn).ExecuteReader();
+        // string query = "SELECT * FROM vehicleshop WHERE tier=1";
+        // var reader = new MySqlCommand(query, db_conn).ExecuteReader();
         // while(reader.Read())
         // {
         //     var veh = API.createVehicle(new VehicleHash "-1216765807", new Vector3((int)reader["x"], (int)reader["y"], (int)reader["z"]), new Vector3(0, 0, (int)reader["rotation"]), 0, 0);
