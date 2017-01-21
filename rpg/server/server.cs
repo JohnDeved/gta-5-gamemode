@@ -148,5 +148,6 @@ public partial class rpg : Script
         {
             var veh = API.createVehicle(new VehicleHash "-1216765807", new Vector3((int)reader["x"], (int)reader["y"], (int)reader["z"]), new Vector3(0, 0, (int)reader["rotation"]), 0, 0);
         }
+        API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Gespawnt...");
     }
 }
