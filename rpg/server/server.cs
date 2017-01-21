@@ -96,6 +96,7 @@ public partial class rpg : Script
         }
 
         API.setPlayerIntoVehicle(sender, veh, -1);
+        API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde erstellt!");
     }
 
     [Command("vsav")]
