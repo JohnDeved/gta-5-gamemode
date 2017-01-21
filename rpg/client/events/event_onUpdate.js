@@ -15,10 +15,10 @@ function debug() {
 }
 
 API.onKeyDown.connect(function(sender, e) {
-    if (e.KeyCode === Keys.E && !API.isPlayerInAnyVehicle(API.getLocalPlayer())) {
-        API.showCursor(true)
-        menu_opened = true
-    }
+    // if (e.KeyCode === Keys.E && !API.isPlayerInAnyVehicle(API.getLocalPlayer())) {
+    //     API.showCursor(true)
+    //     menu_opened = true
+    // }
 })
 
 API.onKeyUp.connect(function(sender, e) {
