@@ -147,8 +147,7 @@ public partial class rpg : Script
             var reader = new MySqlCommand(query, db_conn).ExecuteReader();
             while(reader.Read())
             {
-                Console.WriteLine("reading shit");
-                break;
+                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Rotation: " + reader["rotation"]);
             }
         /*</getCars>*/
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurden Erstellt!");
