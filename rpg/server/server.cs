@@ -105,8 +105,10 @@ public partial class rpg : Script
             var veh = API.getPlayerVehicle(sender);
             var pos = API.getEntityPosition(veh);
             var rot = API.getEntityRotation(veh);
+            var model = API.getEntityModel(veh);
             API.sendChatMessageToPlayer(sender, "Position " + pos);
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
+            API.sendChatMessageToPlayer(sender, "Model " + model);
         } else {
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug");
         }
