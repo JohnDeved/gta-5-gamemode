@@ -99,7 +99,7 @@ public partial class rpg : Script
     }
 
     [Command("sv")]
-    public void SaveCarCommand(Client sender)
+    public void SaveCarCommand(Client sender, Int tier)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
@@ -109,6 +109,7 @@ public partial class rpg : Script
             API.sendChatMessageToPlayer(sender, "Position " + pos);
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
             API.sendChatMessageToPlayer(sender, "Model " + model);
+            API.sendChatMessageToPlayer(sender, "Tier " + tier);
         } else {
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug");
         }
