@@ -145,6 +145,10 @@ public partial class rpg : Script
 
             string query = "SELECT * FROM vehicleshop WHERE tier=1";
             var reader = new MySqlCommand(query, db_conn).ExecuteReader();
+            while(reader.Read())
+            {
+                break;
+            }
         /*</getCar>*/
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Gespawnt...");
     }
