@@ -27,9 +27,10 @@ API.onKeyUp.connect(function(sender, e) {
     //     menu_opened = false
     // }
     if (e.KeyCode === Keys.E) {
-        if (API.isPlayerInAnyVehicle(sender)) {
-            if (API.getPlayerVehicleSeat(sender)) {
-                var veh = API.getPlayerVehicle(sender)
+        var player = API.getLocalPlayer()
+        if (API.isPlayerInAnyVehicle(player)) {
+            if (API.getPlayerVehicleSeat(player)) {
+                var veh = API.getPlayerVehicle(player)
                 if (API.getVehicleEngineStatus(veh)) {
                     API.setVehicleEngineStatus(veh, false)
                     API.sendChatMessage('~r~Motor Aus')
