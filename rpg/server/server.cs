@@ -62,15 +62,15 @@ public partial class rpg : Script
             JObject.Parse("{m_shoes:'0'}")
         });
 
-        MySqlConnection db_conn = ConnectToDatabase();
-        if (db_conn == null) return false;
-
-        string query = string.Format(@"SELECT * FROM vehicleshop WHERE tier={0}", 1);
-        var reader = new MySqlCommand(query, db_conn).ExecuteReader();
-        while(reader.Read())
-        {
-            var veh = API.createVehicle(new VehicleHash "-1216765807", new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), 0, 0);
-        }
+        // MySqlConnection db_conn = ConnectToDatabase();
+        // if (db_conn == null) return false;
+        //
+        // string query = string.Format(@"SELECT * FROM vehicleshop WHERE tier={0}", 1);
+        // var reader = new MySqlCommand(query, db_conn).ExecuteReader();
+        // while(reader.Read())
+        // {
+        //     var veh = API.createVehicle(new VehicleHash "-1216765807", new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), 0, 0);
+        // }
     }
 
     public void onPlayerConnected(Client player) {
