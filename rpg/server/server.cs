@@ -98,7 +98,7 @@ public partial class rpg : Script
         API.setPlayerIntoVehicle(sender, veh, -1);
     }
 
-    [Command("sv")]
+    [Command("vsav")]
     public void SaveCarCommand(Client sender, int tier)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
@@ -111,7 +111,19 @@ public partial class rpg : Script
             API.sendChatMessageToPlayer(sender, "Model " + model);
             API.sendChatMessageToPlayer(sender, "Tier " + tier);
         } else {
-            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug");
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
+        }
+    }
+
+    [Command("vdel")]
+    public void SaveCarCommand(Client sender, int tier)
+    {
+        if (API.isPlayerInAnyVehicle(sender)) {
+            var oldVeh = API.getPlayerVehicle(sender);
+            API.deleteEntity(oldVeh);
+            API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde gelöscht!");
+        } else {
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
         }
     }
 }
