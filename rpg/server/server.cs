@@ -155,4 +155,28 @@ public partial class rpg : Script
         /*</getCars>*/
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurden Erstellt!");
     }
+
+    [Command("lock")]
+    public void DeleteCarCommand(Client sender)
+    {
+        if (API.isPlayerInAnyVehicle(sender)) {
+            var veh = API.getPlayerVehicle(sender);
+            API.setVehicleLocked(veh, true);
+            API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde zugesperrt!");
+        } else {
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
+        }
+    }
+
+    [Command("unlock")]
+    public void DeleteCarCommand(Client sender)
+    {
+        if (API.isPlayerInAnyVehicle(sender)) {
+            var veh = API.getPlayerVehicle(sender);
+            API.setVehicleLocked(veh, false);
+            API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde aufgesperrt!");
+        } else {
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
+        }
+    }
 }
