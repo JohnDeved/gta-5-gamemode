@@ -147,6 +147,7 @@ public partial class rpg : Script
             var reader = new MySqlCommand(query, db_conn).ExecuteReader();
             while(reader.Read())
             {
+                Console.WriteLine("reading shit");
                 break;
             }
         /*</getCars>*/
