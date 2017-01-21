@@ -148,7 +148,7 @@ public partial class rpg : Script
             while(reader.Read())
             {
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Rotation: " + reader["rotation"]);
-                API.createVehicle(1039032026, new Vector3(0, 0, 0), new Vector3(0, 0, 0), 0, 0);
+                API.createVehicle(new VehicleHash(1039032026), new Vector3(0, 0, 0), new Vector3(0, 0, 0), 0, 0);
             }
         /*</getCars>*/
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurden Erstellt!");
