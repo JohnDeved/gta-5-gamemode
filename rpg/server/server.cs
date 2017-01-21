@@ -137,7 +137,7 @@ public partial class rpg : Script
     }
 
     [Command("spawn")]
-    private void SpawnCarsCommand(Client sender)
+    public void SpawnCarsCommand(Client sender)
     {
         /*<getCars>*/
             MySqlConnection db_conn = ConnectToDatabase();
