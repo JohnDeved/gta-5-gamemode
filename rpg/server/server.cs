@@ -69,11 +69,7 @@ public partial class rpg : Script
         var reader = new MySqlCommand(query, db_conn).ExecuteReader();
         while(reader.Read())
         {
-            float x = reader["x"];
-            float y = reader["y"];
-            float z = reader["z"];
-            float rot = reader["rotation"];
-            var veh = API.createVehicle("adder", new Vector3(x, y, z), new Vector3(0, 0, rot), 0, 0);
+            var veh = API.createVehicle("adder", new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), 0, 0);
         }
     }
 
