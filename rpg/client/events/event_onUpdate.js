@@ -31,5 +31,5 @@ API.onKeyUp.connect(function(sender, e) {
 API.onUpdate.connect(function() {
     misc_markers()
     hudUpdate()
-    debug()
+    // debug()
 })
