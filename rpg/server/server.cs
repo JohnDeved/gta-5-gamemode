@@ -70,9 +70,14 @@ public partial class rpg : Script
 
     public Dictionary<Client, List<NetHandle>> VehicleHistory = new Dictionary<Client, List<NetHandle>>();
 
-    [Command("create")]
+    [Command("v")]
     public void SpawnCarCommand(Client sender, VehicleHash model)
     {
+        if (API.isPlayerInAnyVehicle(sender)) {
+            var oldVeh = API.getPlayerVehicle(sender);
+            API.deleteEntity(oldVeh);
+        }
+
         var rot = API.getEntityRotation(sender.handle);
         var veh = API.createVehicle(model, sender.position, new Vector3(0, 0, rot.Z), 0, 0);
 
@@ -89,7 +94,7 @@ public partial class rpg : Script
         {
             VehicleHistory.Add(sender, new List<NetHandle> { veh });
         }
-        
-        API.setPlayerIntoVehicle(sender, veh, -1);        
-    }   
+
+        API.setPlayerIntoVehicle(sender, veh, -1);
+    }
 }
