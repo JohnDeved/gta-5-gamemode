@@ -65,7 +65,7 @@ public partial class rpg : Script
         MySqlConnection db_conn = ConnectToDatabase();
         if (db_conn == null) return false;
 
-        string query = "SELECT * FROM vehicleshop WHERE tier=1";
+        string query = string.Format(@"SELECT * FROM vehicleshop WHERE tier={0}", 1);
         var reader = new MySqlCommand(query, db_conn).ExecuteReader();
         while(reader.Read())
         {
