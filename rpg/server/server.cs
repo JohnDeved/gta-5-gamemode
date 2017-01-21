@@ -99,7 +99,7 @@ public partial class rpg : Script
     }
 
     [Command("sv")]
-    public void SaveCarCommand(Client sender, Int tier)
+    public void SaveCarCommand(Client sender, int tier)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
