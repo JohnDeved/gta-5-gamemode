@@ -136,7 +136,7 @@ public partial class rpg : Script
         }
     }
 
-    [Command("vdel")]
+    [Command("spawn")]
     public void SpawnCarsCommand(Client sender)
     {
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurde Erstellt!");
