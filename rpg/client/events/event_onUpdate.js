@@ -1,18 +1,18 @@
-function debug() {
-    if (menu_opened) {
-        start = new Point(256, 420)
-        space = 20
-        actions = ['Als Fahrer in den Adder einsteigen', 'Als Passagier in den Adder einsteigen', 'Motor an', 'Motor aus', 'Aussteigen', 'Agim stinkt', 'Action 7', 'Action 8', 'Action 9', 'Action 10', 'Action 11', 'Action 12']
-
-        for (var i = 0; i < actions.length; i++) {
-            if (i === action_selected) {
-                API.drawText(actions[i], start.X, start.Y + (space * (i + 1)), 0.3, 255, 0, 0, 255, 4, 0, false, true, 256)
-            } else {
-                API.drawText(actions[i], start.X, start.Y + (space * (i + 1)), 0.3, 255, 255, 255, 255, 4, 0, false, true, 256)
-            }
-        }
-    }
-}
+// function debug() {
+//     if (menu_opened) {
+//         start = new Point(256, 420)
+//         space = 20
+//         actions = ['Als Fahrer in den Adder einsteigen', 'Als Passagier in den Adder einsteigen', 'Motor an', 'Motor aus', 'Aussteigen', 'Agim stinkt', 'Action 7', 'Action 8', 'Action 9', 'Action 10', 'Action 11', 'Action 12']
+//
+//         for (var i = 0; i < actions.length; i++) {
+//             if (i === action_selected) {
+//                 API.drawText(actions[i], start.X, start.Y + (space * (i + 1)), 0.3, 255, 0, 0, 255, 4, 0, false, true, 256)
+//             } else {
+//                 API.drawText(actions[i], start.X, start.Y + (space * (i + 1)), 0.3, 255, 255, 255, 255, 4, 0, false, true, 256)
+//             }
+//         }
+//     }
+// }
 
 API.onKeyDown.connect(function(sender, e) {
     // if (e.KeyCode === Keys.E && !API.isPlayerInAnyVehicle(API.getLocalPlayer())) {
@@ -26,6 +26,20 @@ API.onKeyUp.connect(function(sender, e) {
     //     API.showCursor(false)
     //     menu_opened = false
     // }
+    if (e.KeyCode === Keys.E) {
+        if (API.isPlayerInAnyVehicle(sender)) {
+            if (API.getPlayerVehicleSeat(sender)) {
+                var veh = API.getPlayerVehicle(sender)
+                if (API.getVehicleEngineStatus(veh)) {
+                    API.setVehicleEngineStatus(veh, false)
+                    API.sendChatMessage('~r~Motor Aus')
+                } else {
+                    API.setVehicleEngineStatus(veh, true)
+                    API.sendChatMessage('~g~Motor An')
+                }
+            }
+        }
+    }
 })
 
 API.onUpdate.connect(function() {
