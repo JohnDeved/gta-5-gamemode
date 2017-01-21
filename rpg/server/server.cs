@@ -111,6 +111,14 @@ public partial class rpg : Script
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
             API.sendChatMessageToPlayer(sender, "Model " + model);
             API.sendChatMessageToPlayer(sender, "Tier " + tier);
+            /*<insertCar>*/
+                MySqlConnection db_conn = ConnectToDatabase();
+                if (db_conn == null) return;
+
+                string query = string.Format(@"INSERT INTO vehicleshop SET x={0}, y={1}, z={2}, rotation={3}, tier={4}", pos.X, pos.Y, pos.Z, rot.Z, tier);
+                new MySqlCommand(query, db_conn).ExecuteNonQuery();
+            /*</insertCar>*/
+            API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug position wurde gespeichert!");
         } else {
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
         }
