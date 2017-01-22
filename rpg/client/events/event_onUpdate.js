@@ -33,10 +33,10 @@ API.onKeyUp.connect(function(sender, e) {
                 var veh = API.getPlayerVehicle(player)
                 if (API.getVehicleEngineStatus(veh)) {
                     API.setVehicleEngineStatus(veh, false)
-                    API.sendChatMessage('~c~Motor ~r~Aus')
+                    API.sendChatMessage('~y~CLIENT: ~c~Motor ~r~Aus')
                 } else {
                     API.setVehicleEngineStatus(veh, true)
-                    API.sendChatMessage('~c~Motor ~g~An')
+                    API.sendChatMessage('~y~CLIENT: ~c~Motor ~g~An')
                 }
             }
         }
