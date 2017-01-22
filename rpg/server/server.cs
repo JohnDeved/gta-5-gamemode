@@ -109,21 +109,15 @@ public partial class rpg : Script
             var rot = API.getEntityRotation(veh);
             var model = API.getEntityModel(veh);
 
-            StringBuilder id = new StringBuilder("");
-            id.Append((string)q_getCID.ExecuteScalar());
-
-            char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
-            for (int i = 0; i < 2; i++)
+            string input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            StringBuilder builder = new StringBuilder();
+            char ch;
+            for (int i = 0; i < 8; i++)
             {
-                for (int i = 0; i < 4; i++)
-                {
-                    int charindex = (_random).Next(chars.Length);
-                    id.Append(chars[charindex]);
-                }
-                if (i == 1) {
-                    id.Append("-");
-                }
+                ch = input[random.Next(0, input.Length)];
+                builder.Append(ch);
             }
+            string id = builder.ToString();
 
             API.sendChatMessageToPlayer(sender, "Position " + pos);
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
