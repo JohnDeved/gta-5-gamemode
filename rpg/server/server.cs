@@ -153,9 +153,10 @@ public partial class rpg : Script
             var reader = new MySqlCommand(query, db_conn).ExecuteReader();
             while(reader.Read())
             {
-                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Rotation: " + reader["rotation"]);
                 Random random = new Random();
-                var veh = API.createVehicle(VehicleHash.Blista, new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), random.Next(0, 85), random.Next(0, 85));
+                int color = random.Next(0, 85);
+                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Color: " + color + ", Rotation: " + reader["rotation"]);
+                var veh = API.createVehicle(VehicleHash.Blista, new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), color, color);
                 API.setVehicleEngineStatus(veh, false);
                 // API.setVehicleLocked(veh, true);
                 API.setEntityInvincible(veh, true);
