@@ -156,7 +156,7 @@ public partial class rpg : Script
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Rotation: " + reader["rotation"]);
                 var veh = API.createVehicle(VehicleHash.Blista, new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), 0, 0);
                 API.setVehicleEngineStatus(veh, false);
-                API.setVehicleLocked(veh, true);
+                // API.setVehicleLocked(veh, true);
                 API.setEntityInvincible(veh, true);
                 API.setEntityPositionFrozen(veh, true);
             }
