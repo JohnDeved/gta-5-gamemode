@@ -79,12 +79,9 @@ public partial class rpg : Script
             case "NETWORK":
                 API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört Niemanden...");
                 break;
-            case name:
-                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~dir.");
-                break;
             default:
                 if (API.getVehicleNumberPlate(vehicle) == player.socialClubName) {
-                    API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~ dir";
+                    API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~ dir");
                 } else {
                     API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~r~" + API.getVehicleNumberPlate(vehicle));
                 }
