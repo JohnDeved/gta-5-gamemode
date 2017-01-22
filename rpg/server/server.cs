@@ -208,7 +208,7 @@ public partial class rpg : Script
     public void buyCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
-            // var veh = API.getPlayerVehicle(sender);
+            var veh = API.getPlayerVehicle(sender);
             // if (API.getVehicleNumberPlate(veh) == "BUY NOW") {
             //     API.setEntityPositionFrozen(veh, false);
             //     API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Fahrzeug erfolgreich gekauft!");
