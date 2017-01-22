@@ -18,14 +18,6 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    // public static string RandomString(int Size)
-    // {
-    //     string input = "abcdefghijklmnopqrstuvwxyz0123456789";
-    //     var chars  = Enumerable.Range(0, Size)
-    //                            .Select(x => input[random.Next(0, input.Length)]);
-    //     return new string(chars.ToArray());
-    // }
-
     public rpg()
     {
     	API.onPlayerConnected += onPlayerConnected;
@@ -116,13 +108,11 @@ public partial class rpg : Script
             var pos = API.getEntityPosition(veh);
             var rot = API.getEntityRotation(veh);
             var model = API.getEntityModel(veh);
-            // var id = RandomString(8);
 
             API.sendChatMessageToPlayer(sender, "Position " + pos);
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
             API.sendChatMessageToPlayer(sender, "Model " + model);
             API.sendChatMessageToPlayer(sender, "Tier " + tier);
-            // API.sendChatMessageToPlayer(sender, "id " + id);
             /*<insertCar>*/
                 MySqlConnection db_conn = ConnectToDatabase();
                 if (db_conn == null) return;
