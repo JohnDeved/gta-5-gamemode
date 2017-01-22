@@ -26,6 +26,7 @@ public partial class rpg : Script
         API.onResourceStart += onServerStart;
         API.onPlayerConnected += markers_onPlayerConnected;
         API.onPlayerDisconnected += markers_onPlayerDisconnected;
+        API.onPlayerEnterVehicle += OnPlayerEnterVehicle;
     }
 
     public void onServerStart() {
