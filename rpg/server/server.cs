@@ -160,7 +160,9 @@ public partial class rpg : Script
     {
         var vehicles = API.getAllVehicles();
         for (var i = 0; i < vehicles.Count; i++) {
-            API.deleteEntity(vehicles[i]);
+            if (API.getVehicleNumberPlate(vehicles[i]) == "BUY NOW") {
+                API.deleteEntity(vehicles[i]);
+            }
         }
         /*<getCars>*/
             MySqlConnection db_conn = ConnectToDatabase();
