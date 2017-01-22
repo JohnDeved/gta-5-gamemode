@@ -73,11 +73,14 @@ public partial class rpg : Script
     {
        if(API.getVehicleNumberPlate(vehicle) == "BUY NOW")
        {
-           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Du kannst dieses Fahrzeug kaufen!");
+           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Du kannst dieses Fahrzeug ~g~kaufen!");
        }
        if (API.getVehicleNumberPlate(vehicle) == "NETWORK")
        {
            API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört Niemanden...");
+       }
+       if (API.getVehicleNumberPlate(vehicle) != "NETWORK" || API.getVehicleNumberPlate(vehicle) == "BUY NOW") {
+           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört ~r~" + API.getVehicleNumberPlate(vehicle));
        }
     }
 
@@ -211,6 +214,7 @@ public partial class rpg : Script
             var veh = API.getPlayerVehicle(sender);
             if (API.getVehicleNumberPlate(veh) == "BUY NOW") {
                 API.setEntityPositionFrozen(veh, false);
+                API.setVehicleNumberPlate(veh, API.getPlayerName(sender));
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug erfolgreich gekauft!");
             } else {
                 API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du kannst dieses Fahrzeug nicht kaufen!");
