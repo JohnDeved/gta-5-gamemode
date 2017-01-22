@@ -95,6 +95,7 @@ public partial class rpg : Script
             VehicleHistory.Add(sender, new List<NetHandle> { veh });
         }
 
+        API.setVehicleEngineStatus(veh, false);
         API.setPlayerIntoVehicle(sender, veh, -1);
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde erstellt!");
     }
