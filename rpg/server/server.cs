@@ -116,7 +116,7 @@ public partial class rpg : Script
             var pos = API.getEntityPosition(veh);
             var rot = API.getEntityRotation(veh);
             var model = API.getEntityModel(veh);
-            var id = RandomString(8);
+            // var id = RandomString(8);
 
             API.sendChatMessageToPlayer(sender, "Position " + pos);
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
