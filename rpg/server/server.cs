@@ -68,7 +68,7 @@ public partial class rpg : Script
     	API.setEntityPosition(player, new Vector3(441.3901062011619,-976.644287109375,30.689605712890625));
     }
 
-    private void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
+    public void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
     {
        if(API.getVehicleNumberPlate(vehicle) == "BUY NOW")
        {
