@@ -151,9 +151,9 @@ public partial class rpg : Script
 
             string query = "SELECT * FROM vehicleshop WHERE tier=1";
             var reader = new MySqlCommand(query, db_conn).ExecuteReader();
+            Random random = new Random();
             while(reader.Read())
             {
-                Random random = new Random();
                 int color = random.Next(0, 85);
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Color: " + color + ", Rotation: " + reader["rotation"]);
                 var veh = API.createVehicle(VehicleHash.Blista, new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), color, color);
