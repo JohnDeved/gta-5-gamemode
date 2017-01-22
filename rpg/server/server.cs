@@ -68,6 +68,16 @@ public partial class rpg : Script
     	API.setEntityPosition(player, new Vector3(441.3901062011619,-976.644287109375,30.689605712890625));
     }
 
+    private void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
+    {
+       if(API.getVehicleNumberPlate(vehicle) == "BUY NOW")
+       {
+           API.sendChatMessageToPlayer(player, "Du kannst dieses Fahrzeug kaufen!");
+       } else {
+           API.sendChatMessageToPlayer(player, "Dieses Fahrzeug scheint Niemanden zu gehören...");
+       }
+    }
+
     public Dictionary<Client, List<NetHandle>> VehicleHistory = new Dictionary<Client, List<NetHandle>>();
 
     [Command("v")]
