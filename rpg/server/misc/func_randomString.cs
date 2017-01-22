@@ -14,10 +14,3 @@ using GTANetworkShared;
 //External
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
-
-public partial class rpg : Script
-{
-    private bool misc_randomString()
-    {
-    }
-}
