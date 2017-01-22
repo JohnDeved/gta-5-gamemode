@@ -154,7 +154,8 @@ public partial class rpg : Script
             while(reader.Read())
             {
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Rotation: " + reader["rotation"]);
-                var veh = API.createVehicle(VehicleHash.Blista, new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), 0, 0);
+                Random random = new Random();
+                var veh = API.createVehicle(VehicleHash.Blista, new Vector3((float)reader["x"], (float)reader["y"], (float)reader["z"]), new Vector3(0, 0, (float)reader["rotation"]), random.Next(0, 85), random.Next(0, 85));
                 API.setVehicleEngineStatus(veh, false);
                 // API.setVehicleLocked(veh, true);
                 API.setEntityInvincible(veh, true);
