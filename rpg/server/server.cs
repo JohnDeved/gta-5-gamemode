@@ -203,17 +203,17 @@ public partial class rpg : Script
     [Command("unlock")]
     public void unlockCarCommand(Client sender)
     {
-        // if (API.isPlayerInAnyVehicle(sender)) {
-        //     var veh = API.getPlayerVehicle(sender);
-        //     if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
-        //         API.setVehicleLocked(veh, false);
-        //         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getVehicleDisplayName(API.getEntityModel(veh)) + " ~c~wurde ~g~aufgesperrt!");
-        //     } else {
-        //         API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
-        //     }
-        // } else {
-        //     API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
-        // }
+        if (API.isPlayerInAnyVehicle(sender)) {
+            var veh = API.getPlayerVehicle(sender);
+            if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
+                API.setVehicleLocked(veh, false);
+                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getEntityModel(veh) + " ~c~wurde ~g~aufgesperrt!");
+            } else {
+                API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
+            }
+        } else {
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
+        }
     }
 
     [Command("vbuy")]
