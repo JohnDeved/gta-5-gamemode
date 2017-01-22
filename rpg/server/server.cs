@@ -108,15 +108,33 @@ public partial class rpg : Script
             var pos = API.getEntityPosition(veh);
             var rot = API.getEntityRotation(veh);
             var model = API.getEntityModel(veh);
+
+            StringBuilder id = new StringBuilder("");
+            id.Append((string)q_getCID.ExecuteScalar());
+
+            char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+            for (int i = 0; i < 2; i++)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    int charindex = (_random).Next(chars.Length);
+                    id.Append(chars[charindex]);
+                }
+                if (i == 1) {
+                    id.Append("-");
+                }
+            }
+
             API.sendChatMessageToPlayer(sender, "Position " + pos);
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
             API.sendChatMessageToPlayer(sender, "Model " + model);
             API.sendChatMessageToPlayer(sender, "Tier " + tier);
+            API.sendChatMessageToPlayer(sender, "id " + id);
             /*<insertCar>*/
                 MySqlConnection db_conn = ConnectToDatabase();
                 if (db_conn == null) return;
 
-                string query = string.Format(@"INSERT INTO vehicleshop SET x={0}, y={1}, z={2}, rotation={3}, tier={4}", pos.X, pos.Y, pos.Z, rot.Z, tier);
+                string query = string.Format(@"INSERT INTO vehicleshop SET x={0}, y={1}, z={2}, rotation={3}, tier={4}, id={5}", pos.X, pos.Y, pos.Z, rot.Z, tier, id);
                 new MySqlCommand(query, db_conn).ExecuteNonQuery();
             /*</insertCar>*/
             API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug position wurde gespeichert!");
