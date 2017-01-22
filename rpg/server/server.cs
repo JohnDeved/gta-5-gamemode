@@ -71,6 +71,7 @@ public partial class rpg : Script
 
     public void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
     {
+        var name = player.socialClubName;
         switch (API.getVehicleNumberPlate(vehicle))
         {
             case "BUY NOW":
@@ -79,7 +80,7 @@ public partial class rpg : Script
             case "NETWORK":
                 API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört Niemanden...");
                 break;
-            case player.socialClubName:
+            case name:
                 API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~dir.");
                 break;
             default:
