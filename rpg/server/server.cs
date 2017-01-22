@@ -191,7 +191,7 @@ public partial class rpg : Script
             var veh = API.getPlayerVehicle(sender);
             if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
                 API.setVehicleLocked(veh, true);
-                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getVehicleDisplayName(API.getEntityModel(veh)) + " ~c~wurde ~r~zugesperrt!");
+                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getEntityModel(veh) + " ~c~wurde ~r~zugesperrt!");
             } else {
                 API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
             }
