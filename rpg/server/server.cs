@@ -79,7 +79,7 @@ public partial class rpg : Script
        {
            API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört Niemanden...");
        }
-       if (API.getVehicleNumberPlate(vehicle) != "NETWORK" || API.getVehicleNumberPlate(vehicle) != "BUY NOW") {
+       if (API.getVehicleNumberPlate(vehicle) != "NETWORK" && API.getVehicleNumberPlate(vehicle) != "BUY NOW") {
            API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört ~r~" + API.getVehicleNumberPlate(vehicle));
        }
     }
