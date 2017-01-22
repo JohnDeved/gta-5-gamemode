@@ -122,7 +122,7 @@ public partial class rpg : Script
             API.sendChatMessageToPlayer(sender, "Rotation " + rot);
             API.sendChatMessageToPlayer(sender, "Model " + model);
             API.sendChatMessageToPlayer(sender, "Tier " + tier);
-            API.sendChatMessageToPlayer(sender, "id " + id);
+            // API.sendChatMessageToPlayer(sender, "id " + id);
             /*<insertCar>*/
                 MySqlConnection db_conn = ConnectToDatabase();
                 if (db_conn == null) return;
