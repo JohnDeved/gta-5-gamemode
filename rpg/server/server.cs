@@ -158,6 +158,7 @@ public partial class rpg : Script
                 API.setVehicleEngineStatus(veh, false);
                 API.setVehicleLocked(veh, true);
                 API.setEntityInvincible(veh, true);
+                API.setEntityPositionFrozen(veh, true);
             }
         /*</getCars>*/
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurden Erstellt!");
