@@ -73,9 +73,11 @@ public partial class rpg : Script
     {
        if(API.getVehicleNumberPlate(vehicle) == "BUY NOW")
        {
-           API.sendChatMessageToPlayer(player, "Du kannst dieses Fahrzeug kaufen!");
-       } else {
-           API.sendChatMessageToPlayer(player, "Dieses Fahrzeug scheint Niemanden zu gehören...");
+           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Du kannst dieses Fahrzeug kaufen!");
+       }
+       if (API.getVehicleNumberPlate(vehicle) == "NETWORK")
+       {
+           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört Niemanden...");
        }
     }
 
