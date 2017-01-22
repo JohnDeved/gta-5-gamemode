@@ -117,7 +117,7 @@ public partial class rpg : Script
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde erstellt!");
     }
 
-    [Command("vsav")]
+    [Command("vsave")]
     public void SaveCarCommand(Client sender, int tier)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
