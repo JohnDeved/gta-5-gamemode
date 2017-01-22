@@ -112,7 +112,7 @@ public partial class rpg : Script
         }
 
         API.setVehicleEngineStatus(veh, false);
-        API.setVehicleNumberPlate(veh, API.getPlayerName(sender));
+        API.setVehicleNumberPlate(veh, sender.socialClubName);
         API.setPlayerIntoVehicle(sender, veh, -1);
         API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde erstellt!");
     }
@@ -191,7 +191,7 @@ public partial class rpg : Script
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
-            if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
+            if (API.getVehicleNumberPlate(veh) == sender.socialClubName) {
                 API.setVehicleLocked(veh, true);
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getEntityModel(veh) + " ~c~wurde ~r~zugesperrt!");
             } else {
@@ -207,7 +207,7 @@ public partial class rpg : Script
     {
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
-            if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
+            if (API.getVehicleNumberPlate(veh) == sender.socialClubName) {
                 API.setVehicleLocked(veh, false);
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getEntityModel(veh) + " ~c~wurde ~g~aufgesperrt!");
             } else {
@@ -227,7 +227,7 @@ public partial class rpg : Script
                 API.setVehicleEngineStatus(veh, true);
                 API.setEntityInvincible(veh, false);
                 API.setEntityPositionFrozen(veh, false);
-                API.setVehicleNumberPlate(veh, API.getPlayerName(sender));
+                API.setVehicleNumberPlate(veh, sender.socialClubName);
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug erfolgreich gekauft!");
             } else {
                 API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du kannst dieses Fahrzeug nicht kaufen!");
