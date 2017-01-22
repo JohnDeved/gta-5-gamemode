@@ -188,15 +188,15 @@ public partial class rpg : Script
     public void lockCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
-            // var veh = API.getPlayerVehicle(sender);
-            // if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
-            //     API.setVehicleLocked(veh, true);
-            //     API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getVehicleDisplayName(API.getEntityModel(veh)) + " ~c~wurde ~r~zugesperrt!");
-            // } else {
-            //     API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
-            // }
+            var veh = API.getPlayerVehicle(sender);
+            if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
+                // API.setVehicleLocked(veh, true);
+                // API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getVehicleDisplayName(API.getEntityModel(veh)) + " ~c~wurde ~r~zugesperrt!");
+            } else {
+                // API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
+            }
         } else {
-            // API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
+            API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
         }
     }
 
