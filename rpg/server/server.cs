@@ -188,9 +188,13 @@ public partial class rpg : Script
     public void lockCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
-            var veh = API.getPlayerVehicle(sender);
-            API.setVehicleLocked(veh, true);
-            API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde zugesperrt!");
+            if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
+                var veh = API.getPlayerVehicle(sender);
+                API.setVehicleLocked(veh, true);
+                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getVehicleDisplayName(API.getEntityModel(veh)) + " ~c~wurde ~r~zugesperrt!");
+            } else {
+                API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
+            }
         } else {
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
         }
@@ -200,9 +204,13 @@ public partial class rpg : Script
     public void unlockCarCommand(Client sender)
     {
         if (API.isPlayerInAnyVehicle(sender)) {
-            var veh = API.getPlayerVehicle(sender);
-            API.setVehicleLocked(veh, false);
-            API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug wurde aufgesperrt!");
+            if (API.getVehicleNumberPlate(veh) == API.getPlayerName(sender)) {
+                var veh = API.getPlayerVehicle(sender);
+                API.setVehicleLocked(veh, false);
+                API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug ~y~" + API.getVehicleDisplayName(API.getEntityModel(veh)) + " ~c~wurde ~g~aufgesperrt!");
+            } else {
+                API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Dieses Fahrzeug gehört nicht dir!");
+            }
         } else {
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
         }
@@ -214,6 +222,8 @@ public partial class rpg : Script
         if (API.isPlayerInAnyVehicle(sender)) {
             var veh = API.getPlayerVehicle(sender);
             if (API.getVehicleNumberPlate(veh) == "BUY NOW") {
+                API.setVehicleEngineStatus(veh, true);
+                API.setEntityInvincible(veh, false);
                 API.setEntityPositionFrozen(veh, false);
                 API.setVehicleNumberPlate(veh, API.getPlayerName(sender));
                 API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeug erfolgreich gekauft!");
