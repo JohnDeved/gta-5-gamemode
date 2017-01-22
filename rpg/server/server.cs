@@ -142,7 +142,7 @@ public partial class rpg : Script
     {
         List<veh> vehicles = API.getAllVehicles();
         for (var i = 0; i < vehicles.Count; i++) {
-            API.deleteEntity(vehicles[i]);
+            API.deleteEntity(vehicles[i].veh);
         }
         /*<getCars>*/
             MySqlConnection db_conn = ConnectToDatabase();
