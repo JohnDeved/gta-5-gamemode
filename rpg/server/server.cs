@@ -155,7 +155,7 @@ public partial class rpg : Script
         }
     }
 
-    [Command("spawn")]
+    [Command("vreset")]
     public void SpawnCarsCommand(Client sender)
     {
         var vehicles = API.getAllVehicles();
