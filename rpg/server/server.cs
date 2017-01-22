@@ -71,17 +71,21 @@ public partial class rpg : Script
 
     public void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
     {
-       if(API.getVehicleNumberPlate(vehicle) == "BUY NOW")
-       {
-           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Du kannst dieses Fahrzeug ~g~kaufen!");
-       }
-       if (API.getVehicleNumberPlate(vehicle) == "NETWORK")
-       {
-           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört Niemanden...");
-       }
-       if (API.getVehicleNumberPlate(vehicle) != "NETWORK" && API.getVehicleNumberPlate(vehicle) != "BUY NOW") {
-           API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug Gehört ~r~" + API.getVehicleNumberPlate(vehicle));
-       }
+        switch (API.getVehicleNumberPlate(vehicle))
+        {
+            case "BUY NOW":
+                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Du kannst dieses Fahrzeug ~g~kaufen!");
+                break;
+            case "NETWORK":
+                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört Niemanden...");
+                break;
+            case (player.socialClubName):
+                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~dir.");
+                break;
+            default:
+                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~r~" + API.getVehicleNumberPlate(vehicle));
+                break;
+        }
     }
 
     public Dictionary<Client, List<NetHandle>> VehicleHistory = new Dictionary<Client, List<NetHandle>>();
