@@ -17,8 +17,18 @@ using Newtonsoft.Json.Linq;
 
 public partial class rpg : Script
 {
-    private void misc_randomString()
+    private void misc_randomString(int size, char[] chars)
     {
+        StringBuilder strings = new StringBuilder("");
+        strings.Append((string)q_getCID.ExecuteScalar());
 
+        chars.ToCharArray();
+        for (int i = 0; i < size; i++)
+        {
+            int charindex = (_random).Next(chars.Length);
+            strings.Append(chars[charindex]);
+        }
+        
+        return strings;
     }
 }
