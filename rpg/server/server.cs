@@ -183,7 +183,7 @@ public partial class rpg : Script
                 API.setVehicleNumberPlate(veh, "BUY NOW");
             }
         /*</getCars>*/
-        API.sendChatMessageToPlayer(sender, "~o~SERVER: ~c~Fahrzeuge wurden Erstellt!");
+        API.sendChatMessageToAll("~r~TOALL: ~c~Fahrzeughändler wurden reseted!");
     }
 
     [Command("lock")]
