@@ -211,9 +211,9 @@ public partial class rpg : Script
             var veh = API.getPlayerVehicle(sender);
             if (API.getVehicleNumberPlate(veh) == "BUY NOW") {
                 // API.setEntityPositionFrozen(veh, false);
-                // API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Fahrzeug erfolgreich gekauft!");
+                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Fahrzeug erfolgreich gekauft!");
             } else {
-                // API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du kannst dieses Fahrzeug nicht kaufen!");
+                API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du kannst dieses Fahrzeug nicht kaufen!");
             }
         } else {
             API.sendChatMessageToPlayer(sender, "~r~ERR: ~c~Du bist in keinen Fahrzeug!");
