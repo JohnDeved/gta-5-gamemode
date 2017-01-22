@@ -84,7 +84,11 @@ public partial class rpg : Script
                 API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~dir.");
                 break;
             default:
-                API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~r~" + API.getVehicleNumberPlate(vehicle));
+                if (API.getVehicleNumberPlate(vehicle) == player.socialClubName) {
+                    API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~g~ dir";                    
+                } else {
+                    API.sendChatMessageToPlayer(player, "~o~SERVER: ~c~Dieses Fahrzeug gehört ~r~" + API.getVehicleNumberPlate(vehicle));
+                }
                 break;
         }
     }
