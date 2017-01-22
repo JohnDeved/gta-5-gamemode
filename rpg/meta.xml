@@ -8,7 +8,7 @@
     <assembly   ref="MySql.Data.dll"/>
     <assembly   ref="System.Data.dll"/>
     <assembly   ref="System.Web.dll"/>
-    <assembly   ref="Newtonsoft.Json.dll"/>   
+    <assembly   ref="Newtonsoft.Json.dll"/>
     <!--| Funktionen |-->
     <script     src="server\player\func_isNameInUse.cs"             type="server" lang="csharp"/>
     <script     src="server\player\func_isRegistered.cs"            type="server" lang="csharp"/>
@@ -38,6 +38,7 @@
     <script     src="server\misc\func_getPlayerFromSocialClubID.cs" type="server" lang="csharp"/>
     <script     src="server\misc\func_importClothes.cs"             type="server" lang="csharp"/>
     <script     src="server\misc\func_isNameValid.cs"               type="server" lang="csharp"/>
+    <script     src="server\misc\func_randomString.cs"              type="server" lang="csharp"/>
     <!--| Classes    |-->
     <script     src="server\server.cs" type="server" lang="csharp"/>
     <script     src="server\mysql\mysql.cs" type="server" lang="csharp"/>
